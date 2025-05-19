@@ -1,0 +1,13 @@
+footer {
+    background-color: rgb(255, 255, 255);
+    margin: 0;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;   
+  }
+
+  footer h2 {
+    font-size: 12px;
+  }

@@ -1,13 +1,12 @@
 import PersonCard from "../PersonCard/PersonCard";
-import { persons } from "../../personsData";
 import './PersonsList.css';
 
-const PersonsList = () => {
+const PersonsList = ( {personsData} ) => {
     return (
         <>
         <h1>Employees Dashboard</h1>
         <div className="personslist">
-            {persons.map((person) => (
+            {personsData.map((person) => (
                 <PersonCard
                 key={person.id}
                 name={person.name}
