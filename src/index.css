@@ -1,4 +1,4 @@
-:root {
+/*:root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
@@ -45,5 +45,146 @@ button:hover {
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+*/
+
+/*:root {
+  color-scheme: light dark;
+  color: rgba(47, 42, 42, 0.87);
+  background-color: #4a95ea;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}*/
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100vw;
+}
+
+main {
+  min-height: calc(100vh - 135px);
+}
+
+main h1 {
+  padding: 2rem;
+}
+
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+body {
+  color: rgba(20, 10, 6);
+  margin: 0;
+  height: 100%;
+  width: 100vw;
+  text-align: center;
+  font-size: 14pt;
+  font-family: "Cal Sans";
+  background-color: rgb(77, 77, 77);
+}
+
+main {
+  min-height: 60vh;
+  width: 100%;
+  /*padding: 2rem 0;*/
+  background-image: url("./assets/2457.jpg");
+  background-repeat: repeat;
+  background-size: contain;
+  background-position: center top;
+  
+}
+
+main {
+  min-height: calc(100vh - 135px);
+}
+
+button {
+  font-family: "Cal Sans";
+  font-size: 14pt;
+  font-weight: 800;
+  padding: 0.4rem;
+  margin: 0.3rem 0 0.3rem 0;
+  background-color: #95c6e3; 
+  color: rgba(47, 42, 42, 0.87);
+  border-radius: 5px;
+  border: 1.5px solid rgba(47, 42, 42, 0.87);
+}
+
+input,
+select {
+  font-family: "Cal Sans";
+  font-size: 14pt;
+  padding: 0.4rem;
+  margin: 0.3rem 0 0.3rem 0;
+  background-color: #fafae6;
+  color: rgba(20, 10, 6);
+  border-radius: 5px;
+  border: 2px solid rgba(20, 10, 6);
+  width: 260px;
+}
+
+select:hover,
+select:active,
+input:hover,
+input:active {
+  border: 2px solid #db5d0f;
+}
+
+label {
+  font-size: 18pt;
+  margin-right: 2rem;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.white-font {
+  color: #ffffff;
+}
+
+h1 {
+  font-size: 38pt;
+  margin-bottom: 2rem;
+}
+
+.addinput-h1 {
+  font-size: 30pt;
+}
+
+.add-input {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  align-items: center;
+  margin: 0 35vw;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.add-btn {
+  width: 120px;
+  align-self: center;
+  margin-top: 1rem;
 }
 
