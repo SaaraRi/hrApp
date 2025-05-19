@@ -1,0 +1,190 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "name": "Aino Virtanen",
+      "title": "HR Manager",
+      "department": "Human Resources",
+      "location": "Helsinki",
+      "startDate": "2025-04-01",
+      "salary": 4200,
+      "skills": [
+        "Recruiting",
+        "Communication",
+        "Employee Relations"
+      ],
+      "phone": "040-1234567",
+      "email": "aino.virtanen@example.com",
+      "animal": "Owl"
+    },
+    {
+      "id": "2",
+      "name": "Mikko Laine",
+      "title": "Software Developer",
+      "salary": 4800,
+      "phone": "050-2345678",
+      "email": "mikko.laine@example.com",
+      "animal": "Fox",
+      "startDate": "2019-06-15",
+      "location": "Espoo",
+      "department": "IT",
+      "skills": [
+        "JavaScript",
+        "React",
+        "Node.js"
+      ]
+    },
+    {
+      "id": "3",
+      "name": "Sara Nieminen",
+      "title": "Marketing Specialist",
+      "salary": 3900,
+      "phone": "045-3456789",
+      "email": "sara.nieminen@example.com",
+      "animal": "Dolphin",
+      "startDate": "2020-01-10",
+      "location": "Tampere",
+      "department": "Marketing",
+      "skills": [
+        "SEO",
+        "Content Creation",
+        "Analytics"
+      ]
+    },
+    {
+      "id": "4",
+      "name": "Jari Korhonen",
+      "title": "Finance Analyst",
+      "salary": 4600,
+      "phone": "041-4567890",
+      "email": "jari.korhonen@example.com",
+      "animal": "Bear",
+      "startDate": "2017-09-23",
+      "location": "Vantaa",
+      "department": "Finance",
+      "skills": [
+        "Excel",
+        "Budgeting",
+        "Forecasting"
+      ]
+    },
+    {
+      "id": "5",
+      "name": "Laura Koskinen",
+      "title": "Product Manager",
+      "salary": 5300,
+      "phone": "046-5678901",
+      "email": "laura.koskinen@example.com",
+      "animal": "Cat",
+      "startDate": "2016-11-30",
+      "location": "Helsinki",
+      "department": "Product",
+      "skills": [
+        "Roadmapping",
+        "Stakeholder Management",
+        "Agile"
+      ]
+    },
+    {
+      "id": "6",
+      "name": "Teemu Salmi",
+      "title": "UX Designer",
+      "salary": 4500,
+      "phone": "044-6789012",
+      "email": "teemu.salmi@example.com",
+      "animal": "Chameleon",
+      "startDate": "2019-03-04",
+      "location": "Turku",
+      "department": "Design",
+      "skills": [
+        "Figma",
+        "User Research",
+        "Prototyping"
+      ]
+    },
+    {
+      "id": "7",
+      "name": "Emilia Heikkinen",
+      "title": "Sales Manager",
+      "salary": 4700,
+      "phone": "040-7890123",
+      "email": "emilia.heikkinen@example.com",
+      "animal": "Dog",
+      "startDate": "2018-12-12",
+      "location": "Oulu",
+      "department": "Sales",
+      "skills": [
+        "Negotiation",
+        "CRM",
+        "Customer Service"
+      ]
+    },
+    {
+      "id": "8",
+      "name": "Antti Mäkinen",
+      "title": "Data Scientist",
+      "salary": 6000,
+      "phone": "050-8901234",
+      "email": "antti.makinen@example.com",
+      "animal": "Eagle",
+      "startDate": "2021-07-01",
+      "location": "Espoo",
+      "department": "Analytics",
+      "skills": [
+        "Python",
+        "Machine Learning",
+        "Data Visualization"
+      ]
+    },
+    {
+      "id": "9",
+      "name": "Riikka Rantanen",
+      "title": "Legal Advisor",
+      "salary": 4900,
+      "phone": "045-9012345",
+      "email": "riikka.rantanen@example.com",
+      "animal": "Hawk",
+      "startDate": "2015-05-18",
+      "location": "Helsinki",
+      "department": "Legal",
+      "skills": [
+        "Contract Law",
+        "Compliance",
+        "Risk Management"
+      ]
+    },
+    {
+      "id": "10",
+      "name": "Ville Hämäläinen",
+      "title": "Network Engineer",
+      "salary": 5200,
+      "phone": "041-0123456",
+      "email": "ville.hamalainen@example.com",
+      "animal": "Wolf",
+      "startDate": "2022-02-21",
+      "location": "Lahti",
+      "department": "IT",
+      "skills": [
+        "Networking",
+        "Security",
+        "Cloud Services"
+      ]
+    },
+    {
+      "id": "42be",
+      "name": "ads",
+      "title": "asd",
+      "department": "asd",
+      "location": "asd",
+      "startDate": "456",
+      "salary": "789",
+      "skills": [
+        "asd",
+        "asd",
+        "asd"
+      ],
+      "email": "asd",
+      "phone": "345"
+    }
+  ]
+}

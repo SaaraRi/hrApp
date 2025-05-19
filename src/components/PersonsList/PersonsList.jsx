@@ -1,5 +1,4 @@
 import PersonCard from "../PersonCard/PersonCard";
-//import { persons } from "../../data/personsData";
 import './PersonsList.css';
 
 const PersonsList = ( {personsData} ) => {
