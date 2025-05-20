@@ -5,26 +5,40 @@ import { useEffect, useState } from 'react';
 import { BrowserRouter, Route, Routes } from "react-router";
 import Root from './pages/Root';
 import About from './pages/About';
-import PersonsList from './components/PersonsList/PersonsList';
+import EmployeesList from './components/EmployeesList/EmployeesList';
 import AddEmployeeForm from './pages/AddEmployeeForm';
 import ErrorPage from './pages/ErrorPage';
 
 const App = () => {
 
-  const [personsData, setPersonsData] = useState([]);
+  const [employeesData, setEmployeesData] = useState([]);
+  
 
   useEffect(() => {
     axios
       .get("http://localhost:3005/employees")
-      .then((res) => setPersonsData(res.data))
+      .then((res) => setEmployeesData(res.data))
       .catch((err) => console.error("Failed to fetch employees", err));
   }, []);
 
   const addEmployeeHandler = (newEmployee) => {
-    setPersonsData((prev) => [
+    setEmployeesData((prev) => [
       ...prev,
       { ...newEmployee, id: Date.now()}
     ]);  
+  };
+
+  const handleEditData= (id, formData) => {
+    axios
+      .patch(`http://localhost:3005/employees/${id}`, formData )
+      .then((res) => {
+        setEmployeesData((prev) =>
+          prev.map((employee) => (employee.id === id ? res.data : employee))
+        );
+      })
+      .catch((err) => {
+        console.error("Failed to update data:", err);
+      });
   };
 
   return (
@@ -34,10 +48,11 @@ const App = () => {
     <Route path="/" element={<Root />}>
       <Route path="/about" element={<About />} />
       <Route
-        path="/list"
+        path="/employees"
         index element={
-          <PersonsList
-            personsData={personsData}
+          <EmployeesList
+            employeesData={employeesData}
+            onEditData={handleEditData}
           />
         }
       />

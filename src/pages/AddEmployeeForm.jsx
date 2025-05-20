@@ -32,7 +32,7 @@ const AddEmployee = ({ onAddEmployee }) => {
       .post("http://localhost:3005/employees", newEmployee)
       .then((res) => {
         onAddEmployee(res.data);
-        navigate("/list");
+        navigate("/employees");
         setFormData({  
           name: "",
           title: "",
@@ -95,7 +95,7 @@ const AddEmployee = ({ onAddEmployee }) => {
             <div className="add-input">
                 <label htmlFor="startDate" className="white-font">Start date:</label>
                 <input 
-                    type="text" 
+                    type="date" 
                     name="startDate" 
                     value={formData.startDate} 
                     onChange={handleChange}
@@ -131,7 +131,7 @@ const AddEmployee = ({ onAddEmployee }) => {
             <div className="add-input">
                 <label htmlFor="phone" className="white-font">Phone:</label>
                 <input 
-                    type="number" 
+                    type="text" 
                     name="phone" 
                     value={formData.phone} 
                     onChange={handleChange}
