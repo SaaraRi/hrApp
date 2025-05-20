@@ -1,4 +1,3 @@
-import axios from "axios";
 import { useState } from 'react';
 import { useNavigate } from 'react-router'
 
@@ -22,35 +21,17 @@ const AddEmployee = ({ onAddEmployee }) => {
         const { name, value } = e.target;
         setFormData((prev) => ({ ...prev, [name]: value }));
       };
-      
-    const handleSubmit = (e) => {
-      e.preventDefault();
-  
-      const newEmployee = { ...formData, skills: formData.skills.split(", ")};
-  
-      axios
-      .post("http://localhost:3005/employees", newEmployee)
-      .then((res) => {
-        onAddEmployee(res.data);
-        navigate("/employees");
-        setFormData({  
-          name: "",
-          title: "",
-          department: "",
-          location: "",
-          startDate: "",
-          salary: "",
-          skills: [],
-          email: "",
-          phone: "" 
-        })
-      })
-      .catch((err) => {
-        console.error("Failed to add employee:", err);
-      });
-      
-    };
 
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        const newEmployee = {
+          ...formData,
+          skills: formData.skills.split(",").map(skill => skill.trim()),
+        };
+      
+        onAddEmployee(newEmployee, () => navigate("/employees"));
+      };
+      
   return (
     <>
       <div className="container">

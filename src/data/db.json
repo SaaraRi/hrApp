@@ -23,7 +23,7 @@
       "title": "Software Developer",
       "salary": 4800,
       "phone": "050-2345678",
-      "email": "mikko.laine@example.com",
+      "email": "mikko.lammikko@example.com",
       "animal": "Fox",
       "startDate": "2019-06-15",
       "location": "Espoo",
@@ -288,6 +288,20 @@
       ],
       "email": "ppp",
       "phone": "ppp"
+    },
+    {
+      "id": "c0fc",
+      "name": "ooo",
+      "title": "ooo",
+      "department": "ooo",
+      "location": "ooo",
+      "startDate": "2024-10-31",
+      "salary": "883",
+      "skills": [
+        "ooo"
+      ],
+      "email": "ooo",
+      "phone": "ooo"
     }
   ]
 }
