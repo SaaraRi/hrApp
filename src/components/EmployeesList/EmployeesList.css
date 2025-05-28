@@ -1,9 +1,0 @@
-.personslist {
-    display: flex;
-    justify-content: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-    margin: 3rem 0;
-}
-

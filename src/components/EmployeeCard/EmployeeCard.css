@@ -1,10 +1,149 @@
 .card {
-    background-color: #f0f0f0;
-    color:rgb(36, 36, 36);
-    border: 1px solid #000000;
-    padding: 1.5rem;
-    height: 550px;
-    width: 400px;
-    text-align: start;
-    border-radius: 5px;
+  background-color: #f0f0f0;
+  color: rgb(36, 36, 36);
+  border: 1px solid #000000;
+  padding: 1.5rem;
+  height: 700px;
+  width: 400px;
+  text-align: start;
+  border-radius: 5px;
+  position: relative;
 }
+
+.cardImg {
+  width: 100px;
+  height: 100px;
+}
+
+.badgeImg {
+  height: 100px;
+  position: absolute;
+}
+
+.IT {
+  content: "";
+  height: 40px;
+  display: block;
+  background: red;
+  position: relative;
+}
+
+.finance {
+  content: "";
+  height: 40px;
+  display: block;
+  background: blue;
+  position: relative;
+}
+
+.marketing {
+  content: "";
+  height: 40px;
+  display: block;
+  background: green;
+  position: relative;
+}
+
+.default {
+  content: "";
+  height: 40px;
+  display: block;
+  background: orange;
+  position: relative;
+}
+
+.design {
+  content: "";
+  height: 40px;
+  display: block;
+  background: rgb(255, 0, 234);
+  position: relative;
+}
+
+.product {
+  content: "";
+  height: 40px;
+  display: block;
+  background: rgb(153, 0, 255);
+  position: relative;
+}
+
+.analytics {
+  content: "";
+  height: 40px;
+  display: block;
+  background: rgb(221, 255, 0);
+  position: relative;
+}
+
+.marketing {
+  content: "";
+  height: 40px;
+  display: block;
+  background: rgb(55, 255, 0);
+  position: relative;
+}
+
+.legal {
+  content: "";
+  height: 40px;
+  display: block;
+  background: rgb(0, 145, 255);
+  position: relative;
+}
+
+.HR {
+  content: "";
+  height: 40px;
+  display: block;
+  background: rgb(0, 234, 255);
+  position: relative;
+}
+
+.development {
+  content: "";
+  height: 40px;
+  display: block;
+  background: rgb(255, 0, 102);
+  position: relative;
+}
+
+.dpt {
+  position: absolute;
+
+  left: 2rem;
+  flex: 1;
+}
+
+.loc {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  flex: 1;
+}
+
+.radio {
+  line-height: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  gap: 0;
+  text-align: left;
+}
+
+.radio-div input {
+  flex: 1;
+  justify-self: flex-start;
+  text-align: left;
+}
+.radio-div label {
+  font-size: 10pt;
+}
+
+/*
+  .loc-radio {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+  }*/

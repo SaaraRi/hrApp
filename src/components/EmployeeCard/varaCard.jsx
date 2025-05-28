@@ -5,10 +5,16 @@ import "./EmployeeCard.css";
 import badgeImage from "./pngwing.com.png";
 import { useEmploymentTime } from "../../hooks/useEmploymentTime";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
+import useAxios from "../../hooks/useAxios";
 import LoaderSpinner from "../LoaderSpinner/LoaderSpinner";
 
 const EmployeeCard = ({ onEditData, id, ...employee }) => {
   const navigate = useNavigate();
+  /*const { success, setSuccess, error, setError, loading, setLoading  } = useAxios(
+    "http://localhost:3005"
+  );*/
+  const { error } = useAxios("http://localhost:3005");
+
   const {
     fullYearsOfEmployment,
     scheduleProbationReview,
@@ -19,20 +25,55 @@ const EmployeeCard = ({ onEditData, id, ...employee }) => {
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-
   const [updatedData, setUpdatedData] = useState({
     ...employee,
     skills: employee.skills.join(", "),
     currentProjects: employee.currentProjects.join(", "),
   });
 
+  const simulateLoading = (callback) => {
+    setTimeout(callback, 1500);
+  };
+
   const handleInput = (e) => {
     const { name, value } = e.target;
     setUpdatedData((prev) => ({
       ...prev,
-      [name]: value,
+      [name]:
+        name === "skills"
+          ? value.split(",").map((skill) => skill.trim())
+          : name === "currentProjects"
+          ? value.split(",").map((project) => project.trim())
+          : value,
     }));
   };
+
+  /*  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const updatedEmployee = {
+      ...updatedData,
+      skills: updatedData.skills.split(",").map((skill) => skill.trim()),
+      currentProjects: updatedData.currentProjects
+        .split(",")
+        .map((project) => project.trim()),
+      salary: parseFloat(updatedData.salary),
+    };
+
+    simulateLoading(() => {
+      try {
+        onEditData(id, updatedEmployee); // ← This calls update from EmployeesList/useAxios
+        setIsEditing(false);
+        setSuccessMessage("Employee profile updated successfully");
+        setTimeout(() => setSuccessMessage(""), 3000);
+      } catch (error) {
+        setErrorMessage("Failed to update employee profile. Please try again.");
+        setTimeout(() => setErrorMessage(""), 3000);
+      } finally {
+        setLoading(false);
+      }
+    });
+  };*/
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,10 +81,10 @@ const EmployeeCard = ({ onEditData, id, ...employee }) => {
 
     const updatedEmployee = {
       ...updatedData,
-      skills: updatedData.skills.split(",").map((s) => s.trim()),
+      skills: updatedData.skills.split(",").map((skill) => skill.trim()),
       currentProjects: updatedData.currentProjects
         .split(",")
-        .map((p) => p.trim()),
+        .map((project) => project.trim()),
       salary: parseFloat(updatedData.salary),
     };
 
@@ -60,25 +101,46 @@ const EmployeeCard = ({ onEditData, id, ...employee }) => {
     }
   };
 
+  /*
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const updatedEmployee = {
+      ...updatedData,
+      skills: updatedData.skills.split(",").map((skill) => skill.trim()),
+      currentProjects: updatedData.currentProjects
+        .split(",")
+        .map((project) => project.trim()),
+      salary: parseFloat(updatedData.salary),
+    };
+
+    simulateLoading(() => setLoading(true));
+    try {
+      onEditData(id, updatedEmployee);
+      //setEmployeesData(updatedEmployee);
+      setIsEditing(false);
+      setSuccessMessage("Employee profile updated successfully");
+      setTimeout(() => setSuccessMessage(""), 3000);
+      simulateLoading(() => setLoading(false));
+    } catch (error) {
+      setErrorMessage("Failed to update employee profile. Please try again.");
+      setTimeout(() => setErrorMessage(""), 3000);
+      throw error;
+    } finally {
+      simulateLoading(() => setLoading(false));
+    }
+  };*/
+
   const handleCancel = () => {
-    setUpdatedData({
-      ...employee,
-      skills: employee.skills.join(", "),
-      currentProjects: employee.currentProjects.join(", "),
-    });
+    setUpdatedData(employee);
     setIsEditing(false);
   };
 
   const isSaveDisabled =
-    !updatedData ||
-    JSON.stringify(updatedData) ===
-      JSON.stringify({
-        ...employee,
-        skills: employee.skills.join(", "),
-        currentProjects: employee.currentProjects.join(", "),
-      });
+    !updatedData || JSON.stringify(updatedData) === JSON.stringify(employee);
 
   if (loading) return <LoaderSpinner />;
+  if (error) return <p className="message">Error: {error}</p>;
   if (!employee) return <p className="message">Employee profile not found.</p>;
 
   return (

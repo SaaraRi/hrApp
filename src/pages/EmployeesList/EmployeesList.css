@@ -1,0 +1,15 @@
+.employeesList {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 3rem 0;
+}
+
+.backToTopButton {
+  position: fixed;
+  right: 2rem;
+  bottom: 2rem;
+  z-index: 3;
+}
