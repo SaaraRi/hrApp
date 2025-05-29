@@ -7,20 +7,13 @@
       "department": "Development",
       "location": "Tampere",
       "skills": [
-        "jee",
         "Recruiting",
         "Communication",
         "Employee Relations"
       ],
       "currentProjects": [
-        "mökö",
-        "maikki",
-        "kissa",
-        "kakka",
-        "kukka",
         "Customer Portal",
-        "Backend Optimization",
-        "MOIKKA"
+        "Backend Optimization"
       ],
       "status": "Retired",
       "employeeOfMonth": true,
@@ -35,8 +28,7 @@
       "education": "Master's in Computer Science, University of Glasgow, 2020",
       "dateOfBirth": "1985-06-20",
       "emergencyContact": "Anna Nieminen, 040-9876543",
-      "otherInfo": "",
-      "": "mmaikki,kissa,kakka,kukka,Customer Portal,Backend Optimization,MOIKKA"
+      "otherInfo": ""
     },
     {
       "id": "2",
@@ -907,6 +899,34 @@
       "dateOfBirth": "1992-05-14",
       "emergencyContact": "Mohamed Mohammed, 040-9876543",
       "otherInfo": ""
+    },
+    {
+      "id": "9ab1",
+      "name": "Saara Rikama",
+      "title": "Designer",
+      "department": "IT",
+      "location": "Helsinki",
+      "skills": [
+        "Figma",
+        "React"
+      ],
+      "currentProjects": [
+        "HR-Manager App"
+      ],
+      "manager": "Margit Tennosaar",
+      "startDate": "2024-08-08",
+      "contractType": "Full-time",
+      "status": "Active",
+      "salary": 1200,
+      "vacationDaysAcc": "9",
+      "email": "saara.rikama@gmail.com",
+      "phone": "0503493137",
+      "homeAddress": "Wallininkuja 3 A 21",
+      "dateOfBirth": "1987-08-01",
+      "education": "xxx, Helsinki Uni, xxx",
+      "emergencyContact": "Aleksi Ilpala p. 050 123 456",
+      "otherInfo": "",
+      "employeeOfMonth": false
     }
   ]
 }

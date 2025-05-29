@@ -80,7 +80,7 @@ const EmployeeCard = ({ employee }) => {
       )}
 
       <p>{name}</p>
-      {status !== "active" && status !== "other" && (
+      {status !== "Active" && status !== "Specified below" && (
         <p style={{ fontStyle: "italic", fontWeight: "bold" }}>({status})</p>
       )}
       <p>{title}</p>

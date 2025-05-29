@@ -281,6 +281,32 @@ const SingleEmployeeProfile = () => {
               placeholder="Full name"
               required
             />
+
+            <input
+              type="text"
+              name="title"
+              value={updatedData.title}
+              onChange={handleInput}
+              placeholder="Title"
+              required
+            />
+            <input
+              type="text"
+              name="skills"
+              //value={updatedData.skills}
+              //onChange={handleInput}
+              placeholder="Skills (comma-separated)"
+              value={updatedData.skills}
+              onChange={handleInput}
+            />
+            <input
+              type="text"
+              //value={updatedData.currentProjects}
+              //onChange={handleInput}
+              placeholder="Current Projects (comma-separated)"
+              value={updatedData.currentProjects}
+              onChange={handleInput}
+            />
             <div className="add-input">
               <label htmlFor="status" className="white-font">
                 Status:
@@ -308,32 +334,6 @@ const SingleEmployeeProfile = () => {
                 ))}
               </select>
             </div>
-
-            <input
-              type="text"
-              name="title"
-              value={updatedData.title}
-              onChange={handleInput}
-              placeholder="Title"
-              required
-            />
-            <input
-              type="text"
-              name="skills"
-              //value={updatedData.skills}
-              //onChange={handleInput}
-              placeholder="Skills (comma-separated)"
-              value={updatedData.skills}
-              onChange={handleInput}
-            />
-            <input
-              type="text"
-              //value={updatedData.currentProjects}
-              //onChange={handleInput}
-              placeholder="Current Projects (comma-separated)"
-              value={updatedData.currentProjects}
-              onChange={handleInput}
-            />
             <div className="add-input">
               <label htmlFor="manager" className="white-font">
                 Manager:
@@ -510,8 +510,8 @@ const SingleEmployeeProfile = () => {
         <>
           <h1>{updatedData.name}</h1>
 
-          {updatedData.status !== "active" &&
-            updatedData.status !== "other" && (
+          {updatedData.status !== "Active" &&
+            updatedData.status !== "Specified below" && (
               <p style={{ fontStyle: "italic", fontWeight: "bold" }}>
                 ({updatedData.status})
               </p>
@@ -556,6 +556,10 @@ const SingleEmployeeProfile = () => {
             <strong>Current Projects:</strong> {updatedData.currentProjects}
           </p>
           <p>
+            <strong>Employee Status:</strong> {updatedData.status}
+          </p>
+          <p></p>
+          <p>
             <strong>Manager:</strong> {updatedData.manager}
           </p>
           <p>
@@ -566,17 +570,17 @@ const SingleEmployeeProfile = () => {
             <strong>Contract Type:</strong> {updatedData.contractType}
           </p>
           <p>
-            <strong>Vacation Days Accumulated:</strong>{" "}
-            {updatedData.vacationDaysAcc}
+            <strong>Salary/month:</strong> € {updatedData.salary}
           </p>
           <p>
-            <strong>Salary/month:</strong> {updatedData.salary}
+            <strong>Vacation Days Accumulated:</strong>{" "}
+            {updatedData.vacationDaysAcc} days
+          </p>
+          <p>
+            <strong>E-mail:</strong> {updatedData.email}
           </p>
           <p>
             <strong>Phone:</strong> {updatedData.phone}
-          </p>
-          <p>
-            <strong>Email:</strong> {updatedData.email}
           </p>
           <p>
             <strong>Home Address:</strong> {updatedData.homeAddress}
