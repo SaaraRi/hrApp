@@ -2,10 +2,10 @@
 import { useNavigate } from "react-router";
 //import { Link } from "react-router";
 import "./EmployeeCard.css";
-import badgeImage from "./pngwing.com.png";
-import { useEmploymentTime } from "../../hooks/useEmploymentTime";
+import badgeImage from "../../assets/images/pngwing.com.png";
+import useEmploymentTime from "../../hooks/useEmploymentTime";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
-import LoaderSpinner from "../LoaderSpinner/LoaderSpinner";
+//import LoaderSpinner from "../LoaderSpinner/LoaderSpinner";
 
 const EmployeeCard = ({ employee }) => {
   const navigate = useNavigate();
@@ -22,16 +22,22 @@ const EmployeeCard = ({ employee }) => {
     startDate,
     phone,
     email,
+    employeeOfMonth,
   } = employee;
 
   const {
     fullYearsOfEmployment,
     scheduleProbationReview,
     scheduleRecognitionMeeting,
-  } = useEmploymentTime(startDate);
+  } = useEmploymentTime(employee.startDate);
 
   //if (loading) return <LoaderSpinner />;
-  if (!employee) return <p className="message">Employee profile not found.</p>;
+  if (!employee)
+    return (
+      <LoaderSpinner /> && (
+        <p className="message">Employee profile not found.</p>
+      )
+    );
 
   return (
     <div className="card" key={id}>
@@ -65,7 +71,7 @@ const EmployeeCard = ({ employee }) => {
         alt={name}
       />
 
-      {employee.employeeOfMonth && (
+      {employeeOfMonth && (
         <img
           src={badgeImage}
           className="badgeImg"

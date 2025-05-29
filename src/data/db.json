@@ -4,8 +4,8 @@
       "id": "1",
       "name": "Aino Virtanen-Koski",
       "title": "HR Manager",
-      "department": "Human Resources",
-      "location": "Helsinki",
+      "department": "Development",
+      "location": "Tampere",
       "skills": [
         "Recruiting",
         "Communication",
@@ -21,12 +21,12 @@
         "Backend Optimization",
         "MOIKKA"
       ],
-      "status": "resigned",
+      "status": "Retired",
       "employeeOfMonth": true,
       "manager": "Eero Koskinen",
-      "startDate": "2025-04-01",
-      "contractType": "other",
-      "salary": 4220,
+      "startDate": "2025-04-03",
+      "contractType": "Part-time 50%",
+      "salary": 4240,
       "vacationDaysAcc": "46",
       "phone": "040-1234567",
       "email": "aino.virtanen@example.com",
@@ -921,6 +921,91 @@
       ],
       "startDate": "2025-05-16",
       "salary": 6,
+      "employeeOfMonth": false
+    },
+    {
+      "id": 1748550352989,
+      "name": "Saara Rikama",
+      "title": "fff",
+      "department": "Design",
+      "location": "Helsinki",
+      "skills": [
+        "h",
+        "k",
+        "l"
+      ],
+      "currentProjects": [
+        "k",
+        "k"
+      ],
+      "manager": "ggg",
+      "startDate": "2025-05-07",
+      "contractType": "Internship",
+      "status": "on study leave",
+      "salary": 888,
+      "vacationDaysAcc": "0",
+      "email": "saara.rikama@gmail.com",
+      "phone": "0503493137",
+      "homeAddress": "Wallininkuja 3 A 21",
+      "dateOfBirth": "2025-04-29",
+      "education": "hhh,hhgg,999",
+      "emergencyContact": "ddd",
+      "otherInfo": "fyffyfdfg",
+      "employeeOfMonth": false
+    },
+    {
+      "id": 1748551364897,
+      "name": "Saara Rikama",
+      "title": "hhh",
+      "department": "Design",
+      "location": "Helsinki",
+      "skills": [
+        "hhh",
+        "kkk"
+      ],
+      "currentProjects": [
+        "ddd"
+      ],
+      "manager": "uuu",
+      "startDate": "2025-05-18",
+      "contractType": "Internship",
+      "status": "On Study Leave",
+      "salary": 999,
+      "vacationDaysAcc": "2",
+      "email": "saara.rikama@gmail.com",
+      "phone": "0503493137",
+      "homeAddress": "Wallininkuja 3 A 21",
+      "dateOfBirth": "2025-05-15",
+      "education": "yyy, yyy, rrr",
+      "emergencyContact": "hhh",
+      "otherInfo": "dsdfgshtsht",
+      "employeeOfMonth": false
+    },
+    {
+      "id": 1748552300396,
+      "name": "Saara Rikama",
+      "title": "AAAAAAAA",
+      "department": "Marketing",
+      "location": "Espoo",
+      "skills": [
+        "ggg"
+      ],
+      "currentProjects": [
+        "ddd"
+      ],
+      "manager": "rrr",
+      "startDate": "2025-04-29",
+      "contractType": "Part-time 80%",
+      "status": "On Parental Leave",
+      "salary": 777,
+      "vacationDaysAcc": "7",
+      "email": "saara.rikama@gmail.com",
+      "phone": "0503493137",
+      "homeAddress": "Wallininkuja 3 A 21",
+      "dateOfBirth": "2025-04-30",
+      "education": "s,d,o",
+      "emergencyContact": "ggg",
+      "otherInfo": "wwwww",
       "employeeOfMonth": false
     }
   ]

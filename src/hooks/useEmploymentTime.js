@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-export const useEmploymentTime = (startDate) => {
+const useEmploymentTime = (startDate) => {
   return useMemo(() => {
     const startedWorkDate = new Date(startDate);
     const currentDate = new Date();
@@ -10,8 +10,9 @@ export const useEmploymentTime = (startDate) => {
     const fullYearsOfEmployment =
       currentDate.getFullYear() - startedWorkDate.getFullYear();
 
-    const scheduleProbationReview =  yearsOfEmployment < 0.5;
-    const scheduleRecognitionMeeting = fullYearsOfEmployment % 5 === 0 && fullYearsOfEmployment > 0;
+    const scheduleProbationReview = yearsOfEmployment < 0.5;
+    const scheduleRecognitionMeeting =
+      fullYearsOfEmployment % 5 === 0 && fullYearsOfEmployment > 0;
 
     return {
       yearsOfEmployment,
@@ -21,3 +22,5 @@ export const useEmploymentTime = (startDate) => {
     };
   }, [startDate]);
 };
+
+export default useEmploymentTime;

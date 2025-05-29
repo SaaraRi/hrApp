@@ -1,114 +1,124 @@
-
 .card-image img {
-    width: 200px;
-    height: 200px;
-
+  width: 200px;
+  height: 200px;
 }
 
 .badgeImg {
-    height: 100px;
-    position: absolute;
+  height: 100px;
+  position: absolute;
 }
 
+.dpt {
+  position: absolute;
+  top: 4rem;
+  left: 2rem;
+  flex: 1;
+  z-index: 5;
+}
+
+.loc {
+  position: absolute;
+  top: 4rem;
+  right: 2rem;
+  flex: 1;
+  z-index: 5;
+}
 
 .IT {
-    content:"";
-    height: 40px;
-    display: block;
-    background: red;
-    position: relative;
-  }
+  content: "";
+  height: 40px;
+  display: block;
+  background: red;
+  position: relative;
+  z-index: 2;
+}
 
-  .finance {
-    content:"";
-    height: 40px;
-    display: block;
-    background: blue;
-    position: relative;
-  }
+.finance {
+  content: "";
+  height: 40px;
+  display: block;
+  background: blue;
+  position: relative;
+  z-index: 2;
+}
 
-  .marketing {
-    content:"";
-    height: 40px;
-    display: block;
-    background: green;
-    position: relative;
-  }
+.marketing {
+  content: "";
+  height: 40px;
+  display: block;
+  background: green;
+  position: relative;
+  z-index: 2;
+}
 
-  .default {
-    content:"";
-    height: 40px;
-    display: block;
-    background: orange;
-    position: relative;
-  }
+.default {
+  content: "";
+  height: 40px;
+  display: block;
+  background: orange;
+  position: relative;
+  z-index: 2;
+}
 
-  .design {
-    content:"";
-    height: 40px;
-    display: block;
-    background: rgb(255, 0, 234);
-    position: relative;
-  }
+.design {
+  content: "";
+  height: 40px;
+  display: block;
+  background: rgb(255, 0, 234);
+  position: relative;
+  z-index: 2;
+}
 
-  .product {
-    content:"";
-    height: 40px;
-    display: block;
-    background: rgb(153, 0, 255);
-    position: relative;
-  }
+.product {
+  content: "";
+  height: 40px;
+  display: block;
+  background: rgb(153, 0, 255);
+  position: relative;
+  z-index: 2;
+}
 
-  .analytics {
-    content:"";
-    height: 40px;
-    display: block;
-    background: rgb(221, 255, 0);
-    position: relative;
-  }
+.analytics {
+  content: "";
+  height: 40px;
+  display: block;
+  background: rgb(221, 255, 0);
+  position: relative;
+  z-index: 2;
+}
 
-  .marketing {
-    content:"";
-    height: 40px;
-    display: block;
-    background: rgb(55, 255, 0);
-    position: relative;
-  }
+.marketing {
+  content: "";
+  height: 40px;
+  display: block;
+  background: rgb(55, 255, 0);
+  position: relative;
+  z-index: 2;
+}
 
-  .legal {
-    content:"";
-    height: 40px;
-    display: block;
-    background: rgb(0, 145, 255);
-    position: relative;
-  }
+.legal {
+  content: "";
+  height: 40px;
+  display: block;
+  background: rgb(0, 145, 255);
+  position: relative;
+  z-index: 2;
+}
 
-  .HR {
-    content:"";
-    height: 40px;
-    display: block;
-    background: rgb(0, 234, 255);
-    position: relative;
-  }
+.HR {
+  content: "";
+  height: 40px;
+  display: block;
+  background: rgb(0, 234, 255);
+  position: relative;
+  z-index: 2;
+}
 
-  .development {
-    content:"";
-    height: 40px;
-    display: block;
-    background: rgb(255, 0, 102);
-    position: relative;
-  }
-
-  .dpt {
-    position: absolute; 
-
-    left: 2rem;
-    flex: 1;
-  }
-
-  .loc {
-    position: absolute; 
-    top: 2rem;
-    right: 2rem;
-    flex: 1;
-  }
+.development {
+  content: "";
+  height: 40px;
+  display: block;
+  background: rgb(255, 0, 102);
+  position: relative;
+  z-index: 2;
+}

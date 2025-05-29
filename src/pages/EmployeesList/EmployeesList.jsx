@@ -12,7 +12,7 @@ const EmployeesList = () => {
     //update,
     read,
     error,
-  } = useAxios("http://localhost:3005/employees");
+  } = useAxios("http://localhost:3007/employees");
 
   const [loading, setLoading] = useState(true);
   //const [isEditing, setIsEditing] = useState(false);
@@ -55,26 +55,26 @@ const EmployeesList = () => {
     setSearchValue(e.target.value);
   };
 
+  const searchTerm = searchValue.toLowerCase();
+
   const filteredEmployees = (employees || []).filter((employee) => {
     //const filteredEmployees = employees.filter((employee) => {
-    const searchTerm = searchValue.toLowerCase();
-
     const matchesSearch =
-      employee.name.toLowerCase().includes(searchTerm) ||
-      employee.title.toLowerCase().includes(searchTerm) ||
-      employee.department.toLowerCase().includes(searchTerm) ||
-      employee.location.toLowerCase().includes(searchTerm) ||
-      employee.skills
+      (employee.name || "").toLowerCase().includes(searchTerm) ||
+      (employee.title || "").toLowerCase().includes(searchTerm) ||
+      (employee.department || "").toLowerCase().includes(searchTerm) ||
+      (employee.location || "").toLowerCase().includes(searchTerm) ||
+      (employee.skills || [])
         .map((skill) => skill.trim().toLowerCase())
         .join(", ")
         .includes(searchTerm) ||
-      employee.currentProjects
+      (employee.currentProjects || [])
         .map((project) => project.trim().toLowerCase())
         .join(", ")
         .includes(searchTerm) ||
-      employee.status.toLowerCase().includes(searchTerm) ||
-      employee.manager.toLowerCase().includes(searchTerm) ||
-      employee.contractType.toLowerCase().includes(searchTerm);
+      (employee.status || "").toLowerCase().includes(searchTerm) ||
+      (employee.manager || "").toLowerCase().includes(searchTerm) ||
+      (employee.contractType || "").toLowerCase().includes(searchTerm);
 
     const matchesDepartment =
       departmentFilter === "all" || employee.department === departmentFilter;
@@ -162,7 +162,7 @@ const EmployeesList = () => {
           <div className="employeesList">
             {filteredEmployees.length > 0 ? (
               filteredEmployees.map((employee) => (
-                <EmployeeCard key={employee.id} {...employee} />
+                <EmployeeCard key={employee.id} employee={employee} />
               ))
             ) : (
               <p>No match found, try another search.</p>

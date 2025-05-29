@@ -30,7 +30,7 @@ const emptyForm = () => ({
 const AddEmployeeForm = () => {
   const navigate = useNavigate();
 
-  const { create, error } = useAxios("http://localhost:3005/employees");
+  const { create, error } = useAxios("http://localhost:3007/employees");
 
   const [formData, setFormData] = useState(emptyForm);
   const [loading, setLoading] = useState(false);
@@ -51,20 +51,21 @@ const AddEmployeeForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    const newEmployee = {
+      ...formData,
+      id: Date.now(),
+      skills: formData.skills.split(",").map((s) => s.trim()),
+      currentProjects: formData.currentProjects.split(",").map((p) => p.trim()),
+      salary: parseFloat(formData.salary),
+      employeeOfMonth: false,
+    };
+
+    setLoading(true);
+
     try {
-      const newEmployee = {
-        ...formData,
-        id: Date.now(),
-        skills: formData.skills.split(",").map((s) => s.trim()),
-        currentProjects: formData.currentProjects
-          .split(",")
-          .map((p) => p.trim()),
-        salary: parseFloat(formData.salary),
-        employeeOfMonth: false,
-      };
-      setLoading(true);
       await create(newEmployee);
       setSuccessMessage("Employee profile created successfully");
+      setTimeout(() => setSuccessMessage(""), 5000);
       setTimeout(() => navigate("/employees"), 3000);
       handleReset();
     } catch (error) {
@@ -84,18 +85,22 @@ const AddEmployeeForm = () => {
 
   return (
     <div className="container">
+      <div>
+        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+        {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
+      </div>
       <form onChange={handleInput} onSubmit={handleSubmit}>
         <h1>Add New Employee</h1>
         <div className="add-input">
           <label htmlFor="name" className="white-font">
-            Full name:
+            Full Name:
           </label>
           <input
             type="text"
             id="name"
             name="name"
             value={formData.name}
-            //onChange={handleInput}
+            onChange={handleInput}
             required
           />
         </div>
@@ -108,7 +113,7 @@ const AddEmployeeForm = () => {
             id="title"
             name="title"
             value={formData.title}
-            //onChange={handleInput}
+            onChange={handleInput}
             required
           />
         </div>
@@ -120,31 +125,37 @@ const AddEmployeeForm = () => {
             id="department"
             name="department"
             value={formData.department}
-            //onChange={handleInput}
+            onChange={handleInput}
             required
           >
-            <option value="">Select department</option>
-            <option value="IT">IT</option>
-            <option value="Design">Design</option>
-            <option value="Development">Development</option>
-            <option value="Product">Product</option>
-            <option value="Finance">Finance</option>
-            <option value="Analytics">Analytics</option>
-            <option value="Marketing">Marketing</option>
-            <option value="Sales">Sales</option>
-            <option value="Legal">Legal</option>
-            <option value="Human resources">Human Resources</option>
+            <option value="">Select Department</option>
+            {[
+              "IT",
+              "Design",
+              "Development",
+              "Product",
+              "Finance",
+              "Analytics",
+              "Marketing",
+              "Sales",
+              "Legal",
+              "Human Resources",
+            ].map((department) => (
+              <option key={department} value={department}>
+                {department}
+              </option>
+            ))}
           </select>
         </div>
         <div className="add-input">
-          <p className="white-font">Select location:</p>
+          <p className="white-font">Select Location:</p>
           <label>
             <input
               type="radio"
               name="location"
               value="Helsinki"
               checked={formData.location === "Helsinki"}
-              //onChange={handleInput}
+              onChange={handleInput}
               required
             />
             Helsinki
@@ -155,7 +166,7 @@ const AddEmployeeForm = () => {
               name="location"
               value="Espoo"
               checked={formData.location === "Espoo"}
-              //onChange={handleInput}
+              onChange={handleInput}
               required
             />
             Espoo
@@ -166,7 +177,7 @@ const AddEmployeeForm = () => {
               name="location"
               value="Tampere"
               checked={formData.location === "Tampere"}
-              //onChange={handleInput}
+              onChange={handleInput}
               required
             />
             Tampere
@@ -174,27 +185,27 @@ const AddEmployeeForm = () => {
         </div>
         <div className="add-input">
           <label htmlFor="skills" className="white-font">
-            Skills (separate with a comma):
+            Skills (comma-separated):
           </label>
           <input
             type="text"
             id="skills"
             name="skills"
             value={formData.skills}
-            //onChange={handleInput}
+            onChange={handleInput}
             //required
           />
         </div>
         <div className="add-input">
           <label htmlFor="currentProjects" className="white-font">
-            Current projects (separate with a comma):
+            Current Projects (comma-separated):
           </label>
           <input
             type="text"
             id="currentProjects"
             name="currentProjects"
             value={formData.currentProjects}
-            //onChange={handleInput}
+            onChange={handleInput}
             //required
           />
         </div>
@@ -207,7 +218,7 @@ const AddEmployeeForm = () => {
             id="manager"
             name="manager"
             value={formData.manager}
-            //onChange={handleInput}
+            onChange={handleInput}
             required
           />
         </div>
@@ -220,87 +231,99 @@ const AddEmployeeForm = () => {
             id="startDate"
             name="startDate"
             value={formData.startDate}
-            //onChange={handleInput}
+            onChange={handleInput}
             required
           />
         </div>
         <div className="add-input">
           <label htmlFor="contractType" className="white-font">
-            Contract type:
+            Contract Type:
           </label>
           <select
             id="contractType"
             name="contractType"
             value={formData.contractType}
-            //onChange={handleInput}
             required
+            onChange={handleInput}
           >
-            <option value="">Select contract type</option>
-            <option value="Full-time">Full-time</option>
-            <option value="Part-time 50%">Part-time 50%</option>
-            <option value="Part-time 80%">Part-time 80%</option>
-            <option value="Contractual">Contractual</option>
-            <option value="Internship">Internship</option>
-            <option value="Other">Other (specify below)</option>
+            <option value="">Select Contract Type</option>
+            {[
+              "Full-time",
+              "Part-time 50%",
+              "Part-time 80%",
+              "Contractual",
+              "Internship",
+              "Specified below",
+            ].map((contractType) => (
+              <option key={contractType} value={contractType}>
+                {contractType}
+              </option>
+            ))}
           </select>
         </div>
         <div className="add-input">
           <label htmlFor="status" className="white-font">
-            Status:
+            Employee Status:
           </label>
           <select
             id="status"
             name="status"
             value={formData.status}
-            //onChange={handleInput}
             required
+            onChange={handleInput}
           >
-            <option value="">Select status</option>
-            <option value="active">Active</option>
-            <option value="on vacation">On vacation</option>
-            <option value="on parental leave">On parental leave</option>
-            <option value="on study leave">On study leave</option>
-            <option value="resigned">Resigned</option>
-            <option value="retired">Retired</option>
-            <option value="other">Other (specify below)</option>
+            <option value="">Select Employee Status</option>
+            {[
+              "Active",
+              "On Vacation",
+              "On Parental Leave",
+              "On Study Leave",
+              "Resigned",
+              "Retired",
+              "Specified below",
+            ].map((status) => (
+              <option key={status} value={status}>
+                {status}
+              </option>
+            ))}
           </select>
         </div>
         <div className="add-input">
           <label htmlFor="salary" className="white-font">
-            Salary (as number):
+            Salary/month (as number):
           </label>
           <input
             type="number"
             id="salary"
             name="salary"
             value={formData.salary}
-            //onChange={handleInput}
+            onChange={handleInput}
             required
           />
         </div>
         <div className="add-input">
           <label htmlFor="vacationDaysAcc" className="white-font">
-            Vacation days accumulated (as number):
+            Vacation Days Accumulated (as number):
           </label>
           <input
             type="number"
             id="vacationDaysAcc"
             name="vacationDaysAcc"
             value={formData.vacationDaysAcc}
-            //onChange={handleInput}
+            onChange={handleInput}
             required
           />
         </div>
         <div className="add-input">
           <label htmlFor="email" className="white-font">
-            Email:
+            E-mail:
           </label>
           <input
             type="email"
             id="email"
             name="email"
             value={formData.email}
-            //onChange={handleInput}
+            onChange={handleInput}
             required
           />
         </div>
@@ -313,33 +336,33 @@ const AddEmployeeForm = () => {
             id="phone"
             name="phone"
             value={formData.phone}
-            //onChange={handleInput}
+            onChange={handleInput}
             required
           />
         </div>
         <div className="add-input">
           <label htmlFor="homeAddress" className="white-font">
-            Home address:
+            Home Address:
           </label>
           <input
             type="text"
             id="homeAddress"
             name="homeAddress"
             value={formData.homeAddress}
-            //onChange={handleInput}
+            onChange={handleInput}
             required
           />
         </div>
         <div className="add-input">
           <label htmlFor="dateOfBirth" className="white-font">
-            Date of birth:
+            Date of Birth:
           </label>
           <input
             type="date"
             id="dateOfBirth"
             name="dateOfBirth"
             value={formData.dateOfBirth}
-            //onChange={handleInput}
+            onChange={handleInput}
             required
           />
         </div>
@@ -352,32 +375,32 @@ const AddEmployeeForm = () => {
             id="education"
             name="education"
             value={formData.education}
-            //onChange={handleInput}
+            onChange={handleInput}
             //required
           />
         </div>
         <div className="add-input">
           <label htmlFor="emergencyContact" className="white-font">
-            Emergency contact (name and phone):
+            Emergency Contact (name & phone):
           </label>
           <input
             type="text"
             id="emergencyContact"
             name="emergencyContact"
             value={formData.emergencyContact}
-            //onChange={handleInput}
+            onChange={handleInput}
             required
           />
         </div>
         <div className="add-input">
-          <label htmlFor="otherInfo">Other information:</label>
+          <label htmlFor="otherInfo">Other Information:</label>
           <textarea
             id="otherInfo"
             name="otherInfo"
             rows="10"
             cols="50"
             value={formData.otherInfo}
-            //onChange={handleInput}
+            onChange={handleInput}
           ></textarea>
         </div>
         <button type="submit" className="add-btn">
@@ -388,10 +411,6 @@ const AddEmployeeForm = () => {
         </button>
         <button onClick={() => navigate("/employees")}>Back to list</button>
       </form>
-      <div>
-        {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
-        {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
-      </div>
     </div>
   );
 };

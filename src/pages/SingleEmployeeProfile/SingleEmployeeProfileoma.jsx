@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate, useLocation, Link } from "react-router";
 import useAxios from "../../hooks/useAxios";
 import badgeImage from "../../assets/images/pngwing.com.png";
-import { useEmploymentTime } from "../../hooks/useEmploymentTime";
+import useEmploymentTime from "../../hooks/useEmploymentTime";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
 import LoaderSpinner from "../../components/LoaderSpinner/LoaderSpinner";
 import "./SingleEmployeeProfile.css";
@@ -18,7 +18,7 @@ const SingleEmployeeProfile = () => {
     remove,
     error,
     loading,
-  } = useAxios("http://localhost:3005/employees");
+  } = useAxios("http://localhost:3007/employees");
 
   //const [loading, setLoading] = useState(false);
   const [updatedData, setUpdatedData] = useState(employee);
@@ -51,7 +51,6 @@ const SingleEmployeeProfile = () => {
           : "",
       });
       setEmployeeOfMonth(employee.employeeOfMonth || false);
-      //setLoading(false);
     }
   }, [employee]);
 
@@ -60,7 +59,7 @@ const SingleEmployeeProfile = () => {
     fullYearsOfEmployment,
     scheduleProbationReview,
     scheduleRecognitionMeeting,
-  } = useEmploymentTime(employee.startDate);
+  } = useEmploymentTime(employee?.startDate);
 
   const handleInput = (e) => {
     const { name, value } = e.target;
@@ -130,8 +129,10 @@ const SingleEmployeeProfile = () => {
     }
   };
 
-  if (error) return <p>Error: {error}</p>;
   if (loading || !updatedData) return <LoaderSpinner />;
+  if (error) {
+    return <p className="message">Error loading profile: {error}</p>;
+  }
 
   const isSaveDisabled =
     JSON.stringify({
@@ -142,6 +143,14 @@ const SingleEmployeeProfile = () => {
 
   return (
     <div className="profilePage" key={id}>
+      <div>
+        {successMessage && (
+          <p style={{ color: "green", fontWeight: "bold" }}>{successMessage}</p>
+        )}
+        {errorMessage && (
+          <p style={{ color: "red", fontWeight: "bold" }}>{errorMessage}</p>
+        )}
+      </div>
       {scheduleProbationReview && (
         <p style={{ color: "green", fontWeight: "bold" }}>
           Schedule probation review
@@ -159,12 +168,14 @@ const SingleEmployeeProfile = () => {
           <>
             <form onChange={handleInput} onSubmit={handleSubmit}>
               <select
+                className="dpt"
+                id="department"
                 name="department"
                 value={updatedData.department}
-                //onChange={handleInput}
+                onChange={handleInput}
                 required
               >
-                <option value="">Select department</option>
+                <option value="">Select Department</option>
                 {[
                   "IT",
                   "Design",
@@ -186,6 +197,8 @@ const SingleEmployeeProfile = () => {
                 <p className="white-font">Location:</p>
                 <label>
                   <input
+                    className="loc"
+                    id="Helsinki"
                     type="radio"
                     name="location"
                     value="Helsinki"
@@ -196,6 +209,8 @@ const SingleEmployeeProfile = () => {
                 </label>
                 <label>
                   <input
+                    className="loc"
+                    id="Espoo"
                     type="radio"
                     name="location"
                     value="Espoo"
@@ -206,6 +221,8 @@ const SingleEmployeeProfile = () => {
                 </label>
                 <label>
                   <input
+                    className="loc"
+                    id="Tampere"
                     type="radio"
                     name="location"
                     value="Tampere"
@@ -261,14 +278,14 @@ const SingleEmployeeProfile = () => {
                 name="status"
                 value={updatedData.status}
                 required
-                //onChange={handleInput}
+                onChange={handleInput}
               >
-                <option value="">Select status</option>
+                <option value="">Select Employee Status</option>
                 {[
                   "Active",
                   "On Vacation",
                   "On Parental Leave",
-                  "on study leave",
+                  "On Study Leave",
                   "Resigned",
                   "Retired",
                   "Specified below",
@@ -284,7 +301,7 @@ const SingleEmployeeProfile = () => {
               type="text"
               name="title"
               value={updatedData.title}
-              //onChange={handleInput}
+              onChange={handleInput}
               placeholder="Title"
               required
             />
@@ -295,7 +312,7 @@ const SingleEmployeeProfile = () => {
               //onChange={handleInput}
               placeholder="Skills (comma-separated)"
               value={updatedData.skills}
-              //onChange={handleInput}
+              onChange={handleInput}
             />
             <input
               type="text"
@@ -303,7 +320,7 @@ const SingleEmployeeProfile = () => {
               //onChange={handleInput}
               placeholder="Current Projects (comma-separated)"
               value={updatedData.currentProjects}
-              //onChange={handleInput}
+              onChange={handleInput}
             />
             <div className="add-input">
               <label htmlFor="manager" className="white-font">
@@ -315,7 +332,7 @@ const SingleEmployeeProfile = () => {
                 name="manager"
                 value={updatedData.manager}
                 required
-                //onChange={handleInput}
+                onChange={handleInput}
               />
             </div>
             <div className="add-input">
@@ -328,7 +345,7 @@ const SingleEmployeeProfile = () => {
                 name="startDate"
                 value={updatedData.startDate}
                 required
-                //onChange={handleInput}
+                onChange={handleInput}
               />
             </div>
             <div className="add-input">
@@ -337,7 +354,7 @@ const SingleEmployeeProfile = () => {
                 name="contractType"
                 value={updatedData.contractType}
                 required
-                //onChange={handleInput}
+                onChange={handleInput}
               >
                 <option value="">Select Contract Type</option>
                 {[
@@ -348,7 +365,7 @@ const SingleEmployeeProfile = () => {
                   "Internship",
                   "Specified below",
                 ].map((contractType) => (
-                  <option key={status} value={contractType}>
+                  <option key={contractType} value={contractType}>
                     {contractType}
                   </option>
                 ))}
@@ -365,7 +382,7 @@ const SingleEmployeeProfile = () => {
                 value={updatedData.salary}
                 placeholder="Salary/month"
                 required
-                //onChange={handleInput}
+                onChange={handleInput}
               />
             </div>
             <div className="add-input">
@@ -379,7 +396,7 @@ const SingleEmployeeProfile = () => {
                 value={updatedData.vacationDaysAcc}
                 placeholder="Vacation Days Accumulated"
                 required
-                //onChange={handleInput}
+                onChange={handleInput}
               />
             </div>
             <div className="add-input">
@@ -393,7 +410,7 @@ const SingleEmployeeProfile = () => {
                 value={updatedData.email}
                 placeholder="Email"
                 required
-                //onChange={handleInput}
+                onChange={handleInput}
               />
             </div>
             <div className="add-input">
@@ -407,7 +424,7 @@ const SingleEmployeeProfile = () => {
                 value={updatedData.phone}
                 placeholder="phone"
                 required
-                //onChange={handleInput}
+                onChange={handleInput}
               />
             </div>
             <div className="add-input">
@@ -421,7 +438,7 @@ const SingleEmployeeProfile = () => {
                 value={updatedData.homeAddress}
                 placeholder="Home Address"
                 required
-                //onChange={handleInput}
+                onChange={handleInput}
               />
             </div>
             <div className="add-input">
@@ -434,7 +451,7 @@ const SingleEmployeeProfile = () => {
                 name="dateOfBirth"
                 value={updatedData.dateOfBirth}
                 required
-                //onChange={handleInput}
+                onChange={handleInput}
               />
             </div>
             <div className="add-input">
@@ -447,8 +464,7 @@ const SingleEmployeeProfile = () => {
                 name="education"
                 value={updatedData.education}
                 placeholder="Education (degree, institution, year)"
-
-                //onChange={handleInput}
+                onChange={handleInput}
               />
             </div>
             <div className="add-input">
@@ -462,7 +478,7 @@ const SingleEmployeeProfile = () => {
                 value={updatedData.emergencyContact}
                 placeholder="Emergency Contact"
                 required
-                //onChange={handleInput}
+                onChange={handleInput}
               />
             </div>
             <div className="add-input">
@@ -473,7 +489,7 @@ const SingleEmployeeProfile = () => {
                 rows="10"
                 cols="50"
                 value={updatedData.otherInfo}
-                //onChange={handleInput}
+                onChange={handleInput}
               ></textarea>
             </div>
           </form>
@@ -482,13 +498,13 @@ const SingleEmployeeProfile = () => {
         <>
           <h1>{updatedData.name}</h1>
 
-          {employee.status !== "active" && employee.status !== "other" && (
-            <p style={{ fontStyle: "italic", fontWeight: "bold" }}>
-              ({employee.status})
-            </p>
-          )}
-          <h1> {employee.name}</h1>
-          <p>{employee.title}</p>
+          {updatedData.status !== "active" &&
+            updatedData.status !== "other" && (
+              <p style={{ fontStyle: "italic", fontWeight: "bold" }}>
+                ({updatedData.status})
+              </p>
+            )}
+          <p>{updatedData.title}</p>
           {/*<p>
         <strong>Department:</strong> {employee.department}
       </p>
@@ -583,7 +599,7 @@ const SingleEmployeeProfile = () => {
         <button onClick={toggleEmployeeOfMonth}>
           {employeeOfMonth
             ? "Remove status Employee of the Month"
-            : "Select status Employee of the Month"}
+            : "Select as Employee of the Month"}
         </button>
         <button
           onClick={handleDelete}
@@ -593,14 +609,6 @@ const SingleEmployeeProfile = () => {
           Delete Profile
         </button>
       </div>
-
-      {successMessage && (
-        <p style={{ color: "green", fontWeight: "bold" }}>{successMessage}</p>
-      )}
-      {errorMessage && (
-        <p style={{ color: "red", fontWeight: "bold" }}>{errorMessage}</p>
-      )}
-      <Link to="/employees">Back to list</Link>
     </div>
   );
 };
