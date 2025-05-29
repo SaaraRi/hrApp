@@ -5,8 +5,7 @@ import About from "./pages/About/About";
 import EmployeesList from "./pages/EmployeesList/EmployeesList";
 import AddEmployeeForm from "./pages/AddEmployeeForm/AddEmployeeForm";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
-//import useAxios from "./hooks/useAxios";
-import SingleEmployeeProfile from "./pages/SingleEmployeeProfile/SingleEmployeeProfileoma";
+import SingleEmployeeProfile from "./pages/SingleEmployeeProfile/SingleEmployeeProfile";
 
 const App = () => {
   return (

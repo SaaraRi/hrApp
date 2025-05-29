@@ -6,15 +6,8 @@
       "title": "HR Manager",
       "department": "Development",
       "location": "Tampere",
-      "skills": [
-        "Recruiting",
-        "Communication",
-        "Employee Relations"
-      ],
-      "currentProjects": [
-        "Customer Portal",
-        "Backend Optimization"
-      ],
+      "skills": ["Recruiting", "Communication", "Employee Relations"],
+      "currentProjects": ["Customer Portal", "Backend Optimization"],
       "status": "Retired",
       "employeeOfMonth": true,
       "manager": "Eero Koskinen",
@@ -34,22 +27,15 @@
       "id": "2",
       "name": "Emma Johnson",
       "title": "Graphic Designer",
-      "department": "Human resources",
+      "department": "Human Resources",
       "location": "Espoo",
-      "skills": [
-        "Photoshop",
-        "Illustrator",
-        "UI Design"
-      ],
-      "currentProjects": [
-        "App Redesign",
-        "Brand Identity"
-      ],
-      "status": "active",
+      "skills": ["Photoshop", "Illustrator", "UI Design"],
+      "currentProjects": ["App Redesign", "Brand Identity"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Sari Laine",
       "startDate": "2018-09-01",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 4700,
       "vacationDaysAcc": "25",
       "phone": "358 040-2345678",
@@ -66,20 +52,13 @@
       "title": "Backend Developer",
       "department": "IT",
       "location": "Helsinki",
-      "skills": [
-        "Python",
-        "Django",
-        "REST APIs"
-      ],
-      "currentProjects": [
-        "Customer Portal",
-        "Data Migration"
-      ],
-      "status": "active",
+      "skills": ["Python", "Django", "REST APIs"],
+      "currentProjects": ["Customer Portal", "Data Migration"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Eero Koskinen",
       "startDate": "2016-02-20",
-      "contractType": "part-time 50%",
+      "contractType": "Part-time 50 %",
       "salary": 3900,
       "vacationDaysAcc": "25",
       "phone": "358 040-3456789",
@@ -96,20 +75,13 @@
       "title": "Product Manager",
       "department": "Product",
       "location": "Tampere",
-      "skills": [
-        "Agile",
-        "Roadmap Planning",
-        "Stakeholder Management"
-      ],
-      "currentProjects": [
-        "Product Launch",
-        "User Feedback Analysis"
-      ],
-      "status": "on parental leave",
+      "skills": ["Agile", "Roadmap Planning", "Stakeholder Management"],
+      "currentProjects": ["Product Launch", "User Feedback Analysis"],
+      "status": "On Parental Leave",
       "employeeOfMonth": false,
       "manager": "Jukka Mäkinen",
       "startDate": "2012-07-10",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 6200,
       "vacationDaysAcc": "25",
       "phone": "358 040-4567890",
@@ -126,20 +98,13 @@
       "title": "Data Analyst",
       "department": "Analytics",
       "location": "Helsinki",
-      "skills": [
-        "SQL",
-        "Python",
-        "Tableau"
-      ],
-      "currentProjects": [
-        "Market Trends",
-        "Customer Segmentation"
-      ],
-      "status": "active",
+      "skills": ["SQL", "Python", "Tableau"],
+      "currentProjects": ["Market Trends", "Customer Segmentation"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Leena Virtanen",
       "startDate": "2019-05-05",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 4300,
       "vacationDaysAcc": "25",
       "phone": "358 040-5678901",
@@ -156,20 +121,13 @@
       "title": "Marketing Specialist",
       "department": "Marketing",
       "location": "Espoo",
-      "skills": [
-        "SEO",
-        "Content Creation",
-        "Social Media"
-      ],
-      "currentProjects": [
-        "Campaign X",
-        "Brand Awareness"
-      ],
-      "status": "active",
+      "skills": ["SEO", "Content Creation", "Social Media"],
+      "currentProjects": ["Campaign X", "Brand Awareness"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Anna Korhonen",
       "startDate": "2017-11-11",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 4800,
       "vacationDaysAcc": "25",
       "phone": "358 040-6789012",
@@ -186,20 +144,13 @@
       "title": "Legal Advisor",
       "department": "Legal",
       "location": "Tampere",
-      "skills": [
-        "Contract Law",
-        "Corporate Governance",
-        "Negotiation"
-      ],
-      "currentProjects": [
-        "Compliance Review",
-        "Contract Drafting"
-      ],
-      "status": "active",
+      "skills": ["Contract Law", "Corporate Governance", "Negotiation"],
+      "currentProjects": ["Compliance Review", "Contract Drafting"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Laura Väisänen",
       "startDate": "2010-03-05",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 6500,
       "vacationDaysAcc": "25",
       "phone": "358 040-7890123",
@@ -216,20 +167,13 @@
       "title": "Software Engineer",
       "department": "IT",
       "location": "Helsinki",
-      "skills": [
-        "C++",
-        "Embedded Systems",
-        "IoT"
-      ],
-      "currentProjects": [
-        "Device Firmware",
-        "IoT Platform"
-      ],
-      "status": "active",
+      "skills": ["C++", "Embedded Systems", "IoT"],
+      "currentProjects": ["Device Firmware", "IoT Platform"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Eero Koskinen",
       "startDate": "2019-01-15",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 5200,
       "vacationDaysAcc": "25",
       "phone": "358 040-8901234",
@@ -246,20 +190,13 @@
       "title": "HR Specialist",
       "department": "Human Resources",
       "location": "Espoo",
-      "skills": [
-        "Recruitment",
-        "Employee Relations",
-        "HRIS"
-      ],
-      "currentProjects": [
-        "Onboarding Process",
-        "Employee Satisfaction"
-      ],
-      "status": "active",
+      "skills": ["Recruitment", "Employee Relations", "HRIS"],
+      "currentProjects": ["Onboarding Process", "Employee Satisfaction"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Kristiina Nieminen",
       "startDate": "2015-06-25",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 4100,
       "vacationDaysAcc": "25",
       "phone": "358 040-9012345",
@@ -276,20 +213,13 @@
       "title": "Engineering Manager",
       "department": "Development",
       "location": "Tampere",
-      "skills": [
-        "Mechanical Design",
-        "Project Management",
-        "CAD"
-      ],
-      "currentProjects": [
-        "Product Development",
-        "Process Improvement"
-      ],
-      "status": "active",
+      "skills": ["Mechanical Design", "Project Management", "CAD"],
+      "currentProjects": ["Product Development", "Process Improvement"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Heidi Salminen",
       "startDate": "2008-05-20",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 6800,
       "vacationDaysAcc": "25",
       "phone": "358 040-0123456",
@@ -306,20 +236,13 @@
       "title": "UX Designer",
       "department": "Design",
       "location": "Helsinki",
-      "skills": [
-        "User Research",
-        "Wireframing",
-        "Prototyping"
-      ],
-      "currentProjects": [
-        "App Redesign",
-        "User Testing"
-      ],
-      "status": "active",
+      "skills": ["User Research", "Wireframing", "Prototyping"],
+      "currentProjects": ["App Redesign", "User Testing"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Sari Laine",
       "startDate": "2020-02-10",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 4600,
       "vacationDaysAcc": "25",
       "phone": "358 040-2345670",
@@ -336,20 +259,13 @@
       "title": "Security Specialist",
       "department": "IT",
       "location": "Espoo",
-      "skills": [
-        "Network Security",
-        "Penetration Testing",
-        "Firewall"
-      ],
-      "currentProjects": [
-        "Security Audit",
-        "Firewall Setup"
-      ],
-      "status": "active",
+      "skills": ["Network Security", "Penetration Testing", "Firewall"],
+      "currentProjects": ["Security Audit", "Firewall Setup"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Eero Koskinen",
       "startDate": "2014-08-18",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 5300,
       "vacationDaysAcc": "25",
       "phone": "358 040-3456781",
@@ -366,20 +282,13 @@
       "title": "Content Strategist",
       "department": "Marketing",
       "location": "Helsinki",
-      "skills": [
-        "Content Planning",
-        "Copywriting",
-        "SEO"
-      ],
-      "currentProjects": [
-        "Content Calendar",
-        "SEO Optimization"
-      ],
-      "status": "active",
+      "skills": ["Content Planning", "Copywriting", "SEO"],
+      "currentProjects": ["Content Calendar", "SEO Optimization"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Anna Korhonen",
       "startDate": "2016-12-01",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 4400,
       "vacationDaysAcc": "25",
       "phone": "358 040-5678902",
@@ -396,20 +305,13 @@
       "title": "DevOps Engineer",
       "department": "IT",
       "location": "Tampere",
-      "skills": [
-        "AWS",
-        "Docker",
-        "CI/CD"
-      ],
-      "currentProjects": [
-        "Deployment Pipeline",
-        "Cloud Migration"
-      ],
-      "status": "active",
+      "skills": ["AWS", "Docker", "CI/CD"],
+      "currentProjects": ["Deployment Pipeline", "Cloud Migration"],
+      "status": "On Study Leave",
       "employeeOfMonth": false,
       "manager": "Eero Koskinen",
       "startDate": "2019-07-20",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 5700,
       "vacationDaysAcc": "25",
       "phone": "358 040-4567893",
@@ -426,20 +328,13 @@
       "title": "Legal Assistant",
       "department": "Legal",
       "location": "Helsinki",
-      "skills": [
-        "Legal Research",
-        "Document Drafting",
-        "Compliance"
-      ],
-      "currentProjects": [
-        "Legal Compliance",
-        "Contract Management"
-      ],
-      "status": "active",
+      "skills": ["Legal Research", "Document Drafting", "Compliance"],
+      "currentProjects": ["Legal Compliance", "Contract Management"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Laura Väisänen",
       "startDate": "2015-03-10",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 3900,
       "vacationDaysAcc": "25",
       "phone": "358 040-7890124",
@@ -456,20 +351,13 @@
       "title": "Software Engineer",
       "department": "IT",
       "location": "Espoo",
-      "skills": [
-        "JavaScript",
-        "React",
-        "Node.js"
-      ],
-      "currentProjects": [
-        "Web App",
-        "Performance Optimization"
-      ],
-      "status": "active",
+      "skills": ["JavaScript", "React", "Node.js"],
+      "currentProjects": ["Web App", "Performance Optimization"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Eero Koskinen",
       "startDate": "2021-06-01",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 5100,
       "vacationDaysAcc": "25",
       "phone": "358 040-0123457",
@@ -486,20 +374,13 @@
       "title": "HR Coordinator",
       "department": "Human Resources",
       "location": "Tampere",
-      "skills": [
-        "Recruitment",
-        "Training",
-        "HR Policies"
-      ],
-      "currentProjects": [
-        "Onboarding",
-        "Employee Engagement"
-      ],
-      "status": "active",
+      "skills": ["Recruitment", "Training", "HR Policies"],
+      "currentProjects": ["Onboarding", "Employee Engagement"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Kristiina Nieminen",
       "startDate": "2014-09-12",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 4200,
       "vacationDaysAcc": "25",
       "phone": "358 040-7891235",
@@ -516,20 +397,13 @@
       "title": "Engineering Lead",
       "department": "Development",
       "location": "Helsinki",
-      "skills": [
-        "Mechanical Design",
-        "Project Management",
-        "CAD"
-      ],
-      "currentProjects": [
-        "Product Development",
-        "Process Optimization"
-      ],
-      "status": "active",
+      "skills": ["Mechanical Design", "Project Management", "CAD"],
+      "currentProjects": ["Product Development", "Process Optimization"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Heidi Salminen",
       "startDate": "2010-11-01",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 6700,
       "vacationDaysAcc": "25",
       "phone": "358 040-8901235",
@@ -546,20 +420,13 @@
       "title": "Frontend Developer",
       "department": "IT",
       "location": "Tampere",
-      "skills": [
-        "Vue.js",
-        "JavaScript",
-        "CSS"
-      ],
-      "currentProjects": [
-        "Web App",
-        "UI Improvements"
-      ],
-      "status": "active",
+      "skills": ["Vue.js", "JavaScript", "CSS"],
+      "currentProjects": ["Web App", "UI Improvements"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Eero Koskinen",
       "startDate": "2022-01-15",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 4900,
       "vacationDaysAcc": "25",
       "phone": "358 040-9012346",
@@ -576,20 +443,13 @@
       "title": "Sales Manager",
       "department": "Sales",
       "location": "Helsinki",
-      "skills": [
-        "Negotiation",
-        "CRM",
-        "Customer Relations"
-      ],
-      "currentProjects": [
-        "New Client Acquisition",
-        "Sales Strategy"
-      ],
-      "status": "active",
+      "skills": ["Negotiation", "CRM", "Customer Relations"],
+      "currentProjects": ["New Client Acquisition", "Sales Strategy"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Jukka Mäkinen",
       "startDate": "2011-05-23",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 6100,
       "vacationDaysAcc": "25",
       "phone": "358 040-2345671",
@@ -606,20 +466,13 @@
       "title": "Legal Counsel",
       "department": "Legal",
       "location": "Espoo",
-      "skills": [
-        "Contract Law",
-        "Litigation",
-        "Legal Drafting"
-      ],
-      "currentProjects": [
-        "Legal Review",
-        "Compliance"
-      ],
-      "status": "active",
+      "skills": ["Contract Law", "Litigation", "Legal Drafting"],
+      "currentProjects": ["Legal Review", "Compliance"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Laura Väisänen",
       "startDate": "2013-10-11",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 6400,
       "vacationDaysAcc": "25",
       "phone": "358 040-3456782",
@@ -636,20 +489,13 @@
       "title": "Data Scientist",
       "department": "Analytics",
       "location": "Helsinki",
-      "skills": [
-        "Python",
-        "Machine Learning",
-        "Statistics"
-      ],
-      "currentProjects": [
-        "Predictive Modeling",
-        "Customer Analytics"
-      ],
-      "status": "active",
+      "skills": ["Python", "Machine Learning", "Statistics"],
+      "currentProjects": ["Predictive Modeling", "Customer Analytics"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Leena Virtanen",
       "startDate": "2018-04-02",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 5800,
       "vacationDaysAcc": "25",
       "phone": "358 040-5678903",
@@ -666,20 +512,13 @@
       "title": "Content Writer",
       "department": "Marketing",
       "location": "Tampere",
-      "skills": [
-        "Copywriting",
-        "SEO",
-        "Content Strategy"
-      ],
-      "currentProjects": [
-        "Blog Posts",
-        "Campaign Content"
-      ],
-      "status": "active",
+      "skills": ["Copywriting", "SEO", "Content Strategy"],
+      "currentProjects": ["Blog Posts", "Campaign Content"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Anna Korhonen",
       "startDate": "2021-05-10",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 4300,
       "vacationDaysAcc": "25",
       "phone": "358 040-7891236",
@@ -696,20 +535,13 @@
       "title": "Network Engineer",
       "department": "IT",
       "location": "Espoo",
-      "skills": [
-        "Networking",
-        "Firewall",
-        "VPN"
-      ],
-      "currentProjects": [
-        "Network Upgrade",
-        "Security Enhancement"
-      ],
-      "status": "active",
+      "skills": ["Networking", "Firewall", "VPN"],
+      "currentProjects": ["Network Upgrade", "Security Enhancement"],
+      "status": "Resigned",
       "employeeOfMonth": false,
       "manager": "Eero Koskinen",
       "startDate": "2015-08-15",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 5100,
       "vacationDaysAcc": "25",
       "phone": "358 040-9012357",
@@ -726,20 +558,13 @@
       "title": "Product Owner",
       "department": "Product",
       "location": "Helsinki",
-      "skills": [
-        "Agile",
-        "Backlog Management",
-        "Stakeholder Communication"
-      ],
-      "currentProjects": [
-        "Product Roadmap",
-        "Feature Prioritization"
-      ],
-      "status": "active",
+      "skills": ["Agile", "Backlog Management", "Stakeholder Communication"],
+      "currentProjects": ["Product Roadmap", "Feature Prioritization"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Jukka Mäkinen",
       "startDate": "2014-11-05",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 6100,
       "vacationDaysAcc": "25",
       "phone": "358 040-2345672",
@@ -756,20 +581,13 @@
       "title": "Hardware Engineer",
       "department": "Development",
       "location": "Tampere",
-      "skills": [
-        "Circuit Design",
-        "Embedded Systems",
-        "Testing"
-      ],
-      "currentProjects": [
-        "Prototype Development",
-        "Manufacturing"
-      ],
-      "status": "active",
+      "skills": ["Circuit Design", "Embedded Systems", "Testing"],
+      "currentProjects": ["Prototype Development", "Manufacturing"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Heidi Salminen",
       "startDate": "2011-09-14",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 6300,
       "vacationDaysAcc": "25",
       "phone": "358 040-0123458",
@@ -786,20 +604,13 @@
       "title": "Customer Support Lead",
       "department": "Sales",
       "location": "Helsinki",
-      "skills": [
-        "Customer Service",
-        "CRM",
-        "Problem Solving"
-      ],
-      "currentProjects": [
-        "Support Optimization",
-        "Customer Feedback"
-      ],
-      "status": "active",
+      "skills": ["Customer Service", "CRM", "Problem Solving"],
+      "currentProjects": ["Support Optimization", "Customer Feedback"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Carlos Rodriguez",
       "startDate": "2013-06-20",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 4100,
       "vacationDaysAcc": "25",
       "phone": "358 040-3456783",
@@ -816,20 +627,13 @@
       "title": "Legal Intern",
       "department": "Legal",
       "location": "Espoo",
-      "skills": [
-        "Legal Research",
-        "Drafting",
-        "Compliance"
-      ],
-      "currentProjects": [
-        "Legal Review",
-        "Contract Drafting"
-      ],
-      "status": "active",
+      "skills": ["Legal Research", "Drafting", "Compliance"],
+      "currentProjects": ["Legal Review", "Contract Drafting"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Laura Väisänen",
       "startDate": "2023-02-01",
-      "contractType": "internship",
+      "contractType": "Internship",
       "salary": 2500,
       "vacationDaysAcc": "15",
       "phone": "358 040-9012358",
@@ -846,20 +650,13 @@
       "title": "Finance Analyst",
       "department": "Analytics",
       "location": "Helsinki",
-      "skills": [
-        "Excel",
-        "Financial Modeling",
-        "Reporting"
-      ],
-      "currentProjects": [
-        "Budget Planning",
-        "Financial Reports"
-      ],
-      "status": "active",
+      "skills": ["Excel", "Financial Modeling", "Reporting"],
+      "currentProjects": ["Budget Planning", "Financial Reports"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Leena Virtanen",
       "startDate": "2014-03-15",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 5600,
       "vacationDaysAcc": "25",
       "phone": "358 040-7890127",
@@ -876,20 +673,13 @@
       "title": "Customer Success Manager",
       "department": "Sales",
       "location": "Tampere",
-      "skills": [
-        "Account Management",
-        "Customer Relations",
-        "CRM"
-      ],
-      "currentProjects": [
-        "Customer Retention",
-        "Upselling Campaigns"
-      ],
-      "status": "active",
+      "skills": ["Account Management", "Customer Relations", "CRM"],
+      "currentProjects": ["Customer Retention", "Upselling Campaigns"],
+      "status": "Active",
       "employeeOfMonth": false,
       "manager": "Jukka Mäkinen",
       "startDate": "2018-10-01",
-      "contractType": "full-time",
+      "contractType": "Full-time",
       "salary": 5300,
       "vacationDaysAcc": "25",
       "phone": "358 040-1234560",
@@ -906,13 +696,8 @@
       "title": "Designer",
       "department": "IT",
       "location": "Helsinki",
-      "skills": [
-        "Figma",
-        "React"
-      ],
-      "currentProjects": [
-        "HR-Manager App"
-      ],
+      "skills": ["Figma", "React"],
+      "currentProjects": ["HR-Manager App"],
       "manager": "Margit Tennosaar",
       "startDate": "2024-08-08",
       "contractType": "Full-time",

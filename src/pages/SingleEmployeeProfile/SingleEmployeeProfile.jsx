@@ -1,11 +1,11 @@
-// components/SingleEmployeeProfile.jsx
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router";
+import { useParams, useNavigate, useLocation, Link } from "react-router";
 import useAxios from "../../hooks/useAxios";
 import badgeImage from "../../assets/images/pngwing.com.png";
-import { useEmploymentTime } from "../../hooks/useEmploymentTime";
+import useEmploymentTime from "../../hooks/useEmploymentTime";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
 import LoaderSpinner from "../../components/LoaderSpinner/LoaderSpinner";
+import "./SingleEmployeeProfile.css";
 
 const SingleEmployeeProfile = () => {
   const { id } = useParams();
@@ -17,14 +17,23 @@ const SingleEmployeeProfile = () => {
     update,
     remove,
     error,
-    loading,
-  } = useAxios("http://localhost:3005/employees");
+  } = useAxios("http://localhost:3007/employees");
 
-  const [updatedData, setUpdatedData] = useState(null);
+  //const [loading, setLoading] = useState(false);
+  const [updatedData, setUpdatedData] = useState(employee);
   const [isEditing, setIsEditing] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [employeeOfMonth, setEmployeeOfMonth] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.editMode) {
+      setIsEditing(true);
+    }
+  }, [location.state]);
 
   useEffect(() => {
     read(id);
@@ -54,74 +63,88 @@ const SingleEmployeeProfile = () => {
 
   const handleInput = (e) => {
     const { name, value } = e.target;
-    setUpdatedData((prev) => ({ ...prev, [name]: value }));
+    setUpdatedData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    const updatedEmployee = {
+      ...updatedData,
+      skills: updatedData.skills.split(",").map((s) => s.trim()),
+      currentProjects: updatedData.currentProjects
+        .split(",")
+        .map((p) => p.trim()),
+      salary: parseFloat(updatedData.salary),
+    };
+    setLoading(true);
     try {
-      const updatedEmployee = {
-        ...updatedData,
-        skills: updatedData.skills.split(",").map((s) => s.trim()),
-        currentProjects: updatedData.currentProjects
-          .split(",")
-          .map((p) => p.trim()),
-        salary: parseFloat(updatedData.salary),
-      };
       await update(id, updatedEmployee);
       setIsEditing(false);
-      setSuccessMessage("Profile updated successfully.");
-    } catch {
-      setErrorMessage("Failed to update profile. Please try again.");
-    } finally {
-      setTimeout(() => {
-        setSuccessMessage("");
-        setErrorMessage("");
-      }, 3000);
+      setSuccessMessage("Employee profile updated successfully");
+      setTimeout(() => setSuccessMessage(""), 3000);
+      setLoading(false);
+    } catch (error) {
+      setErrorMessage("Failed to update employee profile. Please try again.");
+      setTimeout(() => setErrorMessage(""), 3000);
+      setLoading(false);
     }
   };
 
   const handleCancel = () => {
     setIsEditing(false);
-    if (employee) {
-      setUpdatedData({
-        ...employee,
-        skills: employee.skills.join(", "),
-        currentProjects: employee.currentProjects.join(", "),
-      });
-    }
+    setUpdatedData({
+      ...employee,
+      skills: employee.skills.join(", "),
+      currentProjects: employee.currentProjects.join(", "),
+    });
   };
 
   const handleDelete = async () => {
+    /*const confirmed = window.confirm(
+      "Are you sure you want to delete this profile?"
+    );
+    if (confirmed) {
     await remove(id);
-    navigate("/employees");
+    setSuccessMessage("Employee profile deleted successfully.");
+    setTimeout(() => navigate("/employees"), 3000);*/
+    try {
+      await remove(id);
+      setSuccessMessage("Employee profile deleted successfully.");
+      setTimeout(() => setSuccessMessage(""), 3000);
+    } catch (error) {
+      setErrorMessage("Failed to delete employee profile. Please try again.");
+      setTimeout(() => setErrorMessage(""), 3000);
+    }
   };
 
   const toggleEmployeeOfMonth = async () => {
+    const updatedEmployee = {
+      ...employee,
+      employeeOfMonth: !employeeOfMonth,
+    };
+
     try {
-      const updatedEmployee = {
-        ...employee,
-        employeeOfMonth: !employeeOfMonth,
-      };
       await update(id, updatedEmployee);
       setEmployeeOfMonth(!employeeOfMonth);
       setSuccessMessage(
         updatedEmployee.employeeOfMonth
-          ? "Marked as Employee of the Month"
-          : "Removed from Employee of the Month"
+          ? `${employee.name} selected as Employee of the Month`
+          : `Employee of the Month - status removed from ${employee.name}`
       );
+      setTimeout(() => setSuccessMessage(""), 3000);
     } catch {
-      setErrorMessage("Failed to toggle Employee of the Month.");
-    } finally {
-      setTimeout(() => {
-        setSuccessMessage("");
-        setErrorMessage("");
-      }, 3000);
+      setErrorMessage("Failed to update Employee of the Month -status.");
     }
   };
 
-  if (error) return <p style={{ color: "red" }}>Error: {error}</p>;
   if (loading || !updatedData) return <LoaderSpinner />;
+  if (error) {
+    return <p className="message">Error loading profile: {error}</p>;
+  }
 
   const isSaveDisabled =
     JSON.stringify({
@@ -132,6 +155,14 @@ const SingleEmployeeProfile = () => {
 
   return (
     <div className="profilePage" key={id}>
+      <div>
+        {successMessage && (
+          <p style={{ color: "green", fontWeight: "bold" }}>{successMessage}</p>
+        )}
+        {errorMessage && (
+          <p style={{ color: "red", fontWeight: "bold" }}>{errorMessage}</p>
+        )}
+      </div>
       {scheduleProbationReview && (
         <p style={{ color: "green", fontWeight: "bold" }}>
           Schedule probation review
@@ -139,28 +170,24 @@ const SingleEmployeeProfile = () => {
       )}
       {scheduleRecognitionMeeting && (
         <p style={{ color: "green", fontWeight: "bold" }}>
-          Schedule recognition meeting, {fullYearsOfEmployment} years with the
+          Schedule recognition meeting — {fullYearsOfEmployment} years at the
           company
         </p>
       )}
-      <div
-        className={`${getDepartmentClassName(employee.department)}`}
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
-      >
+
+      <div className={getDepartmentClassName(updatedData.department)}>
         {isEditing ? (
           <>
             <form onChange={handleInput} onSubmit={handleSubmit}>
               <select
+                className="dpt"
+                id="department"
                 name="department"
                 value={updatedData.department}
                 onChange={handleInput}
+                required
               >
-                <option value="">Select department</option>
+                <option value="">Select Department</option>
                 {[
                   "IT",
                   "Design",
@@ -172,9 +199,9 @@ const SingleEmployeeProfile = () => {
                   "Sales",
                   "Legal",
                   "Human Resources",
-                ].map((dpt) => (
-                  <option key={dpt} value={dpt}>
-                    {dpt}
+                ].map((department) => (
+                  <option key={department} value={department}>
+                    {department}
                   </option>
                 ))}
               </select>
@@ -182,6 +209,8 @@ const SingleEmployeeProfile = () => {
                 <p className="white-font">Location:</p>
                 <label>
                   <input
+                    className="loc"
+                    id="Helsinki"
                     type="radio"
                     name="location"
                     value="Helsinki"
@@ -192,6 +221,8 @@ const SingleEmployeeProfile = () => {
                 </label>
                 <label>
                   <input
+                    className="loc"
+                    id="Espoo"
                     type="radio"
                     name="location"
                     value="Espoo"
@@ -202,6 +233,8 @@ const SingleEmployeeProfile = () => {
                 </label>
                 <label>
                   <input
+                    className="loc"
+                    id="Tampere"
                     type="radio"
                     name="location"
                     value="Tampere"
@@ -214,20 +247,19 @@ const SingleEmployeeProfile = () => {
             </form>
           </>
         ) : (
-          <>
-            <p className="dpt">
-              {employee.department}, {employee.location}{" "}
-            </p>
-          </>
+          <p className="dpt">
+            {updatedData.department}, {updatedData.location}
+          </p>
         )}
       </div>
-      <h1>{employee.name}</h1>
+
       <img
-        src={`https://api.dicebear.com/9.x/open-peeps/svg?seed=${employee.name}${employee.title}`}
-        style={{ height: "200px" }}
+        src={`https://api.dicebear.com/9.x/open-peeps/svg?seed=${updatedData.name}${updatedData.title}`}
+        alt={updatedData.name}
         className="card-image"
-        alt={employee.name}
+        style={{ height: "200px" }}
       />
+
       {employeeOfMonth && (
         <div className="employeeBadge">
           <img
@@ -245,28 +277,36 @@ const SingleEmployeeProfile = () => {
               type="text"
               name="name"
               value={updatedData.name}
-              //onChange={handleInput}
-              placeholder="Name"
+              onChange={handleInput}
+              placeholder="Full name"
+              required
             />
-            <select name="status" value={updatedData.status}>
-              <option value="">Select status</option>
-              {[
-                "IT",
-                "Design",
-                "Development",
-                "Product",
-                "Finance",
-                "Analytics",
-                "Marketing",
-                "Sales",
-                "Legal",
-                "Human Resources",
-              ].map((dpt) => (
-                <option key={dpt} value={dpt}>
-                  {dpt}
-                </option>
-              ))}
-            </select>
+
+            <input
+              type="text"
+              name="title"
+              value={updatedData.title}
+              onChange={handleInput}
+              placeholder="Title"
+              required
+            />
+            <input
+              type="text"
+              name="skills"
+              //value={updatedData.skills}
+              //onChange={handleInput}
+              placeholder="Skills (comma-separated)"
+              value={updatedData.skills}
+              onChange={handleInput}
+            />
+            <input
+              type="text"
+              //value={updatedData.currentProjects}
+              //onChange={handleInput}
+              placeholder="Current Projects (comma-separated)"
+              value={updatedData.currentProjects}
+              onChange={handleInput}
+            />
             <div className="add-input">
               <label htmlFor="status" className="white-font">
                 Status:
@@ -275,43 +315,25 @@ const SingleEmployeeProfile = () => {
                 id="status"
                 name="status"
                 value={updatedData.status}
-                //onChange={handleInput}
+                required
+                onChange={handleInput}
               >
-                <option value="">Select status</option>
-                <option value="active">Active</option>
-                <option value="on vacation">On vacation</option>
-                <option value="on parental leave">On parental leave</option>
-                <option value="on study leave">On study leave</option>
-                <option value="resigned">Resigned</option>
-                <option value="retired">Retired</option>
-                <option value="specified below">Other (specify below)</option>
+                <option value="">Select Employee Status</option>
+                {[
+                  "Active",
+                  "On Vacation",
+                  "On Parental Leave",
+                  "On Study Leave",
+                  "Resigned",
+                  "Retired",
+                  "Specified below",
+                ].map((status) => (
+                  <option key={status} value={status}>
+                    {status}
+                  </option>
+                ))}
               </select>
             </div>
-
-            <input
-              type="text"
-              name="title"
-              value={updatedData.title}
-              onChange={handleInput}
-              placeholder="Title"
-            />
-            <input
-              type="text"
-              name="skills"
-              //value={updatedData.skills}
-              //onChange={handleInput}
-              placeholder="Skills"
-              value={updatedData.skills}
-              onChange={handleInput}
-            />
-            <input
-              type="text"
-              //value={updatedData.currentProjects}
-              //onChange={handleInput}
-              placeholder="Current Projects"
-              value={updatedData.currentProjects}
-              onChange={handleInput}
-            />
             <div className="add-input">
               <label htmlFor="manager" className="white-font">
                 Manager:
@@ -321,6 +343,7 @@ const SingleEmployeeProfile = () => {
                 id="manager"
                 name="manager"
                 value={updatedData.manager}
+                required
                 onChange={handleInput}
               />
             </div>
@@ -333,26 +356,31 @@ const SingleEmployeeProfile = () => {
                 id="startDate"
                 name="startDate"
                 value={updatedData.startDate}
+                required
                 onChange={handleInput}
               />
             </div>
             <div className="add-input">
-              <label htmlFor="contractType" className="white-font">
-                Contract Type:
-              </label>
               <select
                 id="contractType"
                 name="contractType"
                 value={updatedData.contractType}
+                required
                 onChange={handleInput}
               >
-                <option value="">Select contract type</option>
-                <option value="Full-time">Full-time</option>
-                <option value="Part-time 50%">Part-time 50%</option>
-                <option value="Part-time 80%">Part-time 80%</option>
-                <option value="Contractual">Contractual</option>
-                <option value="Internship">Internship</option>
-                <option value="Other">Other (specify below)</option>
+                <option value="">Select Contract Type</option>
+                {[
+                  "Full-time",
+                  "Part-time 50%",
+                  "Part-time 80%",
+                  "Contractual",
+                  "Internship",
+                  "Specified below",
+                ].map((contractType) => (
+                  <option key={contractType} value={contractType}>
+                    {contractType}
+                  </option>
+                ))}
               </select>
             </div>
             <div className="add-input">
@@ -364,6 +392,8 @@ const SingleEmployeeProfile = () => {
                 id="salary"
                 name="salary"
                 value={updatedData.salary}
+                placeholder="Salary/month"
+                required
                 onChange={handleInput}
               />
             </div>
@@ -376,6 +406,8 @@ const SingleEmployeeProfile = () => {
                 id="vacationDaysAcc"
                 name="vacationDaysAcc"
                 value={updatedData.vacationDaysAcc}
+                placeholder="Vacation Days Accumulated"
+                required
                 onChange={handleInput}
               />
             </div>
@@ -388,6 +420,8 @@ const SingleEmployeeProfile = () => {
                 id="email"
                 name="email"
                 value={updatedData.email}
+                placeholder="Email"
+                required
                 onChange={handleInput}
               />
             </div>
@@ -400,6 +434,8 @@ const SingleEmployeeProfile = () => {
                 id="phone"
                 name="phone"
                 value={updatedData.phone}
+                placeholder="phone"
+                required
                 onChange={handleInput}
               />
             </div>
@@ -412,6 +448,8 @@ const SingleEmployeeProfile = () => {
                 id="homeAddress"
                 name="homeAddress"
                 value={updatedData.homeAddress}
+                placeholder="Home Address"
+                required
                 onChange={handleInput}
               />
             </div>
@@ -424,6 +462,7 @@ const SingleEmployeeProfile = () => {
                 id="dateOfBirth"
                 name="dateOfBirth"
                 value={updatedData.dateOfBirth}
+                required
                 onChange={handleInput}
               />
             </div>
@@ -436,6 +475,7 @@ const SingleEmployeeProfile = () => {
                 id="education"
                 name="education"
                 value={updatedData.education}
+                placeholder="Education (degree, institution, year)"
                 onChange={handleInput}
               />
             </div>
@@ -448,6 +488,8 @@ const SingleEmployeeProfile = () => {
                 id="emergencyContact"
                 name="emergencyContact"
                 value={updatedData.emergencyContact}
+                placeholder="Emergency Contact"
+                required
                 onChange={handleInput}
               />
             </div>
@@ -456,7 +498,7 @@ const SingleEmployeeProfile = () => {
               <textarea
                 id="otherInfo"
                 name="otherInfo"
-                rows="4"
+                rows="10"
                 cols="50"
                 value={updatedData.otherInfo}
                 onChange={handleInput}
@@ -466,19 +508,21 @@ const SingleEmployeeProfile = () => {
         </>
       ) : (
         <>
-          {employee.status !== "active" && employee.status !== "other" && (
-            <p style={{ fontStyle: "italic", fontWeight: "bold" }}>
-              ({employee.status})
-            </p>
-          )}
-          <h1> {employee.name}</h1>
-          <p>{employee.title}</p>
+          <h1>{updatedData.name}</h1>
+
+          {updatedData.status !== "Active" &&
+            updatedData.status !== "Specified below" && (
+              <p style={{ fontStyle: "italic", fontWeight: "bold" }}>
+                ({updatedData.status})
+              </p>
+            )}
+          <p>{updatedData.title}</p>
           {/*<p>
-            <strong>Department:</strong> {employee.department}
-          </p>
-          <p>
-            <strong>Location:</strong> {employee.location}
-          </p>*/}
+        <strong>Department:</strong> {employee.department}
+      </p>
+      <p>
+        <strong>Location:</strong> {employee.location}
+      </p>
           <div>
             <p>Skills:</p>
             {(employee.skills || []).map((skill) => (
@@ -492,93 +536,94 @@ const SingleEmployeeProfile = () => {
             ))}
           </div>
           {/*
-              <div>
-                <p>Skills:</p>
-                {employee.skills.map((skill) => (
-                  <span key={skill}>{skill} </span>
-                ))}
-              </div>
-              <div>
-                <p>Current Projects:</p>
-                {employee.currentProjects.map((project) => (
-                  <span key={project}>{project} </span>
-                ))}
-              </div>
-              */}
+          <div>
+            <p>Skills:</p>
+            {employee.skills.map((skill) => (
+              <span key={skill}>{skill} </span>
+            ))}
+          </div>
+          <div>
+            <p>Current Projects:</p>
+            {employee.currentProjects.map((project) => (
+              <span key={project}>{project} </span>
+            ))}
+          </div>
+          */}
           <p>
-            <strong>Manager:</strong> {employee.manager}
+            <strong>Skills:</strong> {updatedData.skills}
           </p>
           <p>
-            <strong>Start Date:</strong> {employee.startDate} (
+            <strong>Current Projects:</strong> {updatedData.currentProjects}
+          </p>
+          <p>
+            <strong>Employee Status:</strong> {updatedData.status}
+          </p>
+          <p></p>
+          <p>
+            <strong>Manager:</strong> {updatedData.manager}
+          </p>
+          <p>
+            <strong>Start Date:</strong> {updatedData.startDate} (
             {yearsOfEmployment} years of employment)
           </p>
           <p>
-            <strong>Contract Type:</strong> {employee.contractType}
+            <strong>Contract Type:</strong> {updatedData.contractType}
+          </p>
+          <p>
+            <strong>Salary/month:</strong> € {updatedData.salary}
           </p>
           <p>
             <strong>Vacation Days Accumulated:</strong>{" "}
-            {employee.vacationDaysAcc}
+            {updatedData.vacationDaysAcc} days
           </p>
           <p>
-            <strong>Salary/month:</strong> {employee.salary}
+            <strong>E-mail:</strong> {updatedData.email}
           </p>
           <p>
-            <strong>Phone:</strong> {employee.phone}
+            <strong>Phone:</strong> {updatedData.phone}
           </p>
           <p>
-            <strong>Email:</strong> {employee.email}
+            <strong>Home Address:</strong> {updatedData.homeAddress}
           </p>
           <p>
-            <strong>Home Address:</strong> {employee.homeAddress}
+            <strong>Date of Birth:</strong> {updatedData.dateOfBirth}
           </p>
           <p>
-            <strong>Date of Birth:</strong> {employee.dateOfBirth}
+            <strong>Education:</strong> {updatedData.education}
           </p>
           <p>
-            <strong>Education:</strong> {employee.education}
+            <strong>Emergency Contact:</strong> {updatedData.emergencyContact}
           </p>
           <p>
-            <strong>Emergency Contact:</strong> {employee.emergencyContact}
-          </p>
-          <p>
-            <strong>Other Information:</strong> {employee.otherInfo}
+            <strong>Other Information:</strong> {updatedData.otherInfo}
           </p>
         </>
       )}
 
       <div>
-        <button onClick={() => navigate(-1)}>Go Back</button>
-        <Link to={"/employees"}>Back to list</Link>
+        <button onClick={() => navigate("/employees")}>Back to List</button>
         {isEditing ? (
           <>
             <button onClick={handleSubmit} disabled={isSaveDisabled}>
-              Save details
+              Save Changes
             </button>
-            <button onClick={handleCancel}>Cancel edit</button>
+            <button onClick={handleCancel}>Cancel Edit</button>
           </>
         ) : (
-          <button onClick={() => setIsEditing(true)}>Edit details</button>
+          <button onClick={() => setIsEditing(true)}>Edit Details</button>
         )}
-      </div>
-
-      <button onClick={toggleEmployeeOfMonth}>
-        {employee.employeeOfMonth
-          ? 'Remove status "Employee of the Month"'
-          : 'Add status "Employee of the Month"'}
-      </button>
-      <button
-        onClick={handleDelete}
-        style={{ color: "white", backgroundColor: "red", marginTop: "1rem" }}
-      >
-        Delete Profile
-      </button>
-      <div>
-        {successMessage && (
-          <p style={{ color: "green", fontWeight: "bold" }}>{successMessage}</p>
-        )}
-        {errorMessage && (
-          <p style={{ color: "red", fontWeight: "bold" }}>{errorMessage}</p>
-        )}
+        <button onClick={toggleEmployeeOfMonth}>
+          {employeeOfMonth
+            ? "Remove status Employee of the Month"
+            : "Select as Employee of the Month"}
+        </button>
+        <button
+          onClick={handleDelete}
+          style={{ color: "white", backgroundColor: "red" }}
+        >
+          {" "}
+          Delete Profile
+        </button>
       </div>
     </div>
   );
