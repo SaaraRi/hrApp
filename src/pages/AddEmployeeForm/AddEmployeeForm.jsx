@@ -4,7 +4,6 @@ import useAxios from "../../hooks/useAxios";
 import LoaderSpinner from "../../components/LoaderSpinner/LoaderSpinner";
 
 const emptyForm = () => ({
-  id: "",
   name: "",
   title: "",
   department: "",
@@ -51,9 +50,9 @@ const AddEmployeeForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
     const newEmployee = {
       ...formData,
-      id: Date.now(),
       skills: formData.skills.split(",").map((s) => s.trim()),
       currentProjects: formData.currentProjects.split(",").map((p) => p.trim()),
       salary: parseFloat(formData.salary),
@@ -65,8 +64,10 @@ const AddEmployeeForm = () => {
     try {
       await create(newEmployee);
       setSuccessMessage("Employee profile created successfully");
-      setTimeout(() => setSuccessMessage(""), 5000);
-      setTimeout(() => navigate("/employees"), 3000);
+      setTimeout(() => setSuccessMessage(""), 3000);
+      //setTimeout(() => navigate("/employees"), 4000);
+      navigate("/employees");
+      setLoading(false);
       handleReset();
     } catch (error) {
       // setError(error);

@@ -17,12 +17,12 @@ const SingleEmployeeProfile = () => {
     update,
     remove,
     error,
-    loading,
   } = useAxios("http://localhost:3007/employees");
 
   //const [loading, setLoading] = useState(false);
   const [updatedData, setUpdatedData] = useState(employee);
   const [isEditing, setIsEditing] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [employeeOfMonth, setEmployeeOfMonth] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -71,23 +71,26 @@ const SingleEmployeeProfile = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const updatedEmployee = {
-        ...updatedData,
-        skills: updatedData.skills.split(",").map((s) => s.trim()),
-        currentProjects: updatedData.currentProjects
-          .split(",")
-          .map((p) => p.trim()),
-        salary: parseFloat(updatedData.salary),
-      };
 
+    const updatedEmployee = {
+      ...updatedData,
+      skills: updatedData.skills.split(",").map((s) => s.trim()),
+      currentProjects: updatedData.currentProjects
+        .split(",")
+        .map((p) => p.trim()),
+      salary: parseFloat(updatedData.salary),
+    };
+    setLoading(true);
+    try {
       await update(id, updatedEmployee);
       setIsEditing(false);
-      setSuccessMessage("Employee profile updated successfully.");
+      setSuccessMessage("Employee profile updated successfully");
       setTimeout(() => setSuccessMessage(""), 3000);
-    } catch (err) {
-      setErrorMessage("Failed to update employee. Please try again.");
+      setLoading(false);
+    } catch (error) {
+      setErrorMessage("Failed to update employee profile. Please try again.");
       setTimeout(() => setErrorMessage(""), 3000);
+      setLoading(false);
     }
   };
 
@@ -104,18 +107,27 @@ const SingleEmployeeProfile = () => {
     /*const confirmed = window.confirm(
       "Are you sure you want to delete this profile?"
     );
-    if (confirmed) {*/
+    if (confirmed) {
     await remove(id);
-    setSuccessMessage("Profile successfully deleted.");
-    setTimeout(() => navigate("/employees"), 3000);
+    setSuccessMessage("Employee profile deleted successfully.");
+    setTimeout(() => navigate("/employees"), 3000);*/
+    try {
+      await remove(id);
+      setSuccessMessage("Employee profile deleted successfully.");
+      setTimeout(() => setSuccessMessage(""), 3000);
+    } catch (error) {
+      setErrorMessage("Failed to delete employee profile. Please try again.");
+      setTimeout(() => setErrorMessage(""), 3000);
+    }
   };
 
   const toggleEmployeeOfMonth = async () => {
+    const updatedEmployee = {
+      ...employee,
+      employeeOfMonth: !employeeOfMonth,
+    };
+
     try {
-      const updatedEmployee = {
-        ...employee,
-        employeeOfMonth: !employeeOfMonth,
-      };
       await update(id, updatedEmployee);
       setEmployeeOfMonth(!employeeOfMonth);
       setSuccessMessage(

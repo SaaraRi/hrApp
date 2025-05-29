@@ -99,14 +99,16 @@ const EmployeeCard = ({ employee }) => {
       <div>
         <button
           onClick={() =>
-            navigate(`/employees/${id}`, { state: { editMode: false } })
+            navigate(`/employees/${employee.id}`, {
+              state: { editMode: false },
+            })
           }
         >
           View Full Profile
         </button>
         <button
           onClick={() =>
-            navigate(`/employees/${id}`, { state: { editMode: true } })
+            navigate(`/employees/${employee.id}`, { state: { editMode: true } })
           }
         >
           Edit Profile

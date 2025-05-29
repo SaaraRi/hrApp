@@ -7,6 +7,7 @@
       "department": "Development",
       "location": "Tampere",
       "skills": [
+        "jee",
         "Recruiting",
         "Communication",
         "Employee Relations"
@@ -25,7 +26,7 @@
       "employeeOfMonth": true,
       "manager": "Eero Koskinen",
       "startDate": "2025-04-03",
-      "contractType": "Part-time 50%",
+      "contractType": "Full-time",
       "salary": 4240,
       "vacationDaysAcc": "46",
       "phone": "040-1234567",
@@ -34,7 +35,7 @@
       "education": "Master's in Computer Science, University of Glasgow, 2020",
       "dateOfBirth": "1985-06-20",
       "emergencyContact": "Anna Nieminen, 040-9876543",
-      "otherInfo": "Remote work only :) :)\njeejee jeeeeeeeeee. pliis",
+      "otherInfo": "",
       "": "mmaikki,kissa,kakka,kukka,Customer Portal,Backend Optimization,MOIKKA"
     },
     {
@@ -906,107 +907,6 @@
       "dateOfBirth": "1992-05-14",
       "emergencyContact": "Mohamed Mohammed, 040-9876543",
       "otherInfo": ""
-    },
-    {
-      "id": "16ce",
-      "name": "h",
-      "title": "h",
-      "department": "j",
-      "location": "h",
-      "skills": [
-        "h"
-      ],
-      "currentProjects": [
-        "j"
-      ],
-      "startDate": "2025-05-16",
-      "salary": 6,
-      "employeeOfMonth": false
-    },
-    {
-      "id": 1748550352989,
-      "name": "Saara Rikama",
-      "title": "fff",
-      "department": "Design",
-      "location": "Helsinki",
-      "skills": [
-        "h",
-        "k",
-        "l"
-      ],
-      "currentProjects": [
-        "k",
-        "k"
-      ],
-      "manager": "ggg",
-      "startDate": "2025-05-07",
-      "contractType": "Internship",
-      "status": "on study leave",
-      "salary": 888,
-      "vacationDaysAcc": "0",
-      "email": "saara.rikama@gmail.com",
-      "phone": "0503493137",
-      "homeAddress": "Wallininkuja 3 A 21",
-      "dateOfBirth": "2025-04-29",
-      "education": "hhh,hhgg,999",
-      "emergencyContact": "ddd",
-      "otherInfo": "fyffyfdfg",
-      "employeeOfMonth": false
-    },
-    {
-      "id": 1748551364897,
-      "name": "Saara Rikama",
-      "title": "hhh",
-      "department": "Design",
-      "location": "Helsinki",
-      "skills": [
-        "hhh",
-        "kkk"
-      ],
-      "currentProjects": [
-        "ddd"
-      ],
-      "manager": "uuu",
-      "startDate": "2025-05-18",
-      "contractType": "Internship",
-      "status": "On Study Leave",
-      "salary": 999,
-      "vacationDaysAcc": "2",
-      "email": "saara.rikama@gmail.com",
-      "phone": "0503493137",
-      "homeAddress": "Wallininkuja 3 A 21",
-      "dateOfBirth": "2025-05-15",
-      "education": "yyy, yyy, rrr",
-      "emergencyContact": "hhh",
-      "otherInfo": "dsdfgshtsht",
-      "employeeOfMonth": false
-    },
-    {
-      "id": 1748552300396,
-      "name": "Saara Rikama",
-      "title": "AAAAAAAA",
-      "department": "Marketing",
-      "location": "Espoo",
-      "skills": [
-        "ggg"
-      ],
-      "currentProjects": [
-        "ddd"
-      ],
-      "manager": "rrr",
-      "startDate": "2025-04-29",
-      "contractType": "Part-time 80%",
-      "status": "On Parental Leave",
-      "salary": 777,
-      "vacationDaysAcc": "7",
-      "email": "saara.rikama@gmail.com",
-      "phone": "0503493137",
-      "homeAddress": "Wallininkuja 3 A 21",
-      "dateOfBirth": "2025-04-30",
-      "education": "s,d,o",
-      "emergencyContact": "ggg",
-      "otherInfo": "wwwww",
-      "employeeOfMonth": false
     }
   ]
 }

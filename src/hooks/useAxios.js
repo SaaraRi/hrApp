@@ -25,6 +25,7 @@ const useAxios = (url) => {
       setEmployeesData((prev) =>
         Array.isArray(prev) ? [...prev, response.data] : [response.data]
       );
+      return response.data;
     } catch (err) {
       setError(err.message);
     } finally {
