@@ -1,35 +1,45 @@
 import { useState, useEffect } from "react";
-import EmployeeCard from "../../components/EmployeeCard/EmployeeCard";
+import { useNavigate } from "react-router";
+import EmployeeCard from "../../components/EmployeeCard/EmployeeCardPITKIS";
 import useAxios from "../../hooks/useAxios";
 import LoaderSpinner from "../../components/LoaderSpinner/LoaderSpinner";
 import "./EmployeesList.css";
 
 const EmployeesList = () => {
+  const navigate = useNavigate();
   const {
     employeesData: employees,
-    update,
+    //update,
     read,
-    //loading,
     error,
   } = useAxios("http://localhost:3005/employees");
-
-  useEffect(() => {
-    read();
-  }, []);
 
   const [loading, setLoading] = useState(true);
   //const [isEditing, setIsEditing] = useState(false);
   const [updatedData, setUpdatedData] = useState(employees);
   //const [updatedData, setUpdatedData] = useState(null);
   //const [employeeOfMonth, setEmployeeOfMonth] = useState(false);
-  const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
+  //const [successMessage, setSuccessMessage] = useState("");
+  //const [errorMessage, setErrorMessage] = useState("");
 
   const [searchValue, setSearchValue] = useState("");
   const [departmentFilter, setDepartmentFilter] = useState("all");
   const [showLocationHelsinki, setShowLocationHelsinki] = useState(false);
   const [showLocationEspoo, setShowLocationEspoo] = useState(false);
   const [showLocationTampere, setShowLocationTampere] = useState(false);
+
+  useEffect(() => {
+    read();
+  }, []);
+
+  /*  const handleEdit = (id) => {
+    navigate(`/employees/${id}`);
+  };
+
+  //const handleDelete = (id) => {
+  // remove(id);
+  //  }
+  //};*/
 
   const simulateLoading = (callback) => {
     setTimeout(callback, 1500);
@@ -80,9 +90,6 @@ const EmployeesList = () => {
 
   if (error) return <p className="message">Error: {error}</p>;
   if (loading) return <LoaderSpinner />;
-  //if (!employees || !employees.length)
-  //if (employees.length === 0)
-  //if (!employees) return <p className="message">No employee data available.</p>;
   if (!employees || employees.length === 0) {
     return <p className="message">No employee data available.</p>;
   }

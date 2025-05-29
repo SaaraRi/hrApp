@@ -6,40 +6,16 @@ import EmployeesList from "./pages/EmployeesList/EmployeesList";
 import AddEmployeeForm from "./pages/AddEmployeeForm/AddEmployeeForm";
 import ErrorPage from "./pages/ErrorPage/ErrorPage";
 //import useAxios from "./hooks/useAxios";
-import EmployeeProfile from "./pages/EmployeeProfile/EmployeeProfile";
+import SingleEmployeeProfile from "./pages/SingleEmployeeProfile/SingleEmployeeProfile";
 
 const App = () => {
-  //const { employeesData, update } = useAxios("http://localhost:3005/employees");
-
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Root />}>
-          <Route
-            path="/employees"
-            index
-            element={
-              <EmployeesList
-              //employeesData={employeesData}
-              //onEditData={update}
-              />
-            }
-          />
-
-          {/*
-          <Route
-            path="/employees/:id"
-            element={
-              <EmployeeProfile
-              /*singleEmployee={singleEmployee}
-            setSingleEmployee={setSingleEmployee}
-            onEditData={update}
-            onDeleteData={remove}*/}
-
-          <Route
-            path="/add"
-            element={<AddEmployeeForm /*onAddEmployee={create}*/ />}
-          />
+          <Route path="/employees" index element={<EmployeesList />} />
+          <Route path="/employees/:id" element={<SingleEmployeeProfile />} />
+          <Route path="/add" element={<AddEmployeeForm />} />
           <Route path="/about" element={<About />} />
           <Route path="/*" element={<ErrorPage />} />
         </Route>

@@ -2,52 +2,49 @@ import { useState } from "react";
 import axios from "axios";
 
 const useAxios = (url) => {
-  const [employeesData, setEmployeesData] = useState([]);
+  const [employeesData, setEmployeesData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  async function read() {
+  const read = async (id = "") => {
     setLoading(true);
     try {
-      const response = await axios.get(url);
+      const response = await axios.get(`${url}/${id}`);
       setEmployeesData(response.data);
     } catch (err) {
       setError(err.message);
-      throw err;
     } finally {
       setLoading(false);
     }
-  }
+  };
 
-  async function create(newEmployee) {
+  const create = async (newEmployee) => {
     setLoading(true);
     try {
       const response = await axios.post(url, newEmployee);
-      setEmployeesData((prev) => [...prev, response.data]);
-    } catch (err) {
-      setError(err.message);
-      throw err;
-    } finally {
-      setLoading(false);
-    }
-  }
-
-  async function update(id, updatedEmployee) {
-    setLoading(true);
-    try {
-      const response = await axios.patch(`${url}/${id}`, updatedEmployee);
       setEmployeesData((prev) =>
-        prev.map((employee) => (employee.id === id ? response.data : employee))
+        Array.isArray(prev) ? [...prev, response.data] : [response.data]
       );
     } catch (err) {
       setError(err.message);
-      throw err;
     } finally {
       setLoading(false);
     }
-  }
+  };
 
-  async function remove(id) {
+  const update = async (id, updatedEmployee) => {
+    setLoading(true);
+    try {
+      const response = await axios.patch(`${url}/${id}`, updatedEmployee);
+      setEmployeesData(response.data);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const remove = async (id) => {
     const confirmed = window.confirm(
       "Are you sure you want to delete this profile?"
     );
@@ -56,14 +53,13 @@ const useAxios = (url) => {
     setLoading(true);
     try {
       await axios.delete(`${url}/${id}`);
-      setEmployeesData((prev) => prev.filter((employee) => employee.id !== id));
+      setEmployeesData(employeesData);
     } catch (err) {
       setError(err.message);
-      throw err;
     } finally {
       setLoading(false);
     }
-  }
+  };
 
   return {
     employeesData,
@@ -71,8 +67,8 @@ const useAxios = (url) => {
     loading,
     setLoading,
     error,
-    create,
     read,
+    create,
     update,
     remove,
   };
