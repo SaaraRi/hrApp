@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, Link } from "react-router";
-import useAxios from "../../hooks/useAxiosoma";
+import { useParams, useNavigate, useLocation, Link } from "react-router";
+import useAxios from "../../hooks/useAxios";
 import badgeImage from "../../assets/images/pngwing.com.png";
 import { useEmploymentTime } from "../../hooks/useEmploymentTime";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
 import LoaderSpinner from "../../components/LoaderSpinner/LoaderSpinner";
-//import "./EmployeeProfile.css";
+import "./SingleEmployeeProfile.css";
 
 const SingleEmployeeProfile = () => {
   const { id } = useParams();
@@ -17,14 +17,23 @@ const SingleEmployeeProfile = () => {
     update,
     remove,
     error,
+    loading,
   } = useAxios("http://localhost:3005/employees");
 
-  const [loading, setLoading] = useState(false);
+  //const [loading, setLoading] = useState(false);
   const [updatedData, setUpdatedData] = useState(employee);
   const [isEditing, setIsEditing] = useState(false);
   const [employeeOfMonth, setEmployeeOfMonth] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
+  const location = useLocation();
+
+  useEffect(() => {
+    if (location.state?.editMode) {
+      setIsEditing(true);
+    }
+  }, [location.state]);
 
   useEffect(() => {
     read(id);

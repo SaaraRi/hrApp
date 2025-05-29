@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
-import EmployeeCard from "../../components/EmployeeCard/EmployeeCardPITKIS";
+import EmployeeCard from "../../components/EmployeeCard/EmployeeCard.jsx";
 import useAxios from "../../hooks/useAxios";
 import LoaderSpinner from "../../components/LoaderSpinner/LoaderSpinner";
 import "./EmployeesList.css";
@@ -162,11 +162,7 @@ const EmployeesList = () => {
           <div className="employeesList">
             {filteredEmployees.length > 0 ? (
               filteredEmployees.map((employee) => (
-                <EmployeeCard
-                  key={employee.id}
-                  {...employee}
-                  onEditData={update}
-                />
+                <EmployeeCard key={employee.id} {...employee} />
               ))
             ) : (
               <p>No match found, try another search.</p>

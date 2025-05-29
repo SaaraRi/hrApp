@@ -1,13 +1,15 @@
-import { useState } from "react";
+//import { useState } from "react";
 import { useNavigate } from "react-router";
-import { Link } from "react-router";
+//import { Link } from "react-router";
 import "./EmployeeCard.css";
 import badgeImage from "./pngwing.com.png";
 import { useEmploymentTime } from "../../hooks/useEmploymentTime";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
 import LoaderSpinner from "../LoaderSpinner/LoaderSpinner";
 
-const EmployeeCard = ({ employee, onEdit }) => {
+const EmployeeCard = ({ employee }) => {
+  const navigate = useNavigate();
+
   const {
     id,
     name,
@@ -22,16 +24,13 @@ const EmployeeCard = ({ employee, onEdit }) => {
     email,
   } = employee;
 
-  const navigate = useNavigate();
-
-  const [isEditing, setIsEditing] = useState(false);
-
   const {
     fullYearsOfEmployment,
     scheduleProbationReview,
     scheduleRecognitionMeeting,
   } = useEmploymentTime(startDate);
 
+  //if (loading) return <LoaderSpinner />;
   if (!employee) return <p className="message">Employee profile not found.</p>;
 
   return (
@@ -93,12 +92,19 @@ const EmployeeCard = ({ employee, onEdit }) => {
 
       <div>
         <button
-          onClick={() => navigate(`/employees/${id}`)}
-          //text={"See full profile"}
+          onClick={() =>
+            navigate(`/employees/${id}`, { state: { editMode: false } })
+          }
         >
-          See full profile
+          View Full Profile
         </button>
-        <button onClick={() => onEdit(id)}>Edit</button>
+        <button
+          onClick={() =>
+            navigate(`/employees/${id}`, { state: { editMode: true } })
+          }
+        >
+          Edit Profile
+        </button>
       </div>
     </div>
   );

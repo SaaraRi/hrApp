@@ -54,6 +54,12 @@ employee.currentProjects = Array.isArray(employee.currentProjects)
   <p>{skills.map(skill => skill.trim()).join(', ')}</p>
 
 
+  <button
+  onClick={() => navigate(`/employees/${id}`)}
+  //text={"See full profile"}
+>
+
+
 
   const handleCancel = () => {
     setIsEditing(false);
