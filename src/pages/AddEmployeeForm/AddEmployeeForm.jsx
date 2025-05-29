@@ -1,39 +1,113 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router";
-import useAxios from "../../aaaaaa/useAxiosvika";
+import useAxios from "../../hooks/useAxios";
 import useEmployeeForm from "../../hooks/useEmployeeForm";
 import LoaderSpinner from "../../components/LoaderSpinner/LoaderSpinner";
 
+const emptyForm = () => ({
+  name: "",
+  title: "",
+  department: "",
+  location: "",
+  skills: [],
+  currentProjects: [],
+  manager: "",
+  startDate: "",
+  contractType: "",
+  status: "",
+  salary: "",
+  vacationDaysAcc: "",
+  email: "",
+  phone: "",
+  homeAddress: "",
+  dateOfBirth: "",
+  education: "",
+  emergencyContact: "",
+  otherInfo: "",
+});
+
 const AddEmployeeForm = () => {
   const navigate = useNavigate();
-  const {
+
+  /*const {
     formData,
     successMessage,
     setSuccessMessage,
     errorMessage,
     setErrorMessage,
-    handleEdit,
+    handleInput,
     handleReset,
-  } = useEmployeeForm();
+  } = useEmployeeForm();*/
 
   const { create, error, setError } = useAxios(
     "http://localhost:3005/employees"
   );
 
   const [loading, setLoading] = useState(false);
+  const [formData, setFormData] = useState(emptyForm);
+  const [successMessage, setSuccessMessage] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const simulateLoading = (callback) => {
+    setTimeout(callback, 800);
+  };
+
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]:
+        name === "skills"
+          ? value.split(",").map((skill) => skill.trim())
+          : name === "currentProjects"
+          ? value.split(",").map((project) => project.trim())
+          : value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const newEmployee = {
+        ...formData,
+        salary: parseFloat(formData.salary),
+        skills:
+          typeof formData.skills === "string"
+            ? formData.skills.split(",").map((s) => s.trim())
+            : formData.skills,
+        currentProjects:
+          typeof formData.currentProjects === "string"
+            ? formData.currentProjects.split(",").map((p) => p.trim())
+            : formData.currentProjects,
+      };
+
+      await create(newEmployee);
+      setSuccessMessage("Employee profile updated successfully.");
+      setTimeout(() => setSuccessMessage(""), 3000);
+    } catch (err) {
+      setErrorMessage("Failed to update employee. Please try again.");
+      setTimeout(() => setErrorMessage(""), 3000);
+    }
+  };
+  /*const handleInput = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
+
+  const handleReset = () => {
+    setFormData(emptyForm());
+  };*/
 
   //const [formData, setFormData] = useState(emptyForm);
   //const [successMessage, setSuccessMessage] = useState("");
   //const [errorMessage, setErrorMessage] = useState("");
 
-  /*const handleEdit = (e) => {
+  /*const handleInput = (e) => {
     const { name, value } = e.target;
     setFormData((prevState) => ({ ...prevState, [name]: value }));
   };*/
 
-  const simulateLoading = (callback) => {
-    setTimeout(callback, 800);
-  };
+  /*
 
   const handleSave = async (e) => {
     e.preventDefault();
@@ -60,11 +134,11 @@ const AddEmployeeForm = () => {
       setTimeout(() => setErrorMessage(""), 3000);
       simulateLoading(() => setLoading(false));
     }
-  };
-
-  /*const handleReset = () => {
-    setFormData(emptyForm);
   };*/
+
+  const handleReset = () => {
+    setFormData(emptyForm);
+  };
 
   if (loading) return <LoaderSpinner />;
   if (error) return <p className="message">Error: {error}</p>;
@@ -72,7 +146,7 @@ const AddEmployeeForm = () => {
   return (
     <div className="container">
       <h1>Add New Employee</h1>
-      <form onSubmit={handleSave}>
+      <form onSubmit={handleSubmit}>
         <div className="add-input">
           <label htmlFor="name" className="white-font">
             Full name:
@@ -82,7 +156,7 @@ const AddEmployeeForm = () => {
             id="name"
             name="name"
             value={formData.name}
-            onChange={handleEdit}
+            onChange={handleInput}
             required
           />
         </div>
@@ -95,7 +169,7 @@ const AddEmployeeForm = () => {
             id="title"
             name="title"
             value={formData.title}
-            onChange={handleEdit}
+            onChange={handleInput}
             required
           />
         </div>
@@ -107,7 +181,7 @@ const AddEmployeeForm = () => {
             id="department"
             name="department"
             value={formData.department}
-            onChange={handleEdit}
+            onChange={handleInput}
             required
           >
             <option value="">Select department</option>
@@ -131,7 +205,7 @@ const AddEmployeeForm = () => {
               name="location"
               value="Helsinki"
               checked={formData.location === "Helsinki"}
-              onChange={handleEdit}
+              onChange={handleInput}
               required
             />
             Helsinki
@@ -142,7 +216,7 @@ const AddEmployeeForm = () => {
               name="location"
               value="Espoo"
               checked={formData.location === "Espoo"}
-              onChange={handleEdit}
+              onChange={handleInput}
               required
             />
             Espoo
@@ -153,7 +227,7 @@ const AddEmployeeForm = () => {
               name="location"
               value="Tampere"
               checked={formData.location === "Tampere"}
-              onChange={handleEdit}
+              onChange={handleInput}
               required
             />
             Tampere
@@ -168,7 +242,7 @@ const AddEmployeeForm = () => {
             id="skills"
             name="skills"
             value={formData.skills}
-            onChange={handleEdit}
+            onChange={handleInput}
             required
           />
         </div>
@@ -181,7 +255,7 @@ const AddEmployeeForm = () => {
             id="currentProjects"
             name="currentProjects"
             value={formData.currentProjects}
-            onChange={handleEdit}
+            onChange={handleInput}
             required
           />
         </div>
@@ -194,7 +268,7 @@ const AddEmployeeForm = () => {
             id="manager"
             name="manager"
             value={formData.manager}
-            onChange={handleEdit}
+            onChange={handleInput}
             required
           />
         </div>
@@ -207,7 +281,7 @@ const AddEmployeeForm = () => {
             id="startDate"
             name="startDate"
             value={formData.startDate}
-            onChange={handleEdit}
+            onChange={handleInput}
             required
           />
         </div>
@@ -219,7 +293,7 @@ const AddEmployeeForm = () => {
             id="contractType"
             name="contractType"
             value={formData.contractType}
-            onChange={handleEdit}
+            onChange={handleInput}
             required
           >
             <option value="">Select contract type</option>
@@ -239,7 +313,7 @@ const AddEmployeeForm = () => {
             id="status"
             name="status"
             value={formData.status}
-            onChange={handleEdit}
+            onChange={handleInput}
             required
           >
             <option value="">Select status</option>
@@ -261,7 +335,7 @@ const AddEmployeeForm = () => {
             id="salary"
             name="salary"
             value={formData.salary}
-            onChange={handleEdit}
+            onChange={handleInput}
             required
           />
         </div>
@@ -274,7 +348,7 @@ const AddEmployeeForm = () => {
             id="vacationDaysAcc"
             name="vacationDaysAcc"
             value={formData.vacationDaysAcc}
-            onChange={handleEdit}
+            onChange={handleInput}
             required
           />
         </div>
@@ -287,7 +361,7 @@ const AddEmployeeForm = () => {
             id="email"
             name="email"
             value={formData.email}
-            onChange={handleEdit}
+            onChange={handleInput}
             required
           />
         </div>
@@ -300,7 +374,7 @@ const AddEmployeeForm = () => {
             id="phone"
             name="phone"
             value={formData.phone}
-            onChange={handleEdit}
+            onChange={handleInput}
             required
           />
         </div>
@@ -313,7 +387,7 @@ const AddEmployeeForm = () => {
             id="homeAddress"
             name="homeAddress"
             value={formData.homeAddress}
-            onChange={handleEdit}
+            onChange={handleInput}
             required
           />
         </div>
@@ -326,7 +400,7 @@ const AddEmployeeForm = () => {
             id="dateOfBirth"
             name="dateOfBirth"
             value={formData.dateOfBirth}
-            onChange={handleEdit}
+            onChange={handleInput}
             required
           />
         </div>
@@ -339,7 +413,7 @@ const AddEmployeeForm = () => {
             id="education"
             name="education"
             value={formData.education}
-            onChange={handleEdit}
+            onChange={handleInput}
             required
           />
         </div>
@@ -352,7 +426,7 @@ const AddEmployeeForm = () => {
             id="emergencyContact"
             name="emergencyContact"
             value={formData.emergencyContact}
-            onChange={handleEdit}
+            onChange={handleInput}
             required
           />
         </div>
@@ -364,7 +438,7 @@ const AddEmployeeForm = () => {
             rows="4"
             cols="50"
             value={formData.otherInfo}
-            onChange={handleEdit}
+            onChange={handleInput}
           ></textarea>
         </div>
         <button type="submit" className="add-btn">

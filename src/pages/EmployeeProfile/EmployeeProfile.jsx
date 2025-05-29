@@ -17,9 +17,9 @@ const EmployeeProfile = () => {
     update,
     remove,
     error,
-  } = useAxios(`http://localhost:3005/employees/${id}`);
+  } = useAxios(`http://localhost:3005/employees/`);
 
-  const [updatedData, setUpdatedData] = useState(null);
+  const [updatedData, setUpdatedData] = useState(employee);
   const [loading, setLoading] = useState(true);
   const [isEditing, setIsEditing] = useState(false);
   const [employeeOfMonth, setEmployeeOfMonth] = useState(false);
@@ -32,15 +32,7 @@ const EmployeeProfile = () => {
 
   useEffect(() => {
     if (employee) {
-      setUpdatedData({
-        ...employee,
-        skills: Array.isArray(employee.skills)
-          ? employee.skills.join(", ")
-          : "",
-        currentProjects: Array.isArray(employee.currentProjects)
-          ? employee.currentProjects.join(", ")
-          : "",
-      });
+      setUpdatedData(employee);
       setEmployeeOfMonth(employee.employeeOfMonth || false);
       setLoading(false);
     }
@@ -66,11 +58,15 @@ const EmployeeProfile = () => {
     try {
       const updatedEmployee = {
         ...updatedData,
-        skills: updatedData.skills.split(", ").map((s) => s.trim()),
-        currentProjects: updatedData.currentProjects
-          .split(", ")
-          .map((p) => p.trim()),
         salary: parseFloat(updatedData.salary),
+        skills:
+          typeof updatedData.skills === "string"
+            ? updatedData.skills.split(",").map((s) => s.trim())
+            : updatedData.skills,
+        currentProjects:
+          typeof updatedData.currentProjects === "string"
+            ? updatedData.currentProjects.split(",").map((p) => p.trim())
+            : updatedData.currentProjects,
       };
 
       await update(id, updatedEmployee);
@@ -83,14 +79,22 @@ const EmployeeProfile = () => {
     }
   };
 
-  const handleCancel = () => {
+  /*  const handleCancel = () => {
     setIsEditing(false);
     setUpdatedData({
       ...employee,
       skills: employee.skills.join(", "),
       currentProjects: employee.currentProjects.join(", "),
     });
+  };*/
+
+  const handleCancel = () => {
+    setIsEditing(false);
+    setUpdatedData(employee);
   };
+
+  const isSaveDisabled =
+    JSON.stringify(employee) === JSON.stringify(updatedData);
 
   const handleDelete = async () => {
     const confirmed = window.confirm(
@@ -98,7 +102,7 @@ const EmployeeProfile = () => {
     );
     if (confirmed) {
       await remove(id);
-      setSuccessMessage("Profile deleted.");
+      setSuccessMessage("Profile successfully deleted");
       setTimeout(() => navigate("/employees"), 3000);
     }
   };
@@ -125,12 +129,12 @@ const EmployeeProfile = () => {
   if (error) return <p>Error: {error}</p>;
   if (loading || !updatedData) return <LoaderSpinner />;
 
-  const isSaveDisabled =
+  /*const isSaveDisabled =
     JSON.stringify({
       ...employee,
       skills: employee.skills.join(", "),
       currentProjects: employee.currentProjects.join(", "),
-    }) === JSON.stringify(updatedData);
+    }) === JSON.stringify(updatedData);*/
 
   return (
     <div className="profilePage" key={id}>
@@ -452,14 +456,32 @@ const EmployeeProfile = () => {
       <p>
         <strong>Location:</strong> {employee.location}
       </p>*/}
-          <p>
-            <strong>Current Projects:</strong>
-            {employee.currentProjects}
-          </p>
-          <p>
-            <strong>Skills:</strong>
-            {employee.skills}
-          </p>
+          <div>
+            <p>Skills:</p>
+            {(employee.skills || []).map((skill) => (
+              <span key={skill}>{skill} </span>
+            ))}
+          </div>
+          <div>
+            <p>Current Projects:</p>
+            {(employee.currentProjects || []).map((project) => (
+              <span key={project}>{project} </span>
+            ))}
+          </div>
+          {/*
+          <div>
+            <p>Skills:</p>
+            {employee.skills.map((skill) => (
+              <span key={skill}>{skill} </span>
+            ))}
+          </div>
+          <div>
+            <p>Current Projects:</p>
+            {employee.currentProjects.map((project) => (
+              <span key={project}>{project} </span>
+            ))}
+          </div>
+          */}
           <p>
             <strong>Manager:</strong> {employee.manager}
           </p>

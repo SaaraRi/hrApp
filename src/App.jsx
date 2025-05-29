@@ -25,6 +25,8 @@ const App = () => {
               />
             }
           />
+
+          {/*
           <Route
             path="/employees/:id"
             element={
@@ -32,10 +34,8 @@ const App = () => {
               /*singleEmployee={singleEmployee}
             setSingleEmployee={setSingleEmployee}
             onEditData={update}
-            onDeleteData={remove}*/
-              />
-            }
-          />
+            onDeleteData={remove}*/}
+
           <Route
             path="/add"
             element={<AddEmployeeForm /*onAddEmployee={create}*/ />}

@@ -9,28 +9,53 @@ import LoaderSpinner from "../LoaderSpinner/LoaderSpinner";
 
 const EmployeeCard = ({ onEditData, id, ...employee }) => {
   const navigate = useNavigate();
-  const {
-    fullYearsOfEmployment,
-    scheduleProbationReview,
-    scheduleRecognitionMeeting,
-  } = useEmploymentTime(employee.startDate);
 
+  const [updatedData, setUpdatedData] = useState(employee);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [loading, setLoading] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
 
-  const [updatedData, setUpdatedData] = useState({
-    ...employee,
-    skills: employee.skills.join(", "),
-    currentProjects: employee.currentProjects.join(", "),
-  });
+  employee.skills = Array.isArray(employee.skills)
+    ? employee.skills
+    : typeof employee.skills === "string"
+    ? employee.skills.split(",").map((s) => s.trim())
+    : [];
 
+  employee.currentProjects = Array.isArray(employee.currentProjects)
+    ? employee.currentProjects
+    : typeof employee.currentProjects === "string"
+    ? employee.currentProjects.split(",").map((p) => p.trim())
+    : [];
+
+  const {
+    fullYearsOfEmployment,
+    scheduleProbationReview,
+    scheduleRecognitionMeeting,
+  } = useEmploymentTime(employee.startDate);
+  // ...employee,
+  //skills: employee.skills.join(", "),
+  // currentProjects: employee.currentProjects.join(", "),
+  //});
+  /*
   const handleInput = (e) => {
     const { name, value } = e.target;
     setUpdatedData((prev) => ({
       ...prev,
       [name]: value,
+    }));
+  };*/
+
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+    setUpdatedData((prev) => ({
+      ...prev,
+      [name]:
+        name === "skills"
+          ? value.split(",").map((skill) => skill.trim())
+          : name === "currentProjects"
+          ? value.split(",").map((project) => project.trim())
+          : value,
     }));
   };
 
@@ -40,10 +65,10 @@ const EmployeeCard = ({ onEditData, id, ...employee }) => {
 
     const updatedEmployee = {
       ...updatedData,
-      skills: updatedData.skills.split(",").map((s) => s.trim()),
-      currentProjects: updatedData.currentProjects
-        .split(",")
-        .map((p) => p.trim()),
+      // skills: updatedData.skills.split(",").map((s) => s.trim()),
+      // currentProjects: updatedData.currentProjects
+      //  .split(",")
+      //  .map((p) => p.trim()),
       salary: parseFloat(updatedData.salary),
     };
 
@@ -61,22 +86,23 @@ const EmployeeCard = ({ onEditData, id, ...employee }) => {
   };
 
   const handleCancel = () => {
-    setUpdatedData({
-      ...employee,
-      skills: employee.skills.join(", "),
-      currentProjects: employee.currentProjects.join(", "),
-    });
+    setUpdatedData(employee);
+    //   {
+    //   ...employee,
+    //   skills: employee.skills.join(", "),
+    //   currentProjects: employee.currentProjects.join(", "),
+    // });
     setIsEditing(false);
   };
 
   const isSaveDisabled =
-    !updatedData ||
-    JSON.stringify(updatedData) ===
-      JSON.stringify({
-        ...employee,
-        skills: employee.skills.join(", "),
-        currentProjects: employee.currentProjects.join(", "),
-      });
+    !updatedData || JSON.stringify(updatedData) === JSON.stringify(employee);
+
+  //JSON.stringify({
+  //    ...employee,
+  //    skills: employee.skills.join(", "),
+  //    currentProjects: employee.currentProjects.join(", "),
+  //  });
 
   if (loading) return <LoaderSpinner />;
   if (!employee) return <p className="message">Employee profile not found.</p>;
@@ -243,16 +269,51 @@ const EmployeeCard = ({ onEditData, id, ...employee }) => {
             </p>
           )}
           <p>{employee.title}</p>
+          {/*   <div>
+            <p>Skills:</p>
+            {(employee.skills || []).map((skill) => (
+              <span key={skill}>{skill} </span>
+            ))}
+          </div>
+          <div>
+            <p>Current Projects:</p>
+            {(employee.currentProjects || []).map((project) => (
+              <span key={project}>{project} </span>
+            ))}
+          </div>
           <p>
             Skills: {employee.skills}
-            {/*employee.skills.map((skill) => skill.trim()).join(", ")*/}
-          </p>
-          <p>
-            Current projects:{employee.currentProjects}
-            {/*employee.currentProjects
+            </p>
+
+               <p>
+            Current projects:{employee.currentProjects} </p>
+          
+          *
+          <div>
+            {employee.skills.map((skill) => skill.trim()).join(", ")}
+
+            {employee.currentProjects
               .map((project) => project.trim())
-              .join(", ")*/}
-          </p>
+              .join(", ")}
+          </div>*/}
+          <div>
+            <p>
+              Skills:{" "}
+              {(Array.isArray(employee.skills) ? employee.skills : [])
+                .map((skill) => skill.trim())
+                .join(", ")}
+            </p>
+
+            <p>
+              Current Projects:{" "}
+              {(Array.isArray(employee.currentProjects)
+                ? employee.currentProjects
+                : []
+              )
+                .map((project) => project.trim())
+                .join(", ")}
+            </p>
+          </div>
           <p>Contact:</p>
           <p>Phone: {employee.phone}</p>
           <p>Email: {employee.email}</p>

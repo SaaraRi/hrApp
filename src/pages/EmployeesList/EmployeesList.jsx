@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import EmployeeCard from "../../components/EmployeeCard/EmployeeCard";
-import useAxios from "../../aaaaaa/useAxiosvika";
+import useAxios from "../../hooks/useAxios";
 import LoaderSpinner from "../../components/LoaderSpinner/LoaderSpinner";
 import "./EmployeesList.css";
 
@@ -17,7 +17,7 @@ const EmployeesList = () => {
     read();
   }, []);
 
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   //const [isEditing, setIsEditing] = useState(false);
   const [updatedData, setUpdatedData] = useState(employees);
   //const [updatedData, setUpdatedData] = useState(null);
@@ -36,7 +36,7 @@ const EmployeesList = () => {
   };
 
   useEffect(() => {
-    if (employees.length) {
+    if (employees && employees.length) {
       simulateLoading(() => setLoading(false));
     }
   }, [employees]);
@@ -45,7 +45,8 @@ const EmployeesList = () => {
     setSearchValue(e.target.value);
   };
 
-  const filteredEmployees = employees.filter((employee) => {
+  const filteredEmployees = (employees || []).filter((employee) => {
+    //const filteredEmployees = employees.filter((employee) => {
     const searchTerm = searchValue.toLowerCase();
 
     const matchesSearch =
@@ -79,8 +80,12 @@ const EmployeesList = () => {
 
   if (error) return <p className="message">Error: {error}</p>;
   if (loading) return <LoaderSpinner />;
-  if (!employees.length)
+  //if (!employees || !employees.length)
+  //if (employees.length === 0)
+  //if (!employees) return <p className="message">No employee data available.</p>;
+  if (!employees || employees.length === 0) {
     return <p className="message">No employee data available.</p>;
+  }
 
   return (
     <>

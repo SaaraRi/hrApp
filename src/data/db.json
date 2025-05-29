@@ -2,23 +2,19 @@
   "employees": [
     {
       "id": "1",
-      "name": "Lauri Nieminen",
-      "title": "Senior Software Engineer",
-      "department": "Development",
+      "name": "Aino Virtanen-Koski",
+      "title": "HR Manager",
+      "department": "Human Resources",
       "location": "Helsinki",
       "skills": [
-        "Java",
-        "Spring",
-        "REST APIs",
-        "blaa",
-        "blee",
-        "bloo",
-        "blii",
-        "blöö",
-        "blää",
-        "pylly"
+        "Recruiting",
+        "Communication",
+        "Employee Relations"
       ],
       "currentProjects": [
+        "mökö",
+        "maikki",
+        "kissa",
         "kakka",
         "kukka",
         "Customer Portal",
@@ -28,17 +24,18 @@
       "status": "resigned",
       "employeeOfMonth": true,
       "manager": "Eero Koskinen",
-      "startDate": "2013-04-15",
+      "startDate": "2025-04-01",
       "contractType": "other",
-      "salary": 5600,
+      "salary": 4220,
       "vacationDaysAcc": "46",
-      "phone": "358 040-1234567",
-      "email": "lauri.nieminen@company.com",
+      "phone": "040-1234567",
+      "email": "aino.virtanen@example.com",
       "homeAddress": "Mannerheimintie 10, Helsinki",
       "education": "Master's in Computer Science, University of Glasgow, 2020",
       "dateOfBirth": "1985-06-20",
       "emergencyContact": "Anna Nieminen, 040-9876543",
-      "otherInfo": "Remote work only :) :)\njeejee jeeeeeeeeee. pliis"
+      "otherInfo": "Remote work only :) :)\njeejee jeeeeeeeeee. pliis",
+      "": "mmaikki,kissa,kakka,kukka,Customer Portal,Backend Optimization,MOIKKA"
     },
     {
       "id": "2",
@@ -911,362 +908,20 @@
       "otherInfo": ""
     },
     {
-      "id": "8e06",
-      "name": "",
-      "title": "s",
-      "department": "Design",
-      "location": "Helsinki",
-      "skills": [
-        "s"
-      ],
-      "currentProjects": [
-        "s"
-      ],
-      "manager": "s",
-      "startDate": "2025-05-02",
-      "contractType": "internship",
-      "status": "active",
-      "vacationDaysAcc": "5",
-      "salary": 666,
-      "email": "s@s",
-      "phone": "s",
-      "homeAddress": "s",
-      "dateOfBirth": "2025-04-28",
-      "education": "s",
-      "emergencyContact": "s",
-      "otherInfo": "xxxxxxxxxxxxxxxxxxxx"
-    },
-    {
-      "id": "e46a",
-      "name": "q",
-      "title": "q",
-      "department": "Human resources",
-      "location": "Espoo",
-      "skills": [
-        "h",
-        "h",
-        "h"
-      ],
-      "currentProjects": [
-        "h",
-        "h",
-        "h"
-      ],
-      "manager": "q",
-      "startDate": "2015-04-30",
-      "contractType": "partTime80",
-      "status": "on parental leave",
-      "vacationDaysAcc": "7",
-      "salary": 555,
-      "email": "s@s",
-      "phone": "5",
-      "homeAddress": "q",
-      "dateOfBirth": "2025-05-17",
-      "education": "q",
-      "emergencyContact": "q",
-      "otherInfo": "dfdtfdtrterte"
-    },
-    {
-      "id": "8d44",
-      "name": "hh",
-      "title": "kk",
-      "department": "",
-      "location": "Tampere",
-      "skills": [
-        "asd",
-        "asd",
-        "asd"
-      ],
-      "currentProjects": [
-        "s"
-      ],
-      "manager": "Sari Laine",
-      "startDate": "2020-05-15",
-      "contractType": "partTime50",
-      "status": "on study leave",
-      "vacationDaysAcc": "34",
-      "salary": 888,
-      "email": "d@g",
-      "phone": "8",
-      "homeAddress": "u",
-      "dateOfBirth": "2025-05-07",
-      "education": "s",
-      "emergencyContact": "o",
-      "otherInfo": "hhhhhhhhhhhhhh"
-    },
-    {
-      "id": "6586",
-      "": "",
-      "skills": [
-        "k",
-        "k",
-        "k"
-      ],
-      "currentProjects": [
-        "l",
-        "l",
-        "l"
-      ],
-      "name": "b",
-      "title": "b",
-      "department": "Analytics",
-      "location": "Tampere",
-      "manager": "o",
-      "startDate": "2025-05-23",
-      "contractType": "Part-time 50%",
-      "status": "active",
-      "salary": 9000,
-      "vacationDaysAcc": "9",
-      "email": "d@r",
-      "phone": "h",
-      "homeAddress": "o",
-      "dateOfBirth": "2025-04-28",
-      "education": "o",
-      "emergencyContact": "jjj"
-    },
-    {
-      "id": "338a",
-      "": "",
-      "skills": [
-        "A",
-        "A",
-        "A"
-      ],
-      "currentProjects": [
-        "A",
-        "A"
-      ],
-      "name": "A",
-      "title": "A",
-      "location": "Espoo",
-      "department": "Human resources",
-      "manager": "A",
-      "startDate": "2025-05-28",
-      "contractType": "Contractual",
-      "status": "resigned",
-      "salary": 8,
-      "vacationDaysAcc": "0",
-      "email": "F@A",
-      "phone": "66",
-      "homeAddress": "A",
-      "dateOfBirth": "2025-05-06",
-      "education": "A,A,A",
-      "emergencyContact": "A"
-    },
-    {
-      "id": "caeb",
-      "name": "Saara Rikama",
+      "id": "16ce",
+      "name": "h",
       "title": "h",
-      "department": "Product",
-      "location": "Espoo",
+      "department": "j",
+      "location": "h",
       "skills": [
         "h"
-      ],
-      "currentProjects": [
-        "h"
-      ],
-      "manager": "j",
-      "startDate": "2020-09-09",
-      "contractType": "Internship",
-      "status": "on study leave",
-      "salary": 9,
-      "vacationDaysAcc": "-8",
-      "email": "saara.rikama@gmail.com",
-      "phone": "0503493137",
-      "homeAddress": "Wallininkuja 3 A 21",
-      "dateOfBirth": "2025-05-01",
-      "education": "j",
-      "emergencyContact": "h",
-      "otherInfo": ""
-    },
-    {
-      "id": "84a7",
-      "name": "Saara Rikama",
-      "title": "h",
-      "department": "Finance",
-      "location": "Espoo",
-      "skills": [
-        "j"
       ],
       "currentProjects": [
         "j"
       ],
-      "manager": "k",
-      "startDate": "2025-05-07",
-      "contractType": "Part-time 80%",
-      "status": "on parental leave",
-      "salary": 9,
-      "vacationDaysAcc": "6",
-      "email": "saara.rikama@gmail.com",
-      "phone": "0503493137",
-      "homeAddress": "Wallininkuja 3 A 21",
-      "dateOfBirth": "2025-05-01",
-      "education": "j",
-      "emergencyContact": "k",
-      "otherInfo": ""
-    },
-    {
-      "id": "db6e",
-      "name": "Saara Rikama",
-      "title": "kunkku",
-      "department": "Development",
-      "location": "Tampere",
-      "skills": [
-        "h"
-      ],
-      "currentProjects": [
-        "jj"
-      ],
-      "manager": "ju",
-      "startDate": "2025-05-08",
-      "contractType": "Part-time 50%",
-      "status": "on parental leave",
-      "salary": 0,
-      "vacationDaysAcc": "99",
-      "email": "saara.rikama@gmail.com",
-      "phone": "0503493137",
-      "homeAddress": "Wallininkuja 3 A 21",
-      "dateOfBirth": "2025-05-15",
-      "education": "8",
-      "emergencyContact": "9",
-      "otherInfo": ""
-    },
-    {
-      "id": "45b9",
-      "name": "Saara Rikama",
-      "title": "kunkku",
-      "department": "Development",
-      "location": "Tampere",
-      "skills": [
-        "h"
-      ],
-      "currentProjects": [
-        "jj"
-      ],
-      "manager": "ju",
-      "startDate": "2025-05-08",
-      "contractType": "Part-time 50%",
-      "status": "on parental leave",
-      "salary": 0,
-      "vacationDaysAcc": "99",
-      "email": "saara.rikama@gmail.com",
-      "phone": "0503493137",
-      "homeAddress": "Wallininkuja 3 A 21",
-      "dateOfBirth": "2025-05-15",
-      "education": "8",
-      "emergencyContact": "9",
-      "otherInfo": ""
-    },
-    {
-      "id": "80a7",
-      "name": "Saara Rikama",
-      "title": "hahaaaaaa",
-      "department": "Development",
-      "location": "Helsinki",
-      "skills": [
-        "k"
-      ],
-      "currentProjects": [
-        "s"
-      ],
-      "manager": "h",
-      "startDate": "2025-05-03",
-      "contractType": "Full-time",
-      "status": "on parental leave",
-      "salary": 9,
-      "vacationDaysAcc": "9",
-      "email": "saara.rikama@gmail.com",
-      "phone": "0503493137",
-      "homeAddress": "Wallininkuja 3 A 21",
-      "dateOfBirth": "2025-05-15",
-      "education": "j",
-      "emergencyContact": "o",
-      "otherInfo": ""
-    },
-    {
-      "id": "51e1",
-      "name": "Saara Rikama",
-      "title": "hahaaaaaa",
-      "department": "Development",
-      "location": "Helsinki",
-      "skills": [
-        "k",
-        "jh",
-        "jg"
-      ],
-      "currentProjects": [
-        "s"
-      ],
-      "manager": "h",
-      "startDate": "2025-05-03",
-      "contractType": "Full-time",
-      "status": "on parental leave",
-      "salary": 9,
-      "vacationDaysAcc": "9",
-      "email": "saara.rikama@gmail.com",
-      "phone": "0503493137",
-      "homeAddress": "Wallininkuja 3 A 21",
-      "dateOfBirth": "2025-05-15",
-      "education": "j",
-      "emergencyContact": "o",
-      "otherInfo": "",
-      "": "s "
-    },
-    {
-      "id": "52ea",
-      "name": "Saara Rikama",
-      "title": "kakka",
-      "department": "Analytics",
-      "location": "Tampere",
-      "skills": [
-        "wääääähhhh"
-      ],
-      "currentProjects": [
-        "hhh"
-      ],
-      "manager": "kakka en jaxa",
       "startDate": "2025-05-16",
-      "contractType": "Part-time 50%",
-      "status": "active",
-      "salary": 0,
-      "vacationDaysAcc": "666",
-      "email": "saara.rikama@gmail.com",
-      "phone": "0503493137",
-      "homeAddress": "Wallininkuja 3 A 21",
-      "dateOfBirth": "2025-05-02",
-      "education": "u",
-      "emergencyContact": "h",
-      "otherInfo": "KAKKAKKAKKAKKA",
-      "": "hh"
-    },
-    {
-      "id": "83ab",
-      "name": "Saara Rikama",
-      "title": "kökkö",
-      "department": "Finance",
-      "location": "Tampere",
-      "skills": [
-        "j",
-        "k",
-        "k"
-      ],
-      "currentProjects": [
-        "h"
-      ],
-      "manager": "hii",
-      "startDate": "2025-05-16",
-      "contractType": "Part-time 50%",
-      "status": "on vacation",
-      "salary": 77,
-      "vacationDaysAcc": "84",
-      "email": "saara.rikama@gmail.com",
-      "phone": "0503493137",
-      "homeAddress": "Wallininkuja 3 A 21",
-      "dateOfBirth": "2025-05-01",
-      "education": "799",
-      "emergencyContact": "ggbjk",
-      "otherInfo": "oooooooo",
-      "": "hj"
+      "salary": 6,
+      "employeeOfMonth": false
     }
   ]
 }

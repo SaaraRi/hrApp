@@ -5,7 +5,7 @@ import "./EmployeeCard.css";
 import badgeImage from "./pngwing.com.png";
 import { useEmploymentTime } from "../../hooks/useEmploymentTime";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
-import useAxios from "../../hooks/useAxios";
+import useAxios from "../../hooks/useAxiosSeka";
 import LoaderSpinner from "../LoaderSpinner/LoaderSpinner";
 
 const EmployeeCard = ({ onEditData, id, ...employee }) => {
