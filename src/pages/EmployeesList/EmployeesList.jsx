@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import EmployeeCard from "../../components/EmployeeCard/EmployeeCard.jsx";
 import useAxios from "../../hooks/useAxios";
 import LoaderSpinner from "../../components/LoaderSpinner/LoaderSpinner";
-import "./EmployeesList.css";
+import styles from "./EmployeesList.module.scss";
 
 const EmployeesList = () => {
   const navigate = useNavigate();
@@ -58,7 +58,6 @@ const EmployeesList = () => {
   const searchTerm = searchValue.toLowerCase();
 
   const filteredEmployees = (employees || []).filter((employee) => {
-    //const filteredEmployees = employees.filter((employee) => {
     const matchesSearch =
       (employee.name || "").toLowerCase().includes(searchTerm) ||
       (employee.title || "").toLowerCase().includes(searchTerm) ||
@@ -95,71 +94,90 @@ const EmployeesList = () => {
   }
 
   return (
-    <>
+    <div className={styles.listContainer}>
       <h1>Employees Dashboard</h1>
       {loading ? (
         <LoaderSpinner />
       ) : (
         <>
-          <div>
-            <label htmlFor="search">Search for employee:</label>
-            <input
-              type="text"
-              id="search"
-              name="search"
-              value={searchValue}
-              onChange={searchHandle}
-              placeholder="name, title, skills, projects, manager etc., status, contract type, department, location"
-            />
-          </div>
-          <div>
-            <label>Filter by department:</label>
-            <select
-              value={departmentFilter}
-              onChange={(e) => setDepartmentFilter(e.target.value)}
-            >
-              <option value="all">All</option>
-              <option value="IT">IT</option>
-              <option value="Design">Design</option>
-              <option value="Engineering">Engineering</option>
-              <option value="Product">Product</option>
-              <option value="Analytics">Analytics</option>
-              <option value="Marketing">Marketing</option>
-              <option value="Sales">Sales</option>
-              <option value="Human resources">Human resources</option>
-            </select>
-          </div>
-          <div>
-            <p>Select location:</p>
-            <div>
+          <div className={styles.searchContainer}>
+            <h2>Search for employee:</h2>
+            <div className={styles.searchType}>
               <input
-                type="checkbox"
-                id="helsinki"
-                checked={showLocationHelsinki}
-                onChange={() => setShowLocationHelsinki((prev) => !prev)}
+                type="text"
+                id="search"
+                className={styles.searchInput}
+                value={searchValue}
+                onChange={searchHandle}
+                placeholder="name, title, skills, projects, manager, status, contract type, department, location"
               />
-              <label htmlFor="helsinki">Helsinki</label>
             </div>
-            <div>
-              <input
-                type="checkbox"
-                id="espoo"
-                checked={showLocationEspoo}
-                onChange={() => setShowLocationEspoo((prev) => !prev)}
-              />
-              <label htmlFor="espoo">Espoo</label>
+            <div className={styles.searchType}>
+              <select
+                className={styles.searchSelect}
+                value={departmentFilter}
+                onChange={(e) => setDepartmentFilter(e.target.value)}
+              >
+                <option value="">Filter by department</option>
+                <option value="all">All</option>
+                {[
+                  "Design",
+                  "Development",
+                  "Product",
+                  "Finance",
+                  "Marketing",
+                  "Sales",
+                  "Analytics",
+                  "IT",
+                  "Legal",
+                  "Human Resources",
+                ].map((department) => (
+                  <option key={department} value={department}>
+                    {department}
+                  </option>
+                ))}
+              </select>
             </div>
-            <div>
-              <input
-                type="checkbox"
-                id="tampere"
-                checked={showLocationTampere}
-                onChange={() => setShowLocationTampere((prev) => !prev)}
-              />
-              <label htmlFor="tampere">Tampere</label>
+            <div className={`${styles.searchType} ${styles.checkboxContainer}`}>
+              <div className={styles.checkboxWrapper}>
+                <input
+                  className={styles.checkboxInput}
+                  type="checkbox"
+                  id="Helsinki"
+                  checked={showLocationHelsinki}
+                  onChange={() => setShowLocationHelsinki((prev) => !prev)}
+                />
+                <label htmlFor="Helsinki" className={styles.checkboxLabel}>
+                  Helsinki
+                </label>
+              </div>
+              <div className={styles.checkboxWrapper}>
+                <input
+                  className={styles.checkboxInput}
+                  type="checkbox"
+                  id="Espoo"
+                  checked={showLocationEspoo}
+                  onChange={() => setShowLocationEspoo((prev) => !prev)}
+                />
+                <label htmlFor="Espoo" className={styles.label}>
+                  Espoo
+                </label>
+              </div>
+              <div className={styles.checkboxWrapper}>
+                <input
+                  className={styles.checkboxInput}
+                  type="checkbox"
+                  id="Tampere"
+                  checked={showLocationTampere}
+                  onChange={() => setShowLocationTampere((prev) => !prev)}
+                />
+                <label htmlFor="Tampere" className={styles.label}>
+                  Tampere
+                </label>
+              </div>
             </div>
           </div>
-          <div className="employeesList">
+          <div className={styles.employeesList}>
             {filteredEmployees.length > 0 ? (
               filteredEmployees.map((employee) => (
                 <EmployeeCard key={employee.id} employee={employee} />
@@ -170,7 +188,7 @@ const EmployeesList = () => {
           </div>
           <button
             type="button"
-            className="backToTopButton"
+            className={styles.backToTopButton}
             onClick={() => {
               document.body.scrollTop = 0;
               document.documentElement.scrollTop = 0;
@@ -180,7 +198,7 @@ const EmployeesList = () => {
           </button>
         </>
       )}
-    </>
+    </div>
   );
 };
 

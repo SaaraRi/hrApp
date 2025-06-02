@@ -8,8 +8,8 @@
 .loader-spinner {
   width: 50px;
   height: 50px;
-  border: 6px solid #ccc;
-  border-top: 6px solid #e59b46; /* Indigo color */
+  border: 6px solid #ffffff;
+  border-top: 6px solid #fce858;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }

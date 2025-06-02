@@ -1,11 +1,9 @@
-//import { useState } from "react";
 import { useNavigate } from "react-router";
-//import { Link } from "react-router";
-import "./EmployeeCard.css";
 import badgeImage from "../../assets/images/pngwing.com.png";
 import useEmploymentTime from "../../hooks/useEmploymentTime";
+import LoaderSpinner from "../LoaderSpinner/LoaderSpinner";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
-//import LoaderSpinner from "../LoaderSpinner/LoaderSpinner";
+import styles from "./EmployeeCard.module.css";
 
 const EmployeeCard = ({ employee }) => {
   const navigate = useNavigate();
@@ -40,63 +38,74 @@ const EmployeeCard = ({ employee }) => {
     );
 
   return (
-    <div className="card" key={id}>
-      {scheduleProbationReview && (
-        <p style={{ color: "green", fontWeight: "bold" }}>
-          Schedule probation review
-        </p>
-      )}
-      {scheduleRecognitionMeeting && (
-        <p style={{ color: "green", fontWeight: "bold" }}>
-          Schedule recognition meeting, {fullYearsOfEmployment} years with the
-          company
-        </p>
-      )}
+    <div className={styles.card} key={id}>
       <div
-        className={`${getDepartmentClassName(department)}`}
-        style={{
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "center",
-          alignItems: "center",
-        }}
+        className={`${getDepartmentClassName(department)} colorBanner`}
+        style={{ opacity: "0.8" }}
       >
-        <p className="dpt">
-          {department}, {location}{" "}
-        </p>
+        <div className={styles.bannerTextWrapper}>
+          <p className={styles.dptTitle}>{department}</p>
+          <p className={styles.locTitle}>{location}</p>
+        </div>
+      </div>
+      <div>
+        {scheduleProbationReview && (
+          <div className={styles.scheduleWrapper}>
+            <p className={styles.scheduleText}>
+              Schedule 6 months probation review!
+            </p>
+          </div>
+        )}
+        {scheduleRecognitionMeeting && (
+          <div className={styles.scheduleWrapper}>
+            <p className={styles.scheduleText}>Schedule recognition meeting </p>
+            <p className={styles.scheduleText}>
+              — {fullYearsOfEmployment} years at the company!
+            </p>
+          </div>
+        )}
       </div>
       <img
         src={`https://api.dicebear.com/9.x/open-peeps/svg?seed=${name}${title}`}
-        className="cardImg"
+        className={styles.cardImg}
         alt={name}
       />
 
       {employeeOfMonth && (
         <img
           src={badgeImage}
-          className="badgeImg"
+          className={styles.badgeImg}
           alt="Employee of the Month -badge"
         />
       )}
-
-      <p>{name}</p>
-      {status !== "Active" && status !== "Specified below" && (
-        <p style={{ fontStyle: "italic", fontWeight: "bold" }}>({status})</p>
-      )}
-      <p>{title}</p>
-
-      <p>
-        <strong>Skills:</strong> {skills.join(", ")}
-      </p>
-      <p>
-        <strong>Projects:</strong> {currentProjects.join(", ")}
-      </p>
-
-      <p>Contact:</p>
-      <p>Phone: {phone}</p>
-      <p>Email: {email}</p>
-
-      <div>
+      <div className={styles.profileTextContainer}>
+        <h3>{name}</h3>
+        <div>
+          <h4>{title}</h4>
+          {status !== "Active" && status !== "Specified below" ? (
+            <p className={styles.statusText}>({status})</p>
+          ) : (
+            <p style={{ color: "transparent" }}>({status})</p>
+          )}
+        </div>
+        <div className={styles.textWrapper}>
+          <div className={styles.skillsWrapper}>
+            <h5>Skills:</h5>
+            <p>{skills.join(", ")}</p>
+          </div>
+          <div className={styles.projectsWrapper}>
+            <h5>Current Projects:</h5>
+            <p>{currentProjects[0]}</p>
+            <p>{currentProjects[1]}</p>
+          </div>
+          <div className={styles.contactWrapper}>
+            <h5>Contact:</h5>
+            <p>{phone}</p>
+            <p>{email}</p>
+          </div>
+        </div>
+      </div>
+      <div className={styles.buttons}>
         <button
           onClick={() =>
             navigate(`/employees/${employee.id}`, {

@@ -1,0 +1,124 @@
+.formContainer {
+  width: 100%;
+  padding: 10rem 2rem 4rem 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+
+.formContainer h1 {
+  font-size: 42pt;
+  margin-bottom: 4rem;
+}
+
+.form {
+  width: 50%;
+}
+
+.inputWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: clip;
+}
+
+.inputWrapper label {
+  font-size: 16pt;
+  flex: 1;
+  text-align: left;
+}
+
+.inputWrapper input,
+.inputWrapper select,
+.otherInfoWrapper textarea {
+  flex: 1;
+  font-family: "Cal Sans";
+  font-size: 14pt;
+  padding: 0.7rem;
+  margin: 0.7rem auto;
+  background-color: #ffffff;
+  color: #3d3e41;
+  border-radius: 5px;
+  border: 1px solid #3d3e41;
+  width: 350px;
+  min-width: 350px;
+  max-width: 350px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
+}
+
+input[type="radio"] {
+  height: 1.5rem;
+  box-shadow: none;
+}
+
+.locationWrapper,
+.otherInfoWrapper {
+  margin: 1rem auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.locationLabel {
+  flex: 1;
+  font-size: 16pt;
+  text-align: left;
+}
+
+.radioContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 350px;
+  min-width: 350px;
+  max-width: 350px;
+  margin: 0.7rem 0;
+  gap: 2rem;
+}
+
+.radioWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.radioInput input[type="radio"] {
+  flex: 1;
+  height: 1rem;
+  box-shadow: none;
+  margin: none;
+}
+
+.radioLabel label {
+  flex: 1;
+  font-size: 14pt;
+}
+
+.otherInfoLabel {
+  flex: 1;
+  align-self: flex-start;
+  font-size: 16pt;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+.otherInfoText {
+  flex: 1;
+}
+
+.buttonContainer {
+  margin: 3rem 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}

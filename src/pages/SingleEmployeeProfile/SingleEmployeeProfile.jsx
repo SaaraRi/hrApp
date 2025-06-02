@@ -111,13 +111,17 @@ const SingleEmployeeProfile = () => {
     await remove(id);
     setSuccessMessage("Employee profile deleted successfully.");
     setTimeout(() => navigate("/employees"), 3000);*/
+    setLoading(true);
     try {
       await remove(id);
       setSuccessMessage("Employee profile deleted successfully.");
       setTimeout(() => setSuccessMessage(""), 3000);
+      setTimeout(() => navigate("/employees"), 3000);
+      setLoading(false);
     } catch (error) {
       setErrorMessage("Failed to delete employee profile. Please try again.");
       setTimeout(() => setErrorMessage(""), 3000);
+      setLoading(false);
     }
   };
 
@@ -156,11 +160,29 @@ const SingleEmployeeProfile = () => {
   return (
     <div className="profilePage" key={id}>
       <div>
-        {successMessage && (
-          <p style={{ color: "green", fontWeight: "bold" }}>{successMessage}</p>
-        )}
         {errorMessage && (
-          <p style={{ color: "red", fontWeight: "bold" }}>{errorMessage}</p>
+          <p
+            style={{
+              color: "#ff0055",
+              fontSize: "18pt",
+              marginTop: "3rem",
+              zIndex: "5",
+            }}
+          >
+            {errorMessage}
+          </p>
+        )}
+        {successMessage && (
+          <p
+            style={{
+              color: "#00955e",
+              fontSize: "18pt",
+              marginTop: "3rem",
+              zIndex: "5",
+            }}
+          >
+            {successMessage}
+          </p>
         )}
       </div>
       {scheduleProbationReview && (
@@ -175,7 +197,11 @@ const SingleEmployeeProfile = () => {
         </p>
       )}
 
-      <div className={getDepartmentClassName(updatedData.department)}>
+      <div
+        className={`${getDepartmentClassName(
+          updatedData.department
+        )} dpt-select`}
+      >
         {isEditing ? (
           <>
             <form onChange={handleInput} onSubmit={handleSubmit}>
@@ -189,14 +215,14 @@ const SingleEmployeeProfile = () => {
               >
                 <option value="">Select Department</option>
                 {[
-                  "IT",
                   "Design",
                   "Development",
                   "Product",
                   "Finance",
-                  "Analytics",
                   "Marketing",
                   "Sales",
+                  "Analytics",
+                  "IT",
                   "Legal",
                   "Human Resources",
                 ].map((department) => (

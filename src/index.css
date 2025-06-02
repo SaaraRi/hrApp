@@ -70,57 +70,65 @@ button:focus-visible {
   width: 100vw;
 }
 
-main {
-  min-height: calc(100vh - 135px);
-}
-
-main h1 {
+/*main h1 {
   padding: 2rem;
-}
+}*/
 
-.container {
+/*.container {
   max-width: 960px;
   margin: 0 auto;
-}
+}*/
 
 body {
-  color: rgba(20, 10, 6);
+  color: #3d3e41;
   margin: 0;
   height: 100%;
   width: 100vw;
   text-align: center;
   font-size: 14pt;
   font-family: "Cal Sans";
-  background-color: rgb(77, 77, 77);
-}
-
-main {
-  min-height: 60vh;
-  width: 100%;
-  /*padding: 2rem 0;*/
-  background-image: url("./assets/2457.jpg");
-  background-repeat: repeat;
-  background-size: contain;
-  background-position: center top;
-  
+  background-color: #d8d9dc;
 }
 
 main {
   min-height: calc(100vh - 135px);
+  width: 100%;
 }
 
 button {
   font-family: "Cal Sans";
   font-size: 14pt;
   font-weight: 800;
-  padding: 0.4rem;
-  margin: 0.3rem 0 0.3rem 0;
-  background-color: #95c6e3; 
-  color: rgba(47, 42, 42, 0.87);
-  border-radius: 5px;
-  border: 1.5px solid rgba(47, 42, 42, 0.87);
+  padding: 0.5rem 1rem;
+  margin: 1rem 0.5rem;
+  width: 170px;
+  background-color: #fff49e;
+  color: #3d3e41;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  transition-property: background-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
+button:hover {
+  background-color: #bbffbb;
+  border: 1px solid #b9c1be;
+}
+
+input[type="text"]:focus,
+select:focus {
+  border: 2px solid #fce858;
+}
+
+input::placeholder {
+  opacity: 0.6;
+  font-style: italic;
+}
+
+/*
 input,
 select {
   font-family: "Cal Sans";
@@ -171,7 +179,7 @@ h1 {
 .add-input {
   display: flex;
   flex-direction: row;
-  justify-content:space-between;
+  justify-content: space-between;
   align-items: center;
   margin: 0 35vw;
 }
@@ -182,9 +190,61 @@ form {
   gap: 0.5rem;
 }
 
+
+
 .add-btn {
   width: 120px;
   align-self: center;
   margin-top: 1rem;
 }
 
+/*.dpt-select {
+  content: "";
+  height: 40px;
+  display: block;
+  position: relative;
+}*/
+
+.design {
+  background: #ffbbbb;
+}
+
+.development {
+  background: #ffddbb;
+}
+
+.product {
+  background: #ffffbb;
+}
+
+.finance {
+  background: #bbffbb;
+}
+
+.marketing {
+  background: #bbffdd;
+}
+
+.sales {
+  background: #bbffff;
+}
+
+.analytics {
+  background: #bbddff;
+}
+
+.IT {
+  background: #bbbbff;
+}
+
+.legal {
+  background: #ddbbff;
+}
+
+.HR {
+  background: #ffbbff;
+}
+
+.default {
+  background: #ffbbdd;
+}

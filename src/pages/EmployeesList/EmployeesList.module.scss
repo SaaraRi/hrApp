@@ -1,0 +1,83 @@
+.listContainer {
+  padding: 10rem 2rem 4rem 2rem;
+}
+
+.listContainer h1 {
+  font-size: 50pt;
+}
+
+.searchContainer {
+  font-size: 16pt;
+  margin: 4rem auto;
+}
+
+.searchContainer h2 {
+  font-size: 20pt;
+  margin-bottom: 1rem;
+}
+
+.searchInput,
+.searchSelect {
+  font-family: "Cal Sans";
+  font-size: 14pt;
+  padding: 0.7rem;
+  margin: 0.7rem auto;
+  background-color: #ffffff;
+  color: #3d3e41;
+  border-radius: 5px;
+  border: 1px solid #3d3e41;
+  width: 350px;
+  max-width: 350px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
+}
+
+.checkboxContainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  width: 350px;
+  max-width: 350px;
+  margin: 1rem auto;
+  gap: 2rem;
+}
+
+.checkboxWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  gap: 0.5rem;
+  box-shadow: none;
+}
+
+.checkboxInput input[type="checkbox"] {
+  flex: 1;
+  height: 1rem;
+  box-shadow: none;
+  margin: none;
+}
+
+.checkboxLabel label {
+  flex: 1;
+  font-size: 14pt;
+}
+
+.employeesList {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.backToTopButton {
+  background-color: #c2b9ff;
+  border: 1px solid #aeaeb0;
+  position: fixed;
+  right: 3rem;
+  bottom: 3rem;
+  z-index: 4;
+}

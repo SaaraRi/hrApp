@@ -1,8 +1,9 @@
 import { NavLink, Link } from "react-router";
 import { useEffect, useState } from "react";
+import logo from "../../assets/images/icons8-employee-100.png";
 import "./Header.css";
 
-const Header = ({ name }) => {
+const Header = () => {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -17,17 +18,30 @@ const Header = ({ name }) => {
   }, []);
 
   return (
-    <header style={{ backgroundColor: scrolled ? "white" : "transparent" }}>
+    <header
+      style={{
+        backgroundColor: scrolled ? "#bfc1c5" : "transparent",
+        boxShadow: scrolled
+          ? "0 10px 18px rgba(0, 0, 0, 0.25), 0 7px 7px rgba(0, 0, 0, 0.22)"
+          : "none",
+      }}
+    >
       <div className="logo">
-        <Link to="/">
-          <h2>{name}</h2>
+        <Link to="/employees">
+          <img src={logo} alt="" />
         </Link>
       </div>
       <nav>
         <ul>
-          <NavLink to="/employees">Employees List</NavLink>
-          <NavLink to="/add">Add Employee</NavLink>
-          <NavLink to="/about">About</NavLink>
+          <NavLink to="/employees" className="menu-link">
+            Employees List
+          </NavLink>
+          <NavLink to="/add" className="menu-link">
+            Add Employee
+          </NavLink>
+          <NavLink to="/about" className="menu-link">
+            About
+          </NavLink>
         </ul>
       </nav>
     </header>

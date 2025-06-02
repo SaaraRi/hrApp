@@ -2,8 +2,6 @@ export const getDepartmentClassName = (department) => {
   if (!department) return "default";
 
   switch (department) {
-    case "IT":
-      return "IT";
     case "Design":
       return "design";
     case "Development":
@@ -12,13 +10,17 @@ export const getDepartmentClassName = (department) => {
       return "product";
     case "Finance":
       return "finance";
-    case "Analytics":
-      return "analytics";
     case "Marketing":
       return "marketing";
+    case "Sales":
+      return "sales";
+    case "Analytics":
+      return "analytics";
+    case "IT":
+      return "IT";
     case "Legal":
       return "legal";
-    case "Human resources":
+    case "Human Resources":
       return "HR";
     default:
       return "default";
