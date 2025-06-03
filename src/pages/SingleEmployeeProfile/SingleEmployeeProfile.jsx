@@ -131,17 +131,20 @@ const SingleEmployeeProfile = () => {
       employeeOfMonth: !employeeOfMonth,
     };
 
+    setLoading(true);
     try {
       await update(id, updatedEmployee);
       setEmployeeOfMonth(!employeeOfMonth);
       setSuccessMessage(
         updatedEmployee.employeeOfMonth
           ? `${employee.name} selected as Employee of the Month`
-          : `Employee of the Month - status removed from ${employee.name}`
+          : `Employee of the Month -status removed from ${employee.name}`
       );
       setTimeout(() => setSuccessMessage(""), 3000);
+      setLoading(false);
     } catch {
       setErrorMessage("Failed to update Employee of the Month -status.");
+      setLoading(false);
     }
   };
 
@@ -575,74 +578,83 @@ const SingleEmployeeProfile = () => {
                   />
                   <div className={styles.titleSectionText}>
                     <h1>{updatedData.name}</h1>
+                    <h3>{updatedData.title}</h3>
                     {updatedData.status !== "Active" &&
                       updatedData.status !== "Specified below" && (
                         <p style={{ fontStyle: "italic", fontWeight: "bold" }}>
                           ({updatedData.status})
                         </p>
                       )}
-                    <p>{updatedData.title}</p>
-                    <div>
+
+                    <div className={styles.titleInputWrapper}>
                       <label>Skills:</label>
                       <p>{updatedData.skills}</p>
                     </div>
-                    <div>
+                    <div className={styles.titleInputWrapper}>
                       <label>Current Projects:</label>
-                      <p>{updatedData.currentProjects[0]}</p>
-                      <p>{updatedData.currentProjects[1]}</p>
+                      <p>{updatedData.currentProjects}</p>
                     </div>
                   </div>
                 </div>
                 <div className={styles.managementSection}>
                   <h2>Management</h2>
-                  <div>
+                  <div className={styles.inputWrapper}>
                     <label htmlFor="">Employee Status:</label>
                     <p>{updatedData.status}</p>
                   </div>
-                  <div>
+                  <div className={styles.inputWrapper}>
+                    <label htmlFor="">Manager:</label>
+                    <p>{updatedData.manager}</p>
+                  </div>
+                  <div className={styles.inputWrapper}>
+                    <label htmlFor="">Start Date:</label>
                     <p>
-                      <strong>Manager:</strong> {updatedData.manager}
+                      {updatedData.startDate} ({yearsOfEmployment} years
+                      employed)
                     </p>
                   </div>
-                  <div>
-                    <p>
-                      <strong>Start Date:</strong> {updatedData.startDate} (
-                      {yearsOfEmployment} years of employment)
-                    </p>
+                  <div className={styles.inputWrapper}>
+                    <label htmlFor="">Contract Type:</label>
+                    <p>{updatedData.contractType}</p>
                   </div>
-                  <div>
-                  <p>
-                    <strong>Contract Type:</strong> {updatedData.contractType}
-                  </p>
-                  <p>
-                    <strong>Salary/month:</strong> € {updatedData.salary}
-                  </p>
-                  <p>
-                    <strong>Vacation Days Accumulated:</strong>{" "}
-                    {updatedData.vacationDaysAcc} days
-                  </p>
+                  <div className={styles.inputWrapper}>
+                    <label htmlFor="">Salary/month:</label>
+                    <p>€ {updatedData.salary}</p>
+                  </div>
+                  <div className={styles.inputWrapper}>
+                    <label htmlFor="">Vacation Days Accumulated:</label>
+                    <p>{updatedData.vacationDaysAcc} days</p>
+                  </div>
                 </div>
                 <div className={styles.personalSection}>
                   <h2>Contact/personal</h2>
-                  <p>
-                    <strong>E-mail:</strong> {updatedData.email}
-                  </p>
-                  <p>
-                    <strong>Phone:</strong> {updatedData.phone}
-                  </p>
-                  <p>
-                    <strong>Home Address:</strong> {updatedData.homeAddress}
-                  </p>
-                  <p>
-                    <strong>Date of Birth:</strong> {updatedData.dateOfBirth}
-                  </p>
-                  <p>
-                    <strong>Education:</strong> {updatedData.education}
-                  </p>
-                  <p>
-                    <strong>Emergency Contact:</strong>{" "}
-                    {updatedData.emergencyContact}
-                  </p>
+                  <div className={styles.inputWrapper}>
+                    <label htmlFor="">E-mail:</label>
+                    <p>{updatedData.email}</p>
+                  </div>
+                  <div className={styles.inputWrapper}>
+                    <label htmlFor="">Phone:</label>
+                    <p>{updatedData.phone}</p>
+                  </div>
+                  <div className={styles.inputWrapper}>
+                    <label htmlFor="">Home Address:</label>
+                    <p>{updatedData.homeAddress}</p>
+                  </div>
+                  <div className={styles.inputWrapper}>
+                    <label htmlFor="">Date of Birth:</label>
+                    <p>{updatedData.dateOfBirth}</p>
+                  </div>
+                  <div
+                    className={styles.inputWrapper}
+                    style={{ alignItems: "flex-start" }}
+                  >
+                    <label htmlFor="">Education:</label>
+                    <p>{updatedData.education}</p>
+                  </div>
+                  <div className={styles.inputWrapper}>
+                    <label htmlFor="">Emergency Contact:</label>
+                    <p>{updatedData.emergencyContact}</p>
+                  </div>
                 </div>
                 <div className={styles.otherInfoSection}>
                   <h2>Other Information</h2>
@@ -669,13 +681,7 @@ const SingleEmployeeProfile = () => {
               ? "Remove status Employee of the Month"
               : "Select as Employee of the Month"}
           </button>
-          <button
-            onClick={handleDelete}
-            style={{ color: "white", backgroundColor: "red" }}
-          >
-            {" "}
-            Delete Profile
-          </button>
+          <button onClick={handleDelete}>Delete Profile</button>
         </div>
       </div>
     </>
