@@ -125,7 +125,7 @@ const EmployeeCard = ({ employee }) => {
                     Schedule recognition meeting{" "}
                   </p>
                   <p className={styles.scheduleText}>
-                    ({fullYearsOfEmployment} years at the company)
+                    ({fullYearsOfEmployment} years of employment)
                   </p>
                 </div>
               </div>

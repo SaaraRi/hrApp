@@ -9,7 +9,7 @@
   color: #3d3e41;
   border: 1px solid #ccc;
   border-radius: 8px;
-  height: 1100px;
+  height: 1200px;
   width: 800px;
   min-width: 800px;
   max-width: 800px;
@@ -46,7 +46,7 @@
   /*width: 100%;*/
   height: 100%;
   margin-top: 1.5rem;
-  margin-left: 3rem;
+  margin-left: 2rem;
   text-align: left;
   opacity: 0.8;
 }
@@ -57,7 +57,7 @@
   /*width: 100%;*/
   height: 100%;
   margin-top: 1.5rem;
-  margin-right: 3rem;
+  margin-right: 2rem;
   text-align: right;
   opacity: 0.8;
   /* top: 2rem;
@@ -78,21 +78,25 @@
 .titleSection {
   flex: 1;
   /*margin: 1rem 3rem;*/
-  padding: 3rem 3rem 1rem 3rem;
+  padding: 3rem 5rem 1rem 5rem;
   width: 800px;
   min-width: 800px;
   max-width: 800px;
+  height: 360px;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 3rem;
+  gap: 6rem;
+  margin-bottom: 1rem;
 }
 
 .cardImg {
   flex: 1;
-  width: 270px;
-  height: 270px;
+  /*width: 220px;*/
+  height: 240px;
+  align-self: flex-end;
+  margin-top: 3.5rem;
 }
 
 .titleSectionText {
@@ -100,20 +104,71 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-  gap: 1rem;
+  align-items: center;
+  /*gap: 1rem;*/
 }
 
-.titleInputWrapper {
-  text-align: left;
+.titleSectionText h1 {
+  /*margin-bottom: 0.5rem;*/
+  flex: 1;
+  font-size: 24pt;
+  position: absolute;
+  top: 6rem;
+  margin-right: 1rem;
 }
+
+.titleSectionText h3 {
+  /*margin-bottom: 0.5rem;
+  text-align: center;*/
+  flex: 1;
+  position: absolute;
+  top: 9.5rem;
+  margin-right: 1rem;
+}
+
+.statusText {
+  flex: 1;
+  font-style: italic;
+  font-size: 14pt;
+  /*margin-bottom: 0;*/
+  position: absolute;
+  top: 12rem;
+  margin-right: 1rem;
+}
+
+/*.titleInputWrapper {
+  text-align: left;
+}*/
 
 .titleInputWrapper label {
   font-weight: 700;
+  text-align: left;
 }
 
 .titleInputWrapper p {
+  /*text-align: left;*/
   text-align: left;
   opacity: 0.8;
+}
+
+.skillsWrapper {
+  text-align: left;
+  flex: 1;
+  width: 300px;
+  position: absolute;
+  top: 14rem;
+  /*left: 26.5rem;*/
+  left: 425px;
+}
+
+.projectsWrapper {
+  text-align: left;
+  flex: 1;
+  width: 300px;
+  position: absolute;
+  top: 20rem;
+  /*right: 12rem;*/
+  left: 425px;
 }
 
 .managementSection,
@@ -124,10 +179,14 @@
   margin: 1rem 5rem;
 }
 
+.otherInfoSection {
+  margin-bottom: 1rem;
+}
+
 .managementSection h2,
 .personalSection h2,
 .otherInfoSection h2 {
-  font-size: 18pt;
+  font-size: 16pt;
   text-decoration: underline;
   margin: 0.5rem 0 1rem 0;
 }
@@ -135,8 +194,8 @@
 .badgeImg {
   height: 130px;
   position: absolute;
-  top: 4.5rem;
-  left: -1rem;
+  top: 5rem;
+  left: 0;
 }
 
 .inputWrapper {
@@ -154,6 +213,48 @@
 .inputWrapper p {
   flex: 1;
   opacity: 0.8;
+}
+
+/*.cardFooter {
+  flex: 1;
+  width: 580px;
+  min-width: 580px;
+  max-width: 580px;
+  padding: 0 1rem;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  bottom: 2rem;
+}*/
+
+.scheduleContainer {
+  flex: 1;
+}
+
+.scheduleWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  margin-left: 4.5rem;
+  gap: 0.5rem;
+}
+
+.scheduleIcon {
+  flex: 1;
+}
+
+.scheduleTextContainer {
+  flex: 5;
+}
+
+.scheduleText {
+  font-weight: 700;
+  font-size: 14pt;
+  color: #3136d4;
+  /*display: block;
+  text-align: left;*/
 }
 
 /*

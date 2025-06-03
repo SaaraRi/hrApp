@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useParams, useNavigate, useLocation, Link } from "react-router";
 import useAxios from "../../hooks/useAxios";
 import employeeBadgeImage from "../../assets/images/pngwing.com.png";
+import badgeIcon from "../../assets/images/icons8-badge-100.png";
+import calendarIcon from "../../assets/images/icons8-leave-52.png";
 import useEmploymentTime from "../../hooks/useEmploymentTime";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
 import LoaderSpinner from "../../components/LoaderSpinner/LoaderSpinner";
@@ -579,18 +581,27 @@ const SingleEmployeeProfile = () => {
                   <div className={styles.titleSectionText}>
                     <h1>{updatedData.name}</h1>
                     <h3>{updatedData.title}</h3>
-                    {updatedData.status !== "Active" &&
-                      updatedData.status !== "Specified below" && (
-                        <p style={{ fontStyle: "italic", fontWeight: "bold" }}>
-                          ({updatedData.status})
-                        </p>
-                      )}
 
-                    <div className={styles.titleInputWrapper}>
+                    {updatedData.status !== "Active" &&
+                    updatedData.status !== "Specified below" ? (
+                      <p className={styles.statusText}>
+                        ({updatedData.status})
+                      </p>
+                    ) : (
+                      <p style={{ color: "transparent" }}>
+                        ({updatedData.status})
+                      </p>
+                    )}
+
+                    <div
+                      className={`${styles.titleInputWrapper} ${styles.skillsWrapper}`}
+                    >
                       <label>Skills:</label>
                       <p>{updatedData.skills}</p>
                     </div>
-                    <div className={styles.titleInputWrapper}>
+                    <div
+                      className={`${styles.titleInputWrapper} ${styles.projectsWrapper}`}
+                    >
                       <label>Current Projects:</label>
                       <p>{updatedData.currentProjects}</p>
                     </div>
@@ -663,7 +674,41 @@ const SingleEmployeeProfile = () => {
               </div>
             </>
           )}
+          <div className={styles.scheduleContainer}>
+            {scheduleProbationReview && (
+              <div className={styles.scheduleWrapper}>
+                <img
+                  className={styles.scheduleIcon}
+                  style={{ height: "25px", maxWidth: "25px" }}
+                  src={calendarIcon}
+                  alt="general-mandatory-action"
+                />
+                <div className={styles.scheduleTextWrapper}>
+                  <p className={styles.scheduleText}>
+                    Schedule 6 months probation review
+                  </p>
+                </div>
+              </div>
+            )}
+            {scheduleRecognitionMeeting && (
+              <div className={styles.scheduleWrapper}>
+                <img
+                  className={styles.scheduleIcon}
+                  style={{ height: "30px", maxWidth: "30px" }}
+                  src={badgeIcon}
+                  alt="general-mandatory-action"
+                />
+                <div className={styles.scheduleTextWrapper}>
+                  <p className={styles.scheduleText}>
+                    Schedule recognition meeting ({fullYearsOfEmployment} years
+                    of employment)
+                  </p>
+                </div>
+              </div>
+            )}
+          </div>
         </div>
+
         <div>
           <button onClick={() => navigate("/employees")}>Back to List</button>
           {isEditing ? (
@@ -676,12 +721,13 @@ const SingleEmployeeProfile = () => {
           ) : (
             <button onClick={() => setIsEditing(true)}>Edit Details</button>
           )}
+
+          <button onClick={handleDelete}>Delete Profile</button>
           <button onClick={toggleEmployeeOfMonth}>
             {employeeOfMonth
               ? "Remove status Employee of the Month"
               : "Select as Employee of the Month"}
           </button>
-          <button onClick={handleDelete}>Delete Profile</button>
         </div>
       </div>
     </>
