@@ -134,6 +134,7 @@
 }
 
 .textContainer {
+  /*border-left: solid 2px #3d3e41;*/
   width: 300px;
   min-width: 300px;
   max-width: 300px;

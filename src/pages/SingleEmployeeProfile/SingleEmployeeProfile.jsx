@@ -185,8 +185,8 @@ const SingleEmployeeProfile = () => {
           </p>
         )}
       </div>
-      <div className={styles.profilePage}>
-        <div className={styles.profileContainer} key={id}>
+      <div className={styles.profileContainer}>
+        <div className={styles.profileCard} key={id}>
           <div
             className={`${getDepartmentClassName(
               updatedData.department
@@ -275,13 +275,6 @@ const SingleEmployeeProfile = () => {
             )}
           </div>
 
-          <img
-            src={`https://api.dicebear.com/9.x/open-peeps/svg?seed=${updatedData.name}${updatedData.title}`}
-            alt={updatedData.name}
-            className="card-image"
-            style={{ height: "200px" }}
-          />
-
           {employeeOfMonth && (
             <div className="employeeBadge">
               <img
@@ -295,343 +288,367 @@ const SingleEmployeeProfile = () => {
           {isEditing ? (
             <>
               <form onChange={handleInput} onSubmit={handleSubmit}>
-                <input
-                  type="text"
-                  name="name"
-                  value={updatedData.name}
-                  onChange={handleInput}
-                  placeholder="Full name"
-                  required
-                />
-
-                <input
-                  type="text"
-                  name="title"
-                  value={updatedData.title}
-                  onChange={handleInput}
-                  placeholder="Title"
-                  required
-                />
-                <input
-                  type="text"
-                  name="skills"
-                  //value={updatedData.skills}
-                  //onChange={handleInput}
-                  placeholder="Skills (comma-separated)"
-                  value={updatedData.skills}
-                  onChange={handleInput}
-                />
-                <input
-                  type="text"
-                  //value={updatedData.currentProjects}
-                  //onChange={handleInput}
-                  placeholder="Current Projects (comma-separated)"
-                  value={updatedData.currentProjects}
-                  onChange={handleInput}
-                />
-                <div>
-                  <h2>Management:</h2>
-                  <div className="add-input">
-                    <label htmlFor="status" className="white-font">
-                      Status:
-                    </label>
-                    <select
-                      id="status"
-                      name="status"
-                      value={updatedData.status}
-                      required
-                      onChange={handleInput}
-                    >
-                      <option value="">Select Employee Status</option>
-                      {[
-                        "Active",
-                        "On Vacation",
-                        "On Parental Leave",
-                        "On Study Leave",
-                        "Resigned",
-                        "Retired",
-                        "Specified below",
-                      ].map((status) => (
-                        <option key={status} value={status}>
-                          {status}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                  <div className="add-input">
-                    <label htmlFor="manager" className="white-font">
-                      Manager:
-                    </label>
-                    <input
-                      type="text"
-                      id="manager"
-                      name="manager"
-                      value={updatedData.manager}
-                      required
-                      onChange={handleInput}
+                <div className={styles.sections}>
+                  <div className={styles.titleSection}>
+                    <img
+                      src={`https://api.dicebear.com/9.x/open-peeps/svg?seed=${updatedData.name}${updatedData.title}`}
+                      alt={updatedData.name}
+                      className={styles.cardImg}
                     />
+                    <div className={styles.titleSectionText}>
+                      <div>
+                        <label htmlFor="name" className="white-font">
+                          Name:
+                        </label>
+                        <input
+                          type="text"
+                          name="name"
+                          value={updatedData.name}
+                          onChange={handleInput}
+                          placeholder="Full name"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="title" className="white-font">
+                          Title:
+                        </label>
+                        <input
+                          type="text"
+                          name="title"
+                          value={updatedData.title}
+                          onChange={handleInput}
+                          placeholder="Title"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="skills" className="white-font">
+                          Skills:
+                        </label>
+                        <input
+                          type="text"
+                          name="skills"
+                          //value={updatedData.skills}
+                          //onChange={handleInput}
+                          placeholder="Skills (comma-separated)"
+                          value={updatedData.skills}
+                          onChange={handleInput}
+                        />
+                      </div>
+                      <div>
+                        <label htmlFor="projects" className="white-font">
+                          Current Projects:
+                        </label>
+                        <input
+                          name="currentProjects"
+                          id="currentProjects"
+                          type="text"
+                          //value={updatedData.currentProjects}
+                          //onChange={handleInput}
+                          placeholder="Current Projects (comma-separated)"
+                          value={updatedData.currentProjects}
+                          onChange={handleInput}
+                        />
+                      </div>
+                    </div>
                   </div>
-                  <div className="add-input">
-                    <label htmlFor="startDate" className="white-font">
-                      Start Date:
-                    </label>
-                    <input
-                      type="date"
-                      id="startDate"
-                      name="startDate"
-                      value={updatedData.startDate}
-                      required
-                      onChange={handleInput}
-                    />
+                  <div className={styles.managementSection}>
+                    <h2>Management:</h2>
+                    <div className="add-input">
+                      <label htmlFor="status" className="white-font">
+                        Employee Status:
+                      </label>
+                      <select
+                        id="status"
+                        name="status"
+                        value={updatedData.status}
+                        required
+                        onChange={handleInput}
+                      >
+                        <option value="">Select Employee Status</option>
+                        {[
+                          "Active",
+                          "On Vacation",
+                          "On Parental Leave",
+                          "On Study Leave",
+                          "Resigned",
+                          "Retired",
+                          "Specified below",
+                        ].map((status) => (
+                          <option key={status} value={status}>
+                            {status}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <div className="add-input">
+                      <label htmlFor="manager" className="white-font">
+                        Manager:
+                      </label>
+                      <input
+                        type="text"
+                        id="manager"
+                        name="manager"
+                        value={updatedData.manager}
+                        required
+                        onChange={handleInput}
+                      />
+                    </div>
+                    <div className="add-input">
+                      <label htmlFor="startDate" className="white-font">
+                        Start Date:
+                      </label>
+                      <input
+                        type="date"
+                        id="startDate"
+                        name="startDate"
+                        value={updatedData.startDate}
+                        required
+                        onChange={handleInput}
+                      />
+                    </div>
+                    <div className="add-input">
+                      <label htmlFor="contractType" className="white-font">
+                        Contract Type:
+                      </label>
+                      <select
+                        id="contractType"
+                        name="contractType"
+                        value={updatedData.contractType}
+                        required
+                        onChange={handleInput}
+                      >
+                        <option value="">Select Contract Type</option>
+                        {[
+                          "Full-time",
+                          "Part-time 50%",
+                          "Part-time 80%",
+                          "Contractual",
+                          "Internship",
+                          "Specified below",
+                        ].map((contractType) => (
+                          <option key={contractType} value={contractType}>
+                            {contractType}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <div className="add-input">
+                      <label htmlFor="salary" className="white-font">
+                        Salary/month:
+                      </label>
+                      <input
+                        type="number"
+                        id="salary"
+                        name="salary"
+                        value={updatedData.salary}
+                        placeholder="123"
+                        required
+                        onChange={handleInput}
+                      />
+                    </div>
+                    <div className="add-input">
+                      <label htmlFor="vacationDaysAcc" className="white-font">
+                        Vacation Days Accumulated:
+                      </label>
+                      <input
+                        type="number"
+                        id="vacationDaysAcc"
+                        name="vacationDaysAcc"
+                        value={updatedData.vacationDaysAcc}
+                        placeholder="123"
+                        required
+                        onChange={handleInput}
+                      />
+                    </div>
                   </div>
-                  <div className="add-input">
-                    <select
-                      id="contractType"
-                      name="contractType"
-                      value={updatedData.contractType}
-                      required
-                      onChange={handleInput}
-                    >
-                      <option value="">Select Contract Type</option>
-                      {[
-                        "Full-time",
-                        "Part-time 50%",
-                        "Part-time 80%",
-                        "Contractual",
-                        "Internship",
-                        "Specified below",
-                      ].map((contractType) => (
-                        <option key={contractType} value={contractType}>
-                          {contractType}
-                        </option>
-                      ))}
-                    </select>
+                  <div className={styles.personalSection}>
+                    <h2>Contact/personal:</h2>
+                    <div className="add-input">
+                      <label htmlFor="email" className="white-font">
+                        E-mail:
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={updatedData.email}
+                        placeholder="Email"
+                        required
+                        onChange={handleInput}
+                      />
+                    </div>
+                    <div className="add-input">
+                      <label htmlFor="phone" className="white-font">
+                        Phone:
+                      </label>
+                      <input
+                        type="tel"
+                        id="phone"
+                        name="phone"
+                        value={updatedData.phone}
+                        placeholder="phone"
+                        required
+                        onChange={handleInput}
+                      />
+                    </div>
+                    <div className="add-input">
+                      <label htmlFor="homeAddress" className="white-font">
+                        Home Address:
+                      </label>
+                      <input
+                        type="text"
+                        id="homeAddress"
+                        name="homeAddress"
+                        value={updatedData.homeAddress}
+                        placeholder="Home Address"
+                        required
+                        onChange={handleInput}
+                      />
+                    </div>
+                    <div className="add-input">
+                      <label htmlFor="dateOfBirth" className="white-font">
+                        Date of Birth:
+                      </label>
+                      <input
+                        type="date"
+                        id="dateOfBirth"
+                        name="dateOfBirth"
+                        value={updatedData.dateOfBirth}
+                        required
+                        onChange={handleInput}
+                      />
+                    </div>
+                    <div className="add-input">
+                      <label htmlFor="education" className="white-font">
+                        Education:
+                      </label>
+                      <input
+                        type="text"
+                        id="education"
+                        name="education"
+                        value={updatedData.education}
+                        placeholder="degree, institution, year"
+                        onChange={handleInput}
+                      />
+                    </div>
+                    <div className="add-input">
+                      <label htmlFor="emergencyContact" className="white-font">
+                        Emergency Contact:
+                      </label>
+                      <input
+                        type="text"
+                        id="emergencyContact"
+                        name="emergencyContact"
+                        value={updatedData.emergencyContact}
+                        placeholder="name & phone"
+                        required
+                        onChange={handleInput}
+                      />
+                    </div>
                   </div>
-                  <div className="add-input">
-                    <label htmlFor="salary" className="white-font">
-                      Salary:
-                    </label>
-                    <input
-                      type="number"
-                      id="salary"
-                      name="salary"
-                      value={updatedData.salary}
-                      placeholder="Salary/month"
-                      required
-                      onChange={handleInput}
-                    />
+                  <div className={styles.otherInfoSection}>
+                    <h2>Other Information</h2>
+                    <div className="add-input">
+                      <textarea
+                        id="otherInfo"
+                        name="otherInfo"
+                        rows="10"
+                        cols="50"
+                        value={updatedData.otherInfo}
+                        onChange={handleInput}
+                      ></textarea>
+                    </div>
                   </div>
-                  <div className="add-input">
-                    <label htmlFor="vacationDaysAcc" className="white-font">
-                      Vacation Days Accumulated:
-                    </label>
-                    <input
-                      type="number"
-                      id="vacationDaysAcc"
-                      name="vacationDaysAcc"
-                      value={updatedData.vacationDaysAcc}
-                      placeholder="Vacation Days Accumulated"
-                      required
-                      onChange={handleInput}
-                    />
-                  </div>
-                </div>
-                <div>
-                  <h2>Contact/personal:</h2>
-                  <div className="add-input">
-                    <label htmlFor="email" className="white-font">
-                      Email:
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      value={updatedData.email}
-                      placeholder="Email"
-                      required
-                      onChange={handleInput}
-                    />
-                  </div>
-                  <div className="add-input">
-                    <label htmlFor="phone" className="white-font">
-                      Phone:
-                    </label>
-                    <input
-                      type="tel"
-                      id="phone"
-                      name="phone"
-                      value={updatedData.phone}
-                      placeholder="phone"
-                      required
-                      onChange={handleInput}
-                    />
-                  </div>
-                  <div className="add-input">
-                    <label htmlFor="homeAddress" className="white-font">
-                      Home Address:
-                    </label>
-                    <input
-                      type="text"
-                      id="homeAddress"
-                      name="homeAddress"
-                      value={updatedData.homeAddress}
-                      placeholder="Home Address"
-                      required
-                      onChange={handleInput}
-                    />
-                  </div>
-                  <div className="add-input">
-                    <label htmlFor="dateOfBirth" className="white-font">
-                      Date of Birth:
-                    </label>
-                    <input
-                      type="date"
-                      id="dateOfBirth"
-                      name="dateOfBirth"
-                      value={updatedData.dateOfBirth}
-                      required
-                      onChange={handleInput}
-                    />
-                  </div>
-                  <div className="add-input">
-                    <label htmlFor="education" className="white-font">
-                      Education:
-                    </label>
-                    <input
-                      type="text"
-                      id="education"
-                      name="education"
-                      value={updatedData.education}
-                      placeholder="Education (degree, institution, year)"
-                      onChange={handleInput}
-                    />
-                  </div>
-                  <div className="add-input">
-                    <label htmlFor="emergencyContact" className="white-font">
-                      Emergency Contact:
-                    </label>
-                    <input
-                      type="text"
-                      id="emergencyContact"
-                      name="emergencyContact"
-                      value={updatedData.emergencyContact}
-                      placeholder="Emergency Contact"
-                      required
-                      onChange={handleInput}
-                    />
-                  </div>
-                </div>
-                <div className="add-input">
-                  <label htmlFor="otherInfo">Other Information:</label>
-                  <textarea
-                    id="otherInfo"
-                    name="otherInfo"
-                    rows="10"
-                    cols="50"
-                    value={updatedData.otherInfo}
-                    onChange={handleInput}
-                  ></textarea>
                 </div>
               </form>
             </>
           ) : (
             <>
-              <h1>{updatedData.name}</h1>
-
-              {updatedData.status !== "Active" &&
-                updatedData.status !== "Specified below" && (
-                  <p style={{ fontStyle: "italic", fontWeight: "bold" }}>
-                    ({updatedData.status})
+              <div className={styles.sections}>
+                <div className={styles.titleSection}>
+                  <img
+                    src={`https://api.dicebear.com/9.x/open-peeps/svg?seed=${updatedData.name}${updatedData.title}`}
+                    alt={updatedData.name}
+                    className={styles.cardImg}
+                  />
+                  <div className={styles.titleSectionText}>
+                    <h1>{updatedData.name}</h1>
+                    {updatedData.status !== "Active" &&
+                      updatedData.status !== "Specified below" && (
+                        <p style={{ fontStyle: "italic", fontWeight: "bold" }}>
+                          ({updatedData.status})
+                        </p>
+                      )}
+                    <p>{updatedData.title}</p>
+                    <div>
+                      <label>Skills:</label>
+                      <p>{updatedData.skills}</p>
+                    </div>
+                    <div>
+                      <label>Current Projects:</label>
+                      <p>{updatedData.currentProjects[0]}</p>
+                      <p>{updatedData.currentProjects[1]}</p>
+                    </div>
+                  </div>
+                </div>
+                <div className={styles.managementSection}>
+                  <h2>Management</h2>
+                  <div>
+                    <label htmlFor="">Employee Status:</label>
+                    <p>{updatedData.status}</p>
+                  </div>
+                  <div>
+                    <p>
+                      <strong>Manager:</strong> {updatedData.manager}
+                    </p>
+                  </div>
+                  <div>
+                    <p>
+                      <strong>Start Date:</strong> {updatedData.startDate} (
+                      {yearsOfEmployment} years of employment)
+                    </p>
+                  </div>
+                  <div>
+                  <p>
+                    <strong>Contract Type:</strong> {updatedData.contractType}
                   </p>
-                )}
-              <p>{updatedData.title}</p>
-              {/*<p>
-            <strong>Department:</strong> {employee.department}
-            </p>
-             <p>
-            <strong>Location:</strong> {employee.location}
-              </p>
-              <div>
-            <p>Skills:</p>
-            {(employee.skills || []).map((skill) => (
-              <span key={skill}>{skill} </span>
-            ))}
-          </div>
-          <div>
-            <p>Current Projects:</p>
-            {(employee.currentProjects || []).map((project) => (
-              <span key={project}>{project} </span>
-            ))}
-          </div>
-          {/*
-          <div>
-            <p>Skills:</p>
-            {employee.skills.map((skill) => (
-              <span key={skill}>{skill} </span>
-            ))}
-          </div>
-          <div>
-            <p>Current Projects:</p>
-            {employee.currentProjects.map((project) => (
-              <span key={project}>{project} </span>
-            ))}
-          </div>
-          */}
-              <p>
-                <strong>Skills:</strong> {updatedData.skills}
-              </p>
-              <p>
-                <strong>Current Projects:</strong> {updatedData.currentProjects}
-              </p>
-              <div>
-                <h2>Management</h2>
-                <p>
-                  <strong>Employee Status:</strong> {updatedData.status}
-                </p>
-                <p></p>
-                <p>
-                  <strong>Manager:</strong> {updatedData.manager}
-                </p>
-                <p>
-                  <strong>Start Date:</strong> {updatedData.startDate} (
-                  {yearsOfEmployment} years of employment)
-                </p>
-                <p>
-                  <strong>Contract Type:</strong> {updatedData.contractType}
-                </p>
-                <p>
-                  <strong>Salary/month:</strong> € {updatedData.salary}
-                </p>
-                <p>
-                  <strong>Vacation Days Accumulated:</strong>{" "}
-                  {updatedData.vacationDaysAcc} days
-                </p>
+                  <p>
+                    <strong>Salary/month:</strong> € {updatedData.salary}
+                  </p>
+                  <p>
+                    <strong>Vacation Days Accumulated:</strong>{" "}
+                    {updatedData.vacationDaysAcc} days
+                  </p>
+                </div>
+                <div className={styles.personalSection}>
+                  <h2>Contact/personal</h2>
+                  <p>
+                    <strong>E-mail:</strong> {updatedData.email}
+                  </p>
+                  <p>
+                    <strong>Phone:</strong> {updatedData.phone}
+                  </p>
+                  <p>
+                    <strong>Home Address:</strong> {updatedData.homeAddress}
+                  </p>
+                  <p>
+                    <strong>Date of Birth:</strong> {updatedData.dateOfBirth}
+                  </p>
+                  <p>
+                    <strong>Education:</strong> {updatedData.education}
+                  </p>
+                  <p>
+                    <strong>Emergency Contact:</strong>{" "}
+                    {updatedData.emergencyContact}
+                  </p>
+                </div>
+                <div className={styles.otherInfoSection}>
+                  <h2>Other Information</h2>
+                  <p>{updatedData.otherInfo}</p>
+                </div>
               </div>
-              <div>
-                <h2>Contact/personal:</h2>
-                <p>
-                  <strong>E-mail:</strong> {updatedData.email}
-                </p>
-                <p>
-                  <strong>Phone:</strong> {updatedData.phone}
-                </p>
-                <p>
-                  <strong>Home Address:</strong> {updatedData.homeAddress}
-                </p>
-                <p>
-                  <strong>Date of Birth:</strong> {updatedData.dateOfBirth}
-                </p>
-                <p>
-                  <strong>Education:</strong> {updatedData.education}
-                </p>
-                <p>
-                  <strong>Emergency Contact:</strong>{" "}
-                  {updatedData.emergencyContact}
-                </p>
-              </div>
-              <p>
-                <strong>Other Information:</strong> {updatedData.otherInfo}
-              </p>
             </>
           )}
         </div>
