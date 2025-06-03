@@ -84,9 +84,9 @@
 }
 
 .imgContainer {
-  width: 280px;
-  min-width: 280px;
-  max-width: 280px;
+  width: 290px;
+  min-width: 290px;
+  max-width: 290px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -135,9 +135,9 @@
 
 .textContainer {
   /*border-left: solid 2px #3d3e41;*/
-  width: 300px;
-  min-width: 300px;
-  max-width: 300px;
+  width: 290px;
+  min-width: 290px;
+  max-width: 290px;
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -250,6 +250,7 @@
   color: #3136d4;
   display: block;
   text-align: left;
+  margin-right: 0.5rem;
 }
 
 .buttons {
@@ -259,7 +260,7 @@
   flex-direction: row;
 
   align-items: center;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
 }
 
 .buttons button {
