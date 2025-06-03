@@ -185,7 +185,6 @@ const SingleEmployeeProfile = () => {
           </p>
         )}
       </div>
-
       <div className={styles.profilePage}>
         <div className={styles.profileContainer} key={id}>
           <div
@@ -330,191 +329,197 @@ const SingleEmployeeProfile = () => {
                   value={updatedData.currentProjects}
                   onChange={handleInput}
                 />
-                <div className="add-input">
-                  <label htmlFor="status" className="white-font">
-                    Status:
-                  </label>
-                  <select
-                    id="status"
-                    name="status"
-                    value={updatedData.status}
-                    required
-                    onChange={handleInput}
-                  >
-                    <option value="">Select Employee Status</option>
-                    {[
-                      "Active",
-                      "On Vacation",
-                      "On Parental Leave",
-                      "On Study Leave",
-                      "Resigned",
-                      "Retired",
-                      "Specified below",
-                    ].map((status) => (
-                      <option key={status} value={status}>
-                        {status}
-                      </option>
-                    ))}
-                  </select>
+                <div>
+                  <h2>Management:</h2>
+                  <div className="add-input">
+                    <label htmlFor="status" className="white-font">
+                      Status:
+                    </label>
+                    <select
+                      id="status"
+                      name="status"
+                      value={updatedData.status}
+                      required
+                      onChange={handleInput}
+                    >
+                      <option value="">Select Employee Status</option>
+                      {[
+                        "Active",
+                        "On Vacation",
+                        "On Parental Leave",
+                        "On Study Leave",
+                        "Resigned",
+                        "Retired",
+                        "Specified below",
+                      ].map((status) => (
+                        <option key={status} value={status}>
+                          {status}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="add-input">
+                    <label htmlFor="manager" className="white-font">
+                      Manager:
+                    </label>
+                    <input
+                      type="text"
+                      id="manager"
+                      name="manager"
+                      value={updatedData.manager}
+                      required
+                      onChange={handleInput}
+                    />
+                  </div>
+                  <div className="add-input">
+                    <label htmlFor="startDate" className="white-font">
+                      Start Date:
+                    </label>
+                    <input
+                      type="date"
+                      id="startDate"
+                      name="startDate"
+                      value={updatedData.startDate}
+                      required
+                      onChange={handleInput}
+                    />
+                  </div>
+                  <div className="add-input">
+                    <select
+                      id="contractType"
+                      name="contractType"
+                      value={updatedData.contractType}
+                      required
+                      onChange={handleInput}
+                    >
+                      <option value="">Select Contract Type</option>
+                      {[
+                        "Full-time",
+                        "Part-time 50%",
+                        "Part-time 80%",
+                        "Contractual",
+                        "Internship",
+                        "Specified below",
+                      ].map((contractType) => (
+                        <option key={contractType} value={contractType}>
+                          {contractType}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                  <div className="add-input">
+                    <label htmlFor="salary" className="white-font">
+                      Salary:
+                    </label>
+                    <input
+                      type="number"
+                      id="salary"
+                      name="salary"
+                      value={updatedData.salary}
+                      placeholder="Salary/month"
+                      required
+                      onChange={handleInput}
+                    />
+                  </div>
+                  <div className="add-input">
+                    <label htmlFor="vacationDaysAcc" className="white-font">
+                      Vacation Days Accumulated:
+                    </label>
+                    <input
+                      type="number"
+                      id="vacationDaysAcc"
+                      name="vacationDaysAcc"
+                      value={updatedData.vacationDaysAcc}
+                      placeholder="Vacation Days Accumulated"
+                      required
+                      onChange={handleInput}
+                    />
+                  </div>
                 </div>
-                <div className="add-input">
-                  <label htmlFor="manager" className="white-font">
-                    Manager:
-                  </label>
-                  <input
-                    type="text"
-                    id="manager"
-                    name="manager"
-                    value={updatedData.manager}
-                    required
-                    onChange={handleInput}
-                  />
-                </div>
-                <div className="add-input">
-                  <label htmlFor="startDate" className="white-font">
-                    Start Date:
-                  </label>
-                  <input
-                    type="date"
-                    id="startDate"
-                    name="startDate"
-                    value={updatedData.startDate}
-                    required
-                    onChange={handleInput}
-                  />
-                </div>
-                <div className="add-input">
-                  <select
-                    id="contractType"
-                    name="contractType"
-                    value={updatedData.contractType}
-                    required
-                    onChange={handleInput}
-                  >
-                    <option value="">Select Contract Type</option>
-                    {[
-                      "Full-time",
-                      "Part-time 50%",
-                      "Part-time 80%",
-                      "Contractual",
-                      "Internship",
-                      "Specified below",
-                    ].map((contractType) => (
-                      <option key={contractType} value={contractType}>
-                        {contractType}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-                <div className="add-input">
-                  <label htmlFor="salary" className="white-font">
-                    Salary:
-                  </label>
-                  <input
-                    type="number"
-                    id="salary"
-                    name="salary"
-                    value={updatedData.salary}
-                    placeholder="Salary/month"
-                    required
-                    onChange={handleInput}
-                  />
-                </div>
-                <div className="add-input">
-                  <label htmlFor="vacationDaysAcc" className="white-font">
-                    Vacation Days Accumulated:
-                  </label>
-                  <input
-                    type="number"
-                    id="vacationDaysAcc"
-                    name="vacationDaysAcc"
-                    value={updatedData.vacationDaysAcc}
-                    placeholder="Vacation Days Accumulated"
-                    required
-                    onChange={handleInput}
-                  />
-                </div>
-                <div className="add-input">
-                  <label htmlFor="email" className="white-font">
-                    Email:
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={updatedData.email}
-                    placeholder="Email"
-                    required
-                    onChange={handleInput}
-                  />
-                </div>
-                <div className="add-input">
-                  <label htmlFor="phone" className="white-font">
-                    Phone:
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    value={updatedData.phone}
-                    placeholder="phone"
-                    required
-                    onChange={handleInput}
-                  />
-                </div>
-                <div className="add-input">
-                  <label htmlFor="homeAddress" className="white-font">
-                    Home Address:
-                  </label>
-                  <input
-                    type="text"
-                    id="homeAddress"
-                    name="homeAddress"
-                    value={updatedData.homeAddress}
-                    placeholder="Home Address"
-                    required
-                    onChange={handleInput}
-                  />
-                </div>
-                <div className="add-input">
-                  <label htmlFor="dateOfBirth" className="white-font">
-                    Date of Birth:
-                  </label>
-                  <input
-                    type="date"
-                    id="dateOfBirth"
-                    name="dateOfBirth"
-                    value={updatedData.dateOfBirth}
-                    required
-                    onChange={handleInput}
-                  />
-                </div>
-                <div className="add-input">
-                  <label htmlFor="education" className="white-font">
-                    Education:
-                  </label>
-                  <input
-                    type="text"
-                    id="education"
-                    name="education"
-                    value={updatedData.education}
-                    placeholder="Education (degree, institution, year)"
-                    onChange={handleInput}
-                  />
-                </div>
-                <div className="add-input">
-                  <label htmlFor="emergencyContact" className="white-font">
-                    Emergency Contact:
-                  </label>
-                  <input
-                    type="text"
-                    id="emergencyContact"
-                    name="emergencyContact"
-                    value={updatedData.emergencyContact}
-                    placeholder="Emergency Contact"
-                    required
-                    onChange={handleInput}
-                  />
+                <div>
+                  <h2>Contact/personal:</h2>
+                  <div className="add-input">
+                    <label htmlFor="email" className="white-font">
+                      Email:
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      value={updatedData.email}
+                      placeholder="Email"
+                      required
+                      onChange={handleInput}
+                    />
+                  </div>
+                  <div className="add-input">
+                    <label htmlFor="phone" className="white-font">
+                      Phone:
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      value={updatedData.phone}
+                      placeholder="phone"
+                      required
+                      onChange={handleInput}
+                    />
+                  </div>
+                  <div className="add-input">
+                    <label htmlFor="homeAddress" className="white-font">
+                      Home Address:
+                    </label>
+                    <input
+                      type="text"
+                      id="homeAddress"
+                      name="homeAddress"
+                      value={updatedData.homeAddress}
+                      placeholder="Home Address"
+                      required
+                      onChange={handleInput}
+                    />
+                  </div>
+                  <div className="add-input">
+                    <label htmlFor="dateOfBirth" className="white-font">
+                      Date of Birth:
+                    </label>
+                    <input
+                      type="date"
+                      id="dateOfBirth"
+                      name="dateOfBirth"
+                      value={updatedData.dateOfBirth}
+                      required
+                      onChange={handleInput}
+                    />
+                  </div>
+                  <div className="add-input">
+                    <label htmlFor="education" className="white-font">
+                      Education:
+                    </label>
+                    <input
+                      type="text"
+                      id="education"
+                      name="education"
+                      value={updatedData.education}
+                      placeholder="Education (degree, institution, year)"
+                      onChange={handleInput}
+                    />
+                  </div>
+                  <div className="add-input">
+                    <label htmlFor="emergencyContact" className="white-font">
+                      Emergency Contact:
+                    </label>
+                    <input
+                      type="text"
+                      id="emergencyContact"
+                      name="emergencyContact"
+                      value={updatedData.emergencyContact}
+                      placeholder="Emergency Contact"
+                      required
+                      onChange={handleInput}
+                    />
+                  </div>
                 </div>
                 <div className="add-input">
                   <label htmlFor="otherInfo">Other Information:</label>
@@ -541,12 +546,12 @@ const SingleEmployeeProfile = () => {
                 )}
               <p>{updatedData.title}</p>
               {/*<p>
-        <strong>Department:</strong> {employee.department}
-      </p>
-      <p>
-        <strong>Location:</strong> {employee.location}
-      </p>
-          <div>
+            <strong>Department:</strong> {employee.department}
+            </p>
+             <p>
+            <strong>Location:</strong> {employee.location}
+              </p>
+              <div>
             <p>Skills:</p>
             {(employee.skills || []).map((skill) => (
               <span key={skill}>{skill} </span>

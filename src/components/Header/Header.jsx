@@ -1,7 +1,7 @@
 import { NavLink, Link } from "react-router";
 import { useEffect, useState } from "react";
 import logo from "../../assets/images/icons8-employee-100.png";
-import styles from "./Header.module.scss";
+import "./Header.css";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
