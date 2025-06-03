@@ -1,11 +1,81 @@
+.profilePage {
+  padding: 10rem auto 4rem auto;
+}
+
+.profileContainer {
+  background-color: #ffffff;
+  color: #3d3e41;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  height: 900px;
+  width: 1200px;
+  min-width: 1200px;
+  max-width: 1200px;
+  /*padding: 0 1rem 2rem 1rem;
+  text-align: center;*/
+  position: relative;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.cardHeader {
+  width: 1200px;
+  height: 50px;
+  display: block;
+  position: relative;
+}
+
+.bannerTextWrapper {
+  width: 1200px;
+  height: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.dptTitle {
+  /*flex: 1;*/
+  font-weight: 700;
+  font-size: 14pt;
+  display: inline;
+  /*width: 100%;*/
+  height: 100%;
+  margin-top: 1.5rem;
+  margin-left: 2rem;
+  text-align: left;
+  opacity: 0.8;
+}
+
+.locTitle {
+  font-weight: 700;
+  display: inline;
+  /*width: 100%;*/
+  height: 100%;
+  margin-top: 1.5rem;
+  margin-right: 2rem;
+  text-align: right;
+  opacity: 0.8;
+  /* top: 2rem;
+  right: 2rem;
+  flex: 1;*/
+}
+
+/*.imgTextContainer {
+  position: absolute;
+  top: 320px;
+}*/
+
 .card-image img {
   width: 200px;
   height: 200px;
 }
 
 .badgeImg {
-  height: 100px;
+  height: 150px;
   position: absolute;
+  top: 8rem;
+  right: 3rem;
 }
 
 .dpt {

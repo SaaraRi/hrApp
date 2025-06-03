@@ -1,7 +1,7 @@
 import { NavLink, Link } from "react-router";
 import { useEffect, useState } from "react";
 import logo from "../../assets/images/icons8-employee-100.png";
-import "./Header.css";
+import styles from "./Header.module.scss";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -20,7 +20,7 @@ const Header = () => {
   return (
     <header
       style={{
-        backgroundColor: scrolled ? "#bfc1c5" : "transparent",
+        backgroundColor: scrolled ? "#f1f3f8" : "transparent",
         boxShadow: scrolled
           ? "0 10px 18px rgba(0, 0, 0, 0.25), 0 7px 7px rgba(0, 0, 0, 0.22)"
           : "none",

@@ -6,10 +6,11 @@
   align-items: center;
   flex-direction: column;
   flex-wrap: wrap;
+  font-size: 16pt;
 }
 
 .formContainer h1 {
-  font-size: 42pt;
+  font-size: 40pt;
   margin-bottom: 4rem;
 }
 
@@ -38,7 +39,7 @@
 .otherInfoWrapper textarea {
   flex: 1;
   font-family: "Cal Sans";
-  font-size: 14pt;
+  font-size: 16pt;
   padding: 0.7rem;
   margin: 0.7rem auto;
   background-color: #ffffff;
