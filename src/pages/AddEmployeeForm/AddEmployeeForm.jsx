@@ -85,32 +85,21 @@ const AddEmployeeForm = () => {
   };
 
   if (loading) return <LoaderSpinner />;
-  if (error) return <p className="message">Error: {error}</p>;
+  if (error)
+    return (
+      <p c className={`${styles.message} ${styles.error}`}>
+        Error: {error}
+      </p>
+    );
 
   return (
     <>
       <div>
         {errorMessage && (
-          <p
-            style={{
-              color: "#ff0055",
-              fontSize: "18pt",
-              marginTop: "3rem",
-              zIndex: "5",
-            }}
-          >
-            {errorMessage}
-          </p>
+          <p className={`${styles.message} ${styles.error}`}>{errorMessage}</p>
         )}
         {successMessage && (
-          <p
-            style={{
-              color: "#00955e",
-              fontSize: "18pt",
-              marginTop: "3rem",
-              zIndex: "5",
-            }}
-          >
+          <p className={`${styles.message} ${styles.success}`}>
             {successMessage}
           </p>
         )}

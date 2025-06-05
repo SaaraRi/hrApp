@@ -104,12 +104,31 @@ button {
   margin: 1rem 0.5rem;
   width: 170px;
   color: #3d3e41;
+  color: #aa55aa;
+  color: #7c2e7c;
+  color: #3d3e41;
   background-color: #cfddff;
-  color: #3136d4;
   background-color: #c6c9ff;
+  background-color: #b5a8db;
+  background-color: #ccbef8;
+  background-color: #d6abd5;
+  background-color: #e0bbe1;
+  background-color: #e5cce6;
+  background-color: #d6abd5;
+  background-color: #ddc1de;
+  background-color: rgb(224 187 225);
+  background-color: #e5cce6;
+  background-color: rgb(223 227 90);
+  background-color: rgb(233 243 95);
+  background-color: rgb(240, 246, 160);
+  background-color: rgb(255 255 145);
+  background-color: rgb(237, 244, 133);
+  background-color: rgb(244, 250, 164);
 
   border-radius: 8px;
-  border: 1px solid #3136d4;
+  border: 1px solid #7c2e7c;
+  border: 1px solid #3d3e41;
+
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
   cursor: pointer;
   transition-property: background-color;
@@ -119,12 +138,30 @@ button {
 
 button:hover {
   background-color: #fff49e;
+  background-color: #fff196;
   /*border: 1px solid #e1e1be;*/
+  background-color: #e5cce6;
+  background-color: #e0bbe1;
+  background-color: #eed5ef;
+  background-color: #cfbceb;
+  background-color: #d6c5f0;
+  background-color: #ded3f0;
+  color: #aa55aa;
+  color: #7c2e7c;
+  color: #91269b;
+  color: #5d4089;
+  color: #5f349f;
+  color: #5a27a5;
+  border: 1px solid #aa55aa;
+  border: 1px solid #7c2e7c;
+  border: 1px solid #91269b;
+  border: 1px solid #5d4089;
+  border: 1px solid #5a27a5;
 }
 
 input[type="text"]:focus,
 select:focus {
-  border: 2px solid #fce858;
+  border: 2px solid rgb(233 243 95);
 }
 
 input::placeholder {
@@ -194,7 +231,7 @@ form {
   gap: 0.5rem;
 }
 
-
+#C8C6F2
 
 .add-btn {
   width: 120px;
@@ -251,4 +288,138 @@ form {
 
 .default {
   background: #ffbbdd;
+}
+
+.design {
+  background: #aa5555;
+}
+
+.development {
+  background: #aa7755;
+}
+
+.product {
+  background: #aaaa55;
+}
+
+.finance {
+  background: #55aa55;
+}
+
+.marketing {
+  background: #55aa77;
+}
+
+.sales {
+  background: #55aaaa;
+}
+
+.analytics {
+  background: #5577aa;
+}
+
+.IT {
+  background: #5555aa;
+}
+
+.legal {
+  background: #7755aa;
+}
+
+.HR {
+  background: #aa55aa;
+}
+
+.default {
+  background: #aa5577;
+}
+
+/*
+.design {
+  background: #c08787;
+}
+
+.development {
+  background: #c09e88;
+}
+
+.product {
+  background: #c1c289;
+}
+
+.finance {
+  background: #8cc489;
+}
+
+.marketing {
+  background: #8cc39e;
+}
+
+.sales {
+  background: #8cc2c0;
+}
+
+.analytics {
+  background: #889dc1;
+}
+
+.IT {
+  background: #8785c2;
+}
+
+.legal {
+  background: #9d85c1;
+}
+
+.HR {
+  background: #c084c2;
+}
+
+.default {
+  background: #c0869e;
+}
+*/
+
+.design {
+  background: #d6adad;
+}
+
+.development {
+  background: #d5bcad;
+}
+
+.product {
+  background: #d5d6af;
+}
+
+.finance {
+  background: #b1d7af;
+}
+
+.marketing {
+  background: #b1d6bd;
+}
+
+.sales {
+  background: #b1d6d6;
+}
+
+.analytics {
+  background: #aebcd5;
+}
+
+.IT {
+  background: #adabd6;
+}
+
+.legal {
+  background: #bdaad6;
+}
+
+.HR {
+  background: #d6abd5;
+}
+
+.default {
+  background: #d6acbd;
 }

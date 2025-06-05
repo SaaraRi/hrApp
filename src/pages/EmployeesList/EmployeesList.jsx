@@ -87,10 +87,10 @@ const EmployeesList = () => {
     return matchesSearch && matchesDepartment && matchesLocation;
   });
 
-  if (error) return <p className="message">Error: {error}</p>;
+  if (error) return <p className={styles.message}>Error: {error}</p>;
   if (loading) return <LoaderSpinner />;
   if (!employees || employees.length === 0) {
-    return <p className="message">No employee data available.</p>;
+    return <p className={styles.message}>No employee data available.</p>;
   }
 
   return (

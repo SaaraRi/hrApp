@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, useLocation, Link } from "react-router";
 import useAxios from "../../hooks/useAxios";
-import employeeBadgeImage from "../../assets/images/pngwing.com.png";
-import badgeIcon from "../../assets/images/icons8-badge-100.png";
+import employeeBadgeImage from "../../assets/images/7427018 3 copy.png";
+import badgeIcon from "../../assets/images/icons8-badge-50.png";
 import calendarIcon from "../../assets/images/icons8-leave-52.png";
 import useEmploymentTime from "../../hooks/useEmploymentTime";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
@@ -106,24 +106,27 @@ const SingleEmployeeProfile = () => {
   };
 
   const handleDelete = async () => {
-    /*const confirmed = window.confirm(
+    const confirmed = window.confirm(
       "Are you sure you want to delete this profile?"
     );
-    if (confirmed) {
-    await remove(id);
+    /*if (confirmed) {
+    /*await remove(id);
     setSuccessMessage("Employee profile deleted successfully.");
     setTimeout(() => navigate("/employees"), 3000);*/
-    setLoading(true);
-    try {
-      await remove(id);
-      setSuccessMessage("Employee profile deleted successfully.");
-      setTimeout(() => setSuccessMessage(""), 3000);
-      setTimeout(() => navigate("/employees"), 3000);
-      setLoading(false);
-    } catch (error) {
-      setErrorMessage("Failed to delete employee profile. Please try again.");
-      setTimeout(() => setErrorMessage(""), 3000);
-      setLoading(false);
+
+    if (confirmed) {
+      setLoading(true);
+      try {
+        await remove(id);
+        setSuccessMessage("Employee profile deleted successfully.");
+        setTimeout(() => setSuccessMessage(""), 3000);
+        setTimeout(() => navigate("/employees"), 3000);
+        setLoading(false);
+      } catch (error) {
+        setErrorMessage("Failed to delete employee profile. Please try again.");
+        setTimeout(() => setErrorMessage(""), 3000);
+        setLoading(false);
+      }
     }
   };
 
@@ -152,7 +155,11 @@ const SingleEmployeeProfile = () => {
 
   if (loading || !updatedData) return <LoaderSpinner />;
   if (error) {
-    return <p className="message">Error loading profile: {error}</p>;
+    return (
+      <p className={`${styles.message} ${styles.error}`}>
+        Error loading profile: {error}
+      </p>
+    );
   }
 
   const isSaveDisabled =
@@ -166,72 +173,118 @@ const SingleEmployeeProfile = () => {
     <>
       <div>
         {errorMessage && (
-          <p
-            style={{
-              color: "#ff0055",
-              fontSize: "18pt",
-              marginTop: "3rem",
-              zIndex: "5",
-            }}
-          >
-            {errorMessage}
-          </p>
+          <p className={`${styles.message} ${styles.error}`}>{errorMessage}</p>
         )}
         {successMessage && (
-          <p
-            style={{
-              color: "#00955e",
-              fontSize: "18pt",
-              marginTop: "3rem",
-              zIndex: "5",
-            }}
-          >
+          <p className={`${styles.message} ${styles.success}`}>
             {successMessage}
           </p>
         )}
       </div>
       <div className={styles.profileContainer}>
-        <div className={styles.profileCard} key={id}>
+        <div
+          className={styles.profileCard}
+          //style={isEditing ? { backgroundColor: "#d5d7dc" } : undefined}
+          key={id}
+        >
           <div
             className={`${getDepartmentClassName(
               updatedData.department
             )} cardHeader`}
-            style={{ opacity: "0.8" }}
+            style={{ borderTopLeftRadius: "8px", borderTopRightRadius: "8px" }}
           >
             {isEditing ? (
               <>
                 <form onChange={handleInput} onSubmit={handleSubmit}>
-                  <div className="add-input">
-                    <label htmlFor="department">Department:</label>
-                    <select
-                      className="dpt"
-                      id="department"
-                      name="department"
-                      value={updatedData.department}
-                      onChange={handleInput}
-                      required
-                    >
-                      <option value="">Select Department</option>
-                      {[
-                        "Design",
-                        "Development",
-                        "Product",
-                        "Finance",
-                        "Marketing",
-                        "Sales",
-                        "Analytics",
-                        "IT",
-                        "Legal",
-                        "Human Resources",
-                      ].map((department) => (
-                        <option key={department} value={department}>
-                          {department}
-                        </option>
-                      ))}
-                    </select>
+                  <div className={styles.bannerInputWrapper}>
+                    <div className={styles.departmentWrapper}>
+                      <label htmlFor="department">Department:</label>
+                      <select
+                        className="dpt"
+                        id="department"
+                        name="department"
+                        value={updatedData.department}
+                        onChange={handleInput}
+                        required
+                      >
+                        <option value="">Select Department</option>
+                        {[
+                          "Design",
+                          "Development",
+                          "Product",
+                          "Finance",
+                          "Marketing",
+                          "Sales",
+                          "Analytics",
+                          "IT",
+                          "Legal",
+                          "Human Resources",
+                        ].map((department) => (
+                          <option key={department} value={department}>
+                            {department}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                    <div className={styles.locationWrapper}>
+                      <label className={styles.locationLabel}>Location:</label>
+                      <div className={styles.radioContainer}>
+                        <div className={styles.radioWrapper}>
+                          <input
+                            className={styles.radioInput}
+                            type="radio"
+                            id="Helsinki"
+                            name="location"
+                            value="Helsinki"
+                            checked={updatedData.location === "Helsinki"}
+                            onChange={handleInput}
+                            required
+                          />
+                          <label
+                            htmlFor="Helsinki"
+                            className={styles.radioLabel}
+                          >
+                            Helsinki
+                          </label>
+                        </div>
+                        <div className={styles.radioWrapper}>
+                          <input
+                            className={styles.radioInput}
+                            type="radio"
+                            id="Espoo"
+                            name="location"
+                            value="Espoo"
+                            checked={updatedData.location === "Espoo"}
+                            onChange={handleInput}
+                            required
+                          />
+                          <label htmlFor="Espoo" className={styles.radioLabel}>
+                            Espoo
+                          </label>
+                        </div>
+                        <div className={styles.radioWrapper}>
+                          <input
+                            className={styles.radioInput}
+                            type="radio"
+                            id="Tampere"
+                            name="location"
+                            value="Tampere"
+                            checked={updatedData.location === "Tampere"}
+                            onChange={handleInput}
+                            required
+                          />
+                          <label
+                            htmlFor="Tampere"
+                            className={styles.radioLabel}
+                          >
+                            Tampere
+                          </label>
+                        </div>
+                      </div>
+                    </div>
                   </div>
-                  <div className="add-input">
-                    <p className="white-font">Location:</p>
+                  {/*<div className="locationWrapper">
+                    <p>Location:</p>
                     <label>
                       <input
                         className="loc"
@@ -268,13 +321,12 @@ const SingleEmployeeProfile = () => {
                       />
                       Tampere
                     </label>
-                  </div>
+                  </div>*/}
                 </form>
               </>
             ) : (
               <div className={styles.bannerTextWrapper}>
                 <p className={styles.dptTitle}>{updatedData.department}</p>
-
                 <p className={styles.locTitle}>{updatedData.location}</p>
               </div>
             )}
@@ -285,6 +337,7 @@ const SingleEmployeeProfile = () => {
               <img
                 src={employeeBadgeImage}
                 className={styles.badgeImg}
+                style={isEditing ? { top: "10.5rem" } : undefined}
                 alt="Employee of the Month -badge"
               />
             </div>
@@ -301,10 +354,8 @@ const SingleEmployeeProfile = () => {
                       className={styles.cardImg}
                     />
                     <div className={styles.titleSectionText}>
-                      <div>
-                        <label htmlFor="name" className="white-font">
-                          Name:
-                        </label>
+                      <div className={styles.titleInputWrapper}>
+                        <label htmlFor="name">Name:</label>
                         <input
                           type="text"
                           name="name"
@@ -314,10 +365,8 @@ const SingleEmployeeProfile = () => {
                           required
                         />
                       </div>
-                      <div>
-                        <label htmlFor="title" className="white-font">
-                          Title:
-                        </label>
+                      <div className={styles.titleInputWrapper}>
+                        <label htmlFor="title">Title:</label>
                         <input
                           type="text"
                           name="title"
@@ -327,31 +376,27 @@ const SingleEmployeeProfile = () => {
                           required
                         />
                       </div>
-                      <div>
-                        <label htmlFor="skills" className="white-font">
-                          Skills:
-                        </label>
+                      <div className={styles.titleInputWrapper}>
+                        <label htmlFor="skills">Skills:</label>
                         <input
                           type="text"
                           name="skills"
                           //value={updatedData.skills}
                           //onChange={handleInput}
-                          placeholder="Skills (comma-separated)"
+                          placeholder="comma-separated"
                           value={updatedData.skills}
                           onChange={handleInput}
                         />
                       </div>
-                      <div>
-                        <label htmlFor="projects" className="white-font">
-                          Current Projects:
-                        </label>
+                      <div className={styles.titleInputWrapper}>
+                        <label htmlFor="projects">Current Projects:</label>
                         <input
                           name="currentProjects"
                           id="currentProjects"
                           type="text"
                           //value={updatedData.currentProjects}
                           //onChange={handleInput}
-                          placeholder="Current Projects (comma-separated)"
+                          placeholder="comma-separated"
                           value={updatedData.currentProjects}
                           onChange={handleInput}
                         />
@@ -360,16 +405,14 @@ const SingleEmployeeProfile = () => {
                   </div>
                   <div className={styles.managementSection}>
                     <h2>Management:</h2>
-                    <div className="add-input">
-                      <label htmlFor="status" className="white-font">
-                        Employee Status:
-                      </label>
+                    <div className={styles.inputWrapper}>
+                      <label htmlFor="status">Employee Status:</label>
                       <select
                         id="status"
                         name="status"
                         value={updatedData.status}
-                        required
                         onChange={handleInput}
+                        required
                       >
                         <option value="">Select Employee Status</option>
                         {[
@@ -387,42 +430,36 @@ const SingleEmployeeProfile = () => {
                         ))}
                       </select>
                     </div>
-                    <div className="add-input">
-                      <label htmlFor="manager" className="white-font">
-                        Manager:
-                      </label>
+                    <div className={styles.inputWrapper}>
+                      <label htmlFor="manager">Manager:</label>
                       <input
                         type="text"
                         id="manager"
                         name="manager"
                         value={updatedData.manager}
-                        required
                         onChange={handleInput}
+                        required
                       />
                     </div>
-                    <div className="add-input">
-                      <label htmlFor="startDate" className="white-font">
-                        Start Date:
-                      </label>
+                    <div className={styles.inputWrapper}>
+                      <label htmlFor="startDate">Start Date:</label>
                       <input
                         type="date"
                         id="startDate"
                         name="startDate"
                         value={updatedData.startDate}
-                        required
                         onChange={handleInput}
+                        required
                       />
                     </div>
-                    <div className="add-input">
-                      <label htmlFor="contractType" className="white-font">
-                        Contract Type:
-                      </label>
+                    <div className={styles.inputWrapper}>
+                      <label htmlFor="contractType">Contract Type:</label>
                       <select
                         id="contractType"
                         name="contractType"
                         value={updatedData.contractType}
-                        required
                         onChange={handleInput}
+                        required
                       >
                         <option value="">Select Contract Type</option>
                         {[
@@ -439,22 +476,20 @@ const SingleEmployeeProfile = () => {
                         ))}
                       </select>
                     </div>
-                    <div className="add-input">
-                      <label htmlFor="salary" className="white-font">
-                        Salary/month:
-                      </label>
+                    <div className={styles.inputWrapper}>
+                      <label htmlFor="salary">Salary/month:</label>
                       <input
                         type="number"
                         id="salary"
                         name="salary"
                         value={updatedData.salary}
+                        onChange={handleInput}
                         placeholder="123"
                         required
-                        onChange={handleInput}
                       />
                     </div>
-                    <div className="add-input">
-                      <label htmlFor="vacationDaysAcc" className="white-font">
+                    <div className={styles.inputWrapper}>
+                      <label htmlFor="vacationDaysAcc">
                         Vacation Days Accumulated:
                       </label>
                       <input
@@ -462,73 +497,63 @@ const SingleEmployeeProfile = () => {
                         id="vacationDaysAcc"
                         name="vacationDaysAcc"
                         value={updatedData.vacationDaysAcc}
+                        onChange={handleInput}
                         placeholder="123"
                         required
-                        onChange={handleInput}
                       />
                     </div>
                   </div>
                   <div className={styles.personalSection}>
                     <h2>Contact/personal:</h2>
-                    <div className="add-input">
-                      <label htmlFor="email" className="white-font">
-                        E-mail:
-                      </label>
+                    <div className={styles.inputWrapper}>
+                      <label htmlFor="email">E-mail:</label>
                       <input
                         type="email"
                         id="email"
                         name="email"
                         value={updatedData.email}
+                        onChange={handleInput}
                         placeholder="Email"
                         required
-                        onChange={handleInput}
                       />
                     </div>
-                    <div className="add-input">
-                      <label htmlFor="phone" className="white-font">
-                        Phone:
-                      </label>
+                    <div className={styles.inputWrapper}>
+                      <label htmlFor="phone">Phone:</label>
                       <input
                         type="tel"
                         id="phone"
                         name="phone"
                         value={updatedData.phone}
+                        onChange={handleInput}
                         placeholder="phone"
                         required
-                        onChange={handleInput}
                       />
                     </div>
-                    <div className="add-input">
-                      <label htmlFor="homeAddress" className="white-font">
-                        Home Address:
-                      </label>
+                    <div className={styles.inputWrapper}>
+                      <label htmlFor="homeAddress">Home Address:</label>
                       <input
                         type="text"
                         id="homeAddress"
                         name="homeAddress"
                         value={updatedData.homeAddress}
+                        onChange={handleInput}
                         placeholder="Home Address"
                         required
-                        onChange={handleInput}
                       />
                     </div>
-                    <div className="add-input">
-                      <label htmlFor="dateOfBirth" className="white-font">
-                        Date of Birth:
-                      </label>
+                    <div className={styles.inputWrapper}>
+                      <label htmlFor="dateOfBirth">Date of Birth:</label>
                       <input
                         type="date"
                         id="dateOfBirth"
                         name="dateOfBirth"
                         value={updatedData.dateOfBirth}
-                        required
                         onChange={handleInput}
+                        required
                       />
                     </div>
-                    <div className="add-input">
-                      <label htmlFor="education" className="white-font">
-                        Education:
-                      </label>
+                    <div className={styles.inputWrapper}>
+                      <label htmlFor="education">Education:</label>
                       <input
                         type="text"
                         id="education"
@@ -538,8 +563,8 @@ const SingleEmployeeProfile = () => {
                         onChange={handleInput}
                       />
                     </div>
-                    <div className="add-input">
-                      <label htmlFor="emergencyContact" className="white-font">
+                    <div className={styles.inputWrapper}>
+                      <label htmlFor="emergencyContact">
                         Emergency Contact:
                       </label>
                       <input
@@ -547,20 +572,20 @@ const SingleEmployeeProfile = () => {
                         id="emergencyContact"
                         name="emergencyContact"
                         value={updatedData.emergencyContact}
+                        onChange={handleInput}
                         placeholder="name & phone"
                         required
-                        onChange={handleInput}
                       />
                     </div>
                   </div>
                   <div className={styles.otherInfoSection}>
                     <h2>Other Information</h2>
-                    <div className="add-input">
+                    <div className={styles.otherInfoWrapper}>
                       <textarea
                         id="otherInfo"
                         name="otherInfo"
-                        rows="10"
-                        cols="50"
+                        rows="6"
+                        cols="10"
                         value={updatedData.otherInfo}
                         onChange={handleInput}
                       ></textarea>
@@ -594,13 +619,13 @@ const SingleEmployeeProfile = () => {
                     )}
 
                     <div
-                      className={`${styles.titleInputWrapper} ${styles.skillsWrapper}`}
+                      className={`${styles.titleDataWrapper} ${styles.skillsWrapper}`}
                     >
                       <label>Skills:</label>
                       <p>{updatedData.skills}</p>
                     </div>
                     <div
-                      className={`${styles.titleInputWrapper} ${styles.projectsWrapper}`}
+                      className={`${styles.titleDataWrapper} ${styles.projectsWrapper}`}
                     >
                       <label>Current Projects:</label>
                       <p>{updatedData.currentProjects}</p>
@@ -609,60 +634,60 @@ const SingleEmployeeProfile = () => {
                 </div>
                 <div className={styles.managementSection}>
                   <h2>Management</h2>
-                  <div className={styles.inputWrapper}>
+                  <div className={styles.dataWrapper}>
                     <label htmlFor="">Employee Status:</label>
                     <p>{updatedData.status}</p>
                   </div>
-                  <div className={styles.inputWrapper}>
+                  <div className={styles.dataWrapper}>
                     <label htmlFor="">Manager:</label>
                     <p>{updatedData.manager}</p>
                   </div>
-                  <div className={styles.inputWrapper}>
+                  <div className={styles.dataWrapper}>
                     <label htmlFor="">Start Date:</label>
                     <p>
                       {updatedData.startDate} ({yearsOfEmployment} years
                       employed)
                     </p>
                   </div>
-                  <div className={styles.inputWrapper}>
+                  <div className={styles.dataWrapper}>
                     <label htmlFor="">Contract Type:</label>
                     <p>{updatedData.contractType}</p>
                   </div>
-                  <div className={styles.inputWrapper}>
+                  <div className={styles.dataWrapper}>
                     <label htmlFor="">Salary/month:</label>
                     <p>€ {updatedData.salary}</p>
                   </div>
-                  <div className={styles.inputWrapper}>
+                  <div className={styles.dataWrapper}>
                     <label htmlFor="">Vacation Days Accumulated:</label>
                     <p>{updatedData.vacationDaysAcc} days</p>
                   </div>
                 </div>
                 <div className={styles.personalSection}>
                   <h2>Contact/personal</h2>
-                  <div className={styles.inputWrapper}>
+                  <div className={styles.dataWrapper}>
                     <label htmlFor="">E-mail:</label>
                     <p>{updatedData.email}</p>
                   </div>
-                  <div className={styles.inputWrapper}>
+                  <div className={styles.dataWrapper}>
                     <label htmlFor="">Phone:</label>
                     <p>{updatedData.phone}</p>
                   </div>
-                  <div className={styles.inputWrapper}>
+                  <div className={styles.dataWrapper}>
                     <label htmlFor="">Home Address:</label>
                     <p>{updatedData.homeAddress}</p>
                   </div>
-                  <div className={styles.inputWrapper}>
+                  <div className={styles.dataWrapper}>
                     <label htmlFor="">Date of Birth:</label>
                     <p>{updatedData.dateOfBirth}</p>
                   </div>
                   <div
-                    className={styles.inputWrapper}
+                    className={styles.dataWrapper}
                     style={{ alignItems: "flex-start" }}
                   >
                     <label htmlFor="">Education:</label>
                     <p>{updatedData.education}</p>
                   </div>
-                  <div className={styles.inputWrapper}>
+                  <div className={styles.dataWrapper}>
                     <label htmlFor="">Emergency Contact:</label>
                     <p>{updatedData.emergencyContact}</p>
                   </div>
@@ -674,60 +699,70 @@ const SingleEmployeeProfile = () => {
               </div>
             </>
           )}
-          <div className={styles.scheduleContainer}>
-            {scheduleProbationReview && (
-              <div className={styles.scheduleWrapper}>
-                <img
-                  className={styles.scheduleIcon}
-                  style={{ height: "25px", maxWidth: "25px" }}
-                  src={calendarIcon}
-                  alt="general-mandatory-action"
-                />
-                <div className={styles.scheduleTextWrapper}>
+          <div className={styles.cardFooter}>
+            <div className={styles.scheduleContainer}>
+              {scheduleProbationReview && (
+                <div className={styles.scheduleWrapper}>
+                  <img
+                    className={styles.scheduleIcon}
+                    style={{
+                      height: "25px",
+                      maxWidth: "25px",
+                      alignSelf: "center",
+                    }}
+                    src={calendarIcon}
+                    alt="general-mandatory-action"
+                  />
+
                   <p className={styles.scheduleText}>
                     Schedule 6 months probation review
                   </p>
                 </div>
-              </div>
-            )}
-            {scheduleRecognitionMeeting && (
-              <div className={styles.scheduleWrapper}>
-                <img
-                  className={styles.scheduleIcon}
-                  style={{ height: "30px", maxWidth: "30px" }}
-                  src={badgeIcon}
-                  alt="general-mandatory-action"
-                />
-                <div className={styles.scheduleTextWrapper}>
+              )}
+              {scheduleRecognitionMeeting && (
+                <div className={styles.scheduleWrapper}>
+                  <img
+                    className={styles.scheduleIcon}
+                    style={{
+                      height: "50px",
+                      maxWidth: "50px",
+                      alignSelf: "center",
+                    }}
+                    src={badgeIcon}
+                    alt="general-mandatory-action"
+                  />
+
                   <p className={styles.scheduleText}>
-                    Schedule recognition meeting ({fullYearsOfEmployment} years
-                    of employment)
+                    Schedule recognition meeting
+                    <br />({fullYearsOfEmployment} years of employment)
                   </p>
                 </div>
-              </div>
-            )}
+              )}
+            </div>
+            <button
+              onClick={toggleEmployeeOfMonth}
+              className={styles.employeeBtn}
+            >
+              {employeeOfMonth
+                ? "Remove status Employee of the Month"
+                : "Select as Employee of the Month"}
+            </button>
           </div>
         </div>
-
-        <div>
+        <div className={styles.buttonContainer}>
           <button onClick={() => navigate("/employees")}>Back to List</button>
           {isEditing ? (
             <>
               <button onClick={handleSubmit} disabled={isSaveDisabled}>
-                Save Changes
+                Save Edit
               </button>
               <button onClick={handleCancel}>Cancel Edit</button>
             </>
           ) : (
-            <button onClick={() => setIsEditing(true)}>Edit Details</button>
+            <button onClick={() => setIsEditing(true)}>Edit Profile</button>
           )}
 
           <button onClick={handleDelete}>Delete Profile</button>
-          <button onClick={toggleEmployeeOfMonth}>
-            {employeeOfMonth
-              ? "Remove status Employee of the Month"
-              : "Select as Employee of the Month"}
-          </button>
         </div>
       </div>
     </>

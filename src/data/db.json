@@ -4,7 +4,7 @@
       "id": "1",
       "name": "Aino Virtanen-Koski",
       "title": "HR Manager",
-      "department": "Development",
+      "department": "Finance",
       "location": "Tampere",
       "skills": [
         "Recruiting",
@@ -16,7 +16,7 @@
         "Backend Optimization"
       ],
       "status": "Retired",
-      "employeeOfMonth": true,
+      "employeeOfMonth": false,
       "manager": "Eero Koskinen",
       "startDate": "2025-04-03",
       "contractType": "Full-time",
@@ -28,7 +28,7 @@
       "education": "Master's in Computer Science, University of Glasgow, 2020",
       "dateOfBirth": "1985-06-20",
       "emergencyContact": "Anna Nieminen, 040-9876543",
-      "otherInfo": ""
+      "otherInfo": "\"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\""
     },
     {
       "id": "2",
@@ -46,7 +46,7 @@
         "Brand Identity"
       ],
       "status": "Active",
-      "employeeOfMonth": false,
+      "employeeOfMonth": true,
       "manager": "Sari Laine",
       "startDate": "2018-09-01",
       "contractType": "Full-time",
@@ -88,7 +88,7 @@
       "education": "BSc Computer Science, Cairo University, 2014",
       "dateOfBirth": "1988-11-05",
       "emergencyContact": "Sara Farouk, 040-9876544",
-      "otherInfo": ""
+      "otherInfo": "Moi!"
     },
     {
       "id": "4",
@@ -136,7 +136,7 @@
         "Customer Segmentation"
       ],
       "status": "Active",
-      "employeeOfMonth": false,
+      "employeeOfMonth": true,
       "manager": "Leena Virtanen",
       "startDate": "2019-05-05",
       "contractType": "Full-time",

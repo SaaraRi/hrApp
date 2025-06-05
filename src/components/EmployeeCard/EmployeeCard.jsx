@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router";
-import employeeBadgeImage from "../../assets/images/pngwing.com.png";
-import badgeIcon from "../../assets/images/icons8-badge-100.png";
+import employeeBadgeImage from "../../assets/images/7427018 3 copy.png";
+import badgeIcon from "../../assets/images/icons8-badge-50.png";
 import calendarIcon from "../../assets/images/icons8-leave-52.png";
 import useEmploymentTime from "../../hooks/useEmploymentTime";
 import LoaderSpinner from "../LoaderSpinner/LoaderSpinner";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
-import styles from "./EmployeeCard.module.css";
+import styles from "./EmployeeCard.module.scss";
 
 const EmployeeCard = ({ employee }) => {
   const navigate = useNavigate();
@@ -35,7 +35,7 @@ const EmployeeCard = ({ employee }) => {
   if (!employee)
     return (
       <LoaderSpinner /> && (
-        <p className="message">Employee profile not found.</p>
+        <p lassName={styles.message}>Employee profile not found.</p>
       )
     );
 
@@ -43,7 +43,7 @@ const EmployeeCard = ({ employee }) => {
     <div className={styles.card} key={id}>
       <div
         className={`${getDepartmentClassName(department)} cardHeader`}
-        style={{ opacity: "0.8" }}
+        style={{ borderTopLeftRadius: "8px", borderTopRightRadius: "8px" }}
       >
         <div className={styles.bannerTextWrapper}>
           <p className={styles.dptTitle}>{department}</p>
