@@ -76,7 +76,9 @@ const EmployeeCard = ({ employee }) => {
                 {status !== "Active" && status !== "Specified below" ? (
                   <p className={styles.statusTitle}>({status})</p>
                 ) : (
-                  <p style={{ color: "transparent" }}>({status})</p>
+                  <p style={{ color: "transparent", marginTop: "0.3rem" }}>
+                    ({status})
+                  </p>
                 )}
               </div>
             </div>
@@ -98,6 +100,7 @@ const EmployeeCard = ({ employee }) => {
             </div>
           </div>
         </div>
+        <div className={styles.border}></div>
         <div className={styles.cardFooter}>
           <div className={styles.scheduleContainer}>
             {scheduleProbationReview && (
