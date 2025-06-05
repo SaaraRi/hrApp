@@ -43,7 +43,10 @@ const EmployeeCard = ({ employee }) => {
     <div className={styles.card} key={id}>
       <div
         className={`${getDepartmentClassName(department)} cardHeader`}
-        style={{ borderTopLeftRadius: "8px", borderTopRightRadius: "8px" }}
+        style={{
+          borderTopLeftRadius: "8px",
+          borderTopRightRadius: "8px",
+        }}
       >
         <div className={styles.bannerTextWrapper}>
           <p className={styles.dptTitle}>{department}</p>

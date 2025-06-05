@@ -152,6 +152,7 @@ const AddEmployeeForm = () => {
                 "Marketing",
                 "Sales",
                 "Analytics",
+                "Customer Relations",
                 "IT",
                 "Legal",
                 "Human Resources",

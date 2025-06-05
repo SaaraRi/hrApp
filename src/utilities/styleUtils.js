@@ -16,6 +16,8 @@ export const getDepartmentClassName = (department) => {
       return "sales";
     case "Analytics":
       return "analytics";
+    case "Customer Relations":
+      return "customer";
     case "IT":
       return "IT";
     case "Legal":

@@ -303,18 +303,22 @@ form {
 }
 
 .finance {
-  background: #55aa55;
+  background: #77aa55;
 }
 
 .marketing {
-  background: #55aa77;
+  background: #55aa55;
 }
 
 .sales {
-  background: #55aaaa;
+  background: #55aa77;
 }
 
 .analytics {
+  background: #55aaaa;
+}
+
+.customer {
   background: #5577aa;
 }
 
@@ -393,21 +397,24 @@ form {
 }
 
 .finance {
-  background: #b1d7af;
+  background: #bed7ae;
 }
 
 .marketing {
-  background: #b1d6bd;
+  background: #b1d7af;
 }
 
 .sales {
-  background: #b1d6d6;
+  background: #b1d6bd;
 }
 
 .analytics {
-  background: #aebcd5;
+  background: #b1d6d6;
 }
 
+.customer {
+  background: #aebcd5;
+}
 .IT {
   background: #adabd6;
 }

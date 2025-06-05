@@ -130,6 +130,7 @@
 .imgContainer h4 {
   font-size: 14pt;
   margin-top: 1rem;
+  max-width: 220px;
 }
 
 .statusText {

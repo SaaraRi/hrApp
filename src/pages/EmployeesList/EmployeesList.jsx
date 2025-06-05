@@ -129,6 +129,7 @@ const EmployeesList = () => {
                   "Sales",
                   "Analytics",
                   "IT",
+                  "Customer Relations",
                   "Legal",
                   "Human Resources",
                 ].map((department) => (
