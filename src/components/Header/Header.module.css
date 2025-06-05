@@ -1,18 +1,14 @@
 header {
-  background-color: #bfc1c5;
-  background-color: #f1f3f8;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
   padding: 0 4rem;
-  position: fixed;
   height: 140px;
   max-height: 200px;
   width: 100%;
-  background-color: transparent;
-  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.25), 0 7px 7px rgba(0, 0, 0, 0.22);
+  position: fixed;
   z-index: 5;
 }
 
@@ -26,7 +22,7 @@ nav ul {
   text-decoration: none;
 }
 
-.menu-link {
+.menuLink {
   font-size: 16pt;
   color: #3d3e41;
 }
@@ -36,21 +32,11 @@ a {
 }
 
 a:hover {
-  color: #503ec6;
-  color: #3136d4;
-  color: #91269b;
   color: #5a27a5;
-  border-bottom: 5px dashed rgb(233 243 95);
-  border-bottom: 5px dashed rgb(233 243 95);
   border-bottom: 5px dotted rgb(233 243 95);
 }
 
 .active {
-  color: #34353a;
-  color: #3f4044;
-  color: #5d4bcf;
-  color: #3136d4;
-  color: #91269b;
   color: #3d3e41;
   border-bottom: 5px solid rgb(233 243 95);
 }

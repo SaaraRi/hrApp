@@ -1,6 +1,6 @@
 import { useMemo } from "react";
 
-const useEmploymentTime = (startDate) => {
+export const useEmploymentTime = (startDate) => {
   return useMemo(() => {
     const startedWorkDate = new Date(startDate);
     const currentDate = new Date();
@@ -22,5 +22,3 @@ const useEmploymentTime = (startDate) => {
     };
   }, [startDate]);
 };
-
-export default useEmploymentTime;

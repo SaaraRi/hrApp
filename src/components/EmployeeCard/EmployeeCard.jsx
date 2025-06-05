@@ -1,10 +1,10 @@
 import { useNavigate } from "react-router";
+import { useEmploymentTime } from "../../hooks/useEmploymentTime";
+import { getDepartmentClassName } from "../../utilities/styleUtils";
 import employeeBadgeImage from "../../assets/images/7427018.png";
 import badgeIcon from "../../assets/images/icons8-badge-50.png";
 import calendarIcon from "../../assets/images/icons8-leave-52.png";
-import useEmploymentTime from "../../hooks/useEmploymentTime";
 import LoaderSpinner from "../LoaderSpinner/LoaderSpinner";
-import { getDepartmentClassName } from "../../utilities/styleUtils";
 import styles from "./EmployeeCard.module.css";
 
 const EmployeeCard = ({ employee }) => {
@@ -35,7 +35,7 @@ const EmployeeCard = ({ employee }) => {
   if (!employee)
     return (
       <LoaderSpinner /> && (
-        <p lassName={styles.message}>Employee profile not found.</p>
+        <p lassName={styles.message}>Employee profile not found</p>
       )
     );
 
@@ -48,10 +48,10 @@ const EmployeeCard = ({ employee }) => {
           borderTopRightRadius: "8px",
         }}
       >
-        <div className={styles.bannerTextWrapper}>
-          <p className={styles.dptTitle}>{department}</p>
+        <div className={styles.bannerTitleWrapper}>
+          <p className={styles.bannerTitleDpt}>{department}</p>
 
-          <p className={styles.locTitle}>{location}</p>
+          <p className={styles.bannerTitleLoc}>{location}</p>
         </div>
       </div>
       <div className={styles.cardContent}>
@@ -62,7 +62,6 @@ const EmployeeCard = ({ employee }) => {
               className={styles.cardImg}
               alt={name}
             />
-
             {employeeOfMonth && (
               <img
                 src={employeeBadgeImage}
@@ -70,12 +69,12 @@ const EmployeeCard = ({ employee }) => {
                 alt="Employee of the Month -badge"
               />
             )}
-            <div className={styles.imgTextWrapper}>
+            <div className={styles.imgTitleWrapper}>
               <h3>{name}</h3>
               <div>
                 <h4>{title}</h4>
                 {status !== "Active" && status !== "Specified below" ? (
-                  <p className={styles.statusText}>({status})</p>
+                  <p className={styles.statusTitle}>({status})</p>
                 ) : (
                   <p style={{ color: "transparent" }}>({status})</p>
                 )}
@@ -104,33 +103,26 @@ const EmployeeCard = ({ employee }) => {
             {scheduleProbationReview && (
               <div className={styles.scheduleWrapper}>
                 <img
-                  className={styles.scheduleIcon}
-                  style={{ height: "30px", maxWidth: "30px" }}
+                  className={`${styles.scheduleIcon} ${styles.calendar}`}
                   src={calendarIcon}
-                  alt="general-mandatory-action"
+                  alt="Calendar icon"
                 />
-                <div className={styles.scheduleTextWrapper}>
-                  <p className={styles.scheduleText}>Schedule 6 months </p>
-                  <p className={styles.scheduleText}>probation review</p>
-                </div>
+                <p className={styles.scheduleText}>
+                  Schedule 6 months <br></br> probation review
+                </p>
               </div>
             )}
             {scheduleRecognitionMeeting && (
               <div className={styles.scheduleWrapper}>
                 <img
-                  className={styles.scheduleIcon}
-                  style={{ height: "33px", maxWidth: "33px" }}
+                  className={`${styles.scheduleIcon} ${styles.badge}`}
                   src={badgeIcon}
-                  alt="general-mandatory-action"
+                  alt="Badge icon"
                 />
-                <div className={styles.scheduleTextWrapper}>
-                  <p className={styles.scheduleText}>
-                    Schedule recognition meeting{" "}
-                  </p>
-                  <p className={styles.scheduleText}>
-                    ({fullYearsOfEmployment} years of employment)
-                  </p>
-                </div>
+                <p className={styles.scheduleText}>
+                  Schedule recognition meeting<br></br> ({fullYearsOfEmployment}{" "}
+                  years of employment)
+                </p>
               </div>
             )}
           </div>

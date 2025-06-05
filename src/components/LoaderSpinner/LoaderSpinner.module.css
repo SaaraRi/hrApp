@@ -1,15 +1,14 @@
-.loader-wrapper {
+.loaderWrapper {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 200px;
 }
 
-.loader-spinner {
+.loaderSpinner {
   width: 50px;
   height: 50px;
   border: 6px solid rgb(196 172 230);
-  border-top: 6px solid rgb(233 243 95);
   border-top: 6px solid #5a27a5;
   border-radius: 50%;
   animation: spin 1s linear infinite;

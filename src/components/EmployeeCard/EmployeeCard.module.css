@@ -1,101 +1,86 @@
 .card {
+  position: relative;
   background-color: #ffffff;
   color: #3d3e41;
-  border: 1px solid #ccc;
-  border-radius: 8px;
   height: 440px;
   width: 580px;
   min-width: 580px;
   max-width: 580px;
-  /*padding: 0 1rem 2rem 1rem;
-  text-align: center;*/
-  position: relative;
+  border: 1px solid #ccc;
+  border-radius: 8px;
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 }
 
 .cardHeader {
-  width: 580px;
-  height: 40px;
   display: block;
   position: relative;
-  /*opacity: 0.1;*/
-  /*opacity: 0.4;*/
+  width: 580px;
+  height: 40px;
   color: black;
   font-weight: 900;
 }
 
-.bannerTextWrapper {
-  width: 580px;
-  height: 40px;
+.bannerTitleWrapper {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
   flex-wrap: nowrap;
+  width: 580px;
+  height: 40px;
 }
 
-.dptTitle {
-  /*flex: 1;*/
-  font-weight: 700;
-  font-size: 14pt;
+.bannerTitleDpt {
   display: inline;
-  /*width: 100%;*/
+  font-size: 14pt;
+  font-weight: 700;
+  text-align: left;
   height: 100%;
   margin-top: 1rem;
   margin-left: 1rem;
-  text-align: left;
   opacity: 0.8;
 }
 
-.locTitle {
-  font-weight: 700;
+.bannerTitleLoc {
   display: inline;
-  /*width: 100%;*/
+  font-size: 14pt;
+  font-weight: 700;
+  text-align: right;
   height: 100%;
   margin-top: 1rem;
   margin-right: 1rem;
-  text-align: right;
   opacity: 0.8;
-  /* top: 2rem;
-  right: 2rem;
-  flex: 1;*/
 }
 
-/*.imgTextContainer {
-  position: absolute;
-  top: 320px;
-}*/
-
 .cardContent {
+  display: flex;
+  flex-direction: column;
   width: 580px;
   min-width: 580px;
   max-width: 580px;
-
-  display: flex;
-  flex-direction: column;
 }
 
 .cardContainer {
   flex: 1;
-  width: 580px;
-  min-width: 580px;
-  max-width: 580px;
-  padding: 1rem 1rem 0 1rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  width: 580px;
+  min-width: 580px;
+  max-width: 580px;
+  padding: 1rem 1rem 0 1rem;
 }
 
 .imgContainer {
-  width: 290px;
-  min-width: 290px;
-  max-width: 290px;
   flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
+  width: 290px;
+  min-width: 290px;
+  max-width: 290px;
   padding-top: 1rem;
 }
 
@@ -103,9 +88,6 @@
   flex: 1;
   width: 140px;
   height: 140px;
-  /*margin: 0 auto 1.5rem auto;
-  /*position: absolute;
-  top: 120px;*/
 }
 
 .badgeImg {
@@ -114,10 +96,9 @@
   top: 3rem;
   left: 0.7rem;
   z-index: 3;
-  /*rotate: 10deg;*/
 }
 
-.imgTextWrapper {
+.imgTitleWrapper {
   flex: 1;
   display: flex;
   flex-direction: column;
@@ -129,37 +110,25 @@
 
 .imgContainer h4 {
   font-size: 14pt;
-  margin-top: 1rem;
   max-width: 220px;
+  margin-top: 1rem;
 }
 
-.statusText {
+.statusTitle {
   font-style: italic;
   font-size: 12pt;
   margin: 0.5rem auto;
 }
 
 .textContainer {
-  /*border-left: solid 2px #3d3e41;*/
-  width: 290px;
-  min-width: 290px;
-  max-width: 290px;
   flex: 1;
   display: flex;
   flex-direction: column;
-  /*justify-content: flex-start;*/
-  /*align-items: center;*/
   text-align: left;
+  width: 290px;
+  min-width: 290px;
+  max-width: 290px;
 }
-
-/*
-.textWrapper {
-  text-align: left;
-  width: 370px;
-  min-width: 370px;
-  max-width: 370px;
-  margin: 0 3rem;
-}*/
 
 .textContainer h5 {
   font-size: 14pt;
@@ -176,62 +145,41 @@
   flex: 1;
   width: 260px;
   position: absolute;
-
   top: 60px;
 }
 
 .projectsWrapper {
   flex: 1;
   width: 260px;
-
   position: absolute;
-
   top: 150px;
-  /*left: 1rem;*/
 }
 
 .contactWrapper {
   flex: 1;
   width: 290px;
   position: absolute;
-
   top: 240px;
-  /*left: 1rem;*/
 }
-/*
-.contactWrapper {
-  position: absolute;
-  width: 380px;
-  align-self: left;
-  position: absolute;
-  top: 290px;
-  left: 0;
-}*/
-/*
-.buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  /*position: absolute;
-  bottom: 2rem;
-}
-*/
 
 .cardFooter {
   flex: 1;
-  width: 580px;
-  min-width: 580px;
-  max-width: 580px;
-  padding: 0 1rem;
   display: flex;
   flex-direction: row;
   align-items: center;
   position: absolute;
   bottom: 1.5rem;
+  width: 580px;
+  min-width: 580px;
+  max-width: 580px;
+  padding: 0 1rem;
 }
 
 .scheduleContainer {
   flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .scheduleWrapper {
@@ -246,26 +194,30 @@
   flex: 1;
 }
 
-.scheduleTextContainer {
-  flex: 5;
+.calendar {
+  height: 30px;
+  max-width: 30px;
+}
+
+.badge {
+  height: 33px;
+  max-width: 33px;
 }
 
 .scheduleText {
-  font-weight: 700;
-  font-size: 10pt;
-  color: #91269b;
-  color: #5a27a5;
+  flex: 1;
   display: block;
-  text-align: left;
   margin-right: 0.5rem;
+  text-align: left;
+  font-size: 10pt;
+  font-weight: 700;
+  color: #5a27a5;
 }
 
 .buttonContainer {
   flex: 1;
-
   display: flex;
   flex-direction: row;
-
   align-items: center;
   margin-right: 0.5rem;
 }
@@ -273,7 +225,6 @@
 .buttonContainer button {
   flex: 1;
   font-size: 12pt;
-
   width: 120px;
 }
 

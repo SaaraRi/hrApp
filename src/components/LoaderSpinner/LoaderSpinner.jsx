@@ -1,9 +1,9 @@
-import "./LoaderSpinner.css";
+import styles from "./LoaderSpinner.module.css";
 
 const LoaderSpinner = () => {
   return (
-    <div className="loader-wrapper">
-      <div className="loader-spinner" />
+    <div className={styles.loaderWrapper}>
+      <div className={styles.loaderSpinner} />
     </div>
   );
 };

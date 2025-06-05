@@ -1,7 +1,7 @@
 import { NavLink, Link } from "react-router";
 import { useEffect, useState } from "react";
 import logo from "../../assets/images/icons8-employee-100.png";
-import "./Header.css";
+import styles from "./Header.module.css";
 
 const Header = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -26,20 +26,20 @@ const Header = () => {
           : "none",
       }}
     >
-      <div className="logo">
+      <div className={styles.logo}>
         <Link to="/employees">
           <img src={logo} alt="" />
         </Link>
       </div>
       <nav>
         <ul>
-          <NavLink to="/employees" className="menu-link">
+          <NavLink to="/employees" className={styles.menuLink}>
             Employees List
           </NavLink>
-          <NavLink to="/add" className="menu-link">
+          <NavLink to="/add" className={styles.menuLink}>
             Add Employee
           </NavLink>
-          <NavLink to="/about" className="menu-link">
+          <NavLink to="/about" className={styles.menuLink}>
             About
           </NavLink>
         </ul>
