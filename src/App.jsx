@@ -4,7 +4,6 @@ import Root from "./pages/Root/Root";
 import About from "./pages/About/About";
 import EmployeesList from "./pages/EmployeesList/EmployeesList";
 import AddEmployeeForm from "./pages/AddEmployeeForm/AddEmployeeForm";
-import ErrorPage from "./pages/ErrorPage/ErrorPage";
 import SingleEmployeeProfile from "./pages/SingleEmployeeProfile/SingleEmployeeProfile";
 
 const App = () => {
@@ -17,7 +16,6 @@ const App = () => {
           <Route path="/employees/:id" element={<SingleEmployeeProfile />} />
           <Route path="/add" element={<AddEmployeeForm />} />
           <Route path="/about" element={<About />} />
-          <Route path="/*" element={<ErrorPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

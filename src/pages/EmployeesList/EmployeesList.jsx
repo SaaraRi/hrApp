@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import EmployeeCard from "../../components/EmployeeCard/EmployeeCard.jsx";
 import useAxios from "../../hooks/useAxios";
 import LoaderSpinner from "../../components/LoaderSpinner/LoaderSpinner";
-import styles from "./EmployeesList.module.scss";
+import styles from "./EmployeesList.module.css";
 
 const EmployeesList = () => {
   const navigate = useNavigate();
@@ -42,7 +42,7 @@ const EmployeesList = () => {
   //};*/
 
   const simulateLoading = (callback) => {
-    setTimeout(callback, 1500);
+    setTimeout(callback, 1250);
   };
 
   useEffect(() => {
@@ -118,7 +118,7 @@ const EmployeesList = () => {
                 value={departmentFilter}
                 onChange={(e) => setDepartmentFilter(e.target.value)}
               >
-                <option value="">Filter by department</option>
+                <option value="all">Filter by department</option>
                 <option value="all">All</option>
                 {[
                   "Design",

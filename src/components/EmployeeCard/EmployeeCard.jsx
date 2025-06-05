@@ -1,11 +1,11 @@
 import { useNavigate } from "react-router";
-import employeeBadgeImage from "../../assets/images/7427018 3 copy.png";
+import employeeBadgeImage from "../../assets/images/7427018.png";
 import badgeIcon from "../../assets/images/icons8-badge-50.png";
 import calendarIcon from "../../assets/images/icons8-leave-52.png";
 import useEmploymentTime from "../../hooks/useEmploymentTime";
 import LoaderSpinner from "../LoaderSpinner/LoaderSpinner";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
-import styles from "./EmployeeCard.module.scss";
+import styles from "./EmployeeCard.module.css";
 
 const EmployeeCard = ({ employee }) => {
   const navigate = useNavigate();
@@ -131,7 +131,7 @@ const EmployeeCard = ({ employee }) => {
               </div>
             )}
           </div>
-          <div className={styles.buttons}>
+          <div className={styles.buttonContainer}>
             <button
               onClick={() =>
                 navigate(`/employees/${employee.id}`, {

@@ -132,14 +132,20 @@
 
 .message {
   font-size: 18pt;
-  margin-top: 5rem;
-  z-index: 5;
+  margin-bottom: 3rem;
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
 }
 
 .error {
   color: #ff0055;
+  color: #ce215a;
 }
 
 .success {
   color: #00955e;
+  color: #3b9106;
 }

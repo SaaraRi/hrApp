@@ -8,7 +8,7 @@
 }
 
 .searchContainer {
-  font-size: 16pt;
+  font-size: 14pt;
   margin: 4rem auto;
 }
 
@@ -34,11 +34,15 @@
 
 .checkboxContainer {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   flex-direction: row;
   width: 350px;
   max-width: 350px;
+  /*min-width: 350px;
+  max-width: 350px;
+  margin: 1rem auto;*/
+  /*gap: 2rem;*/
   margin: 1rem auto;
   gap: 2rem;
 }
@@ -47,7 +51,7 @@
   flex: 1;
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  /*flex-wrap: nowrap;*/
   gap: 0.5rem;
   box-shadow: none;
 }
@@ -95,7 +99,12 @@
 
 .message {
   color: #ff0055;
+  color: #ce215a;
   font-size: 18pt;
-  margin-top: 5rem;
-  z-index: 5;
+  margin-bottom: 3rem;
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
 }

@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, useLocation, Link } from "react-router";
 import useAxios from "../../hooks/useAxios";
-import employeeBadgeImage from "../../assets/images/7427018 3 copy.png";
+import employeeBadgeImage from "../../assets/images/7427018.png";
 import badgeIcon from "../../assets/images/icons8-badge-50.png";
 import calendarIcon from "../../assets/images/icons8-leave-52.png";
 import useEmploymentTime from "../../hooks/useEmploymentTime";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
 import LoaderSpinner from "../../components/LoaderSpinner/LoaderSpinner";
-import styles from "./SingleEmployeeProfile.module.scss";
+import styles from "./SingleEmployeeProfile.module.css";
 
 const SingleEmployeeProfile = () => {
   const { id } = useParams();
@@ -63,6 +63,15 @@ const SingleEmployeeProfile = () => {
     scheduleRecognitionMeeting,
   } = useEmploymentTime(employee?.startDate);
 
+  /*useEffect(
+    (isEditing) => {
+      if (isEditing(true)) {
+        window.scrollTo(0, 0);
+      }
+    },
+    [isEditing.state]
+  );*/
+
   const handleInput = (e) => {
     const { name, value } = e.target;
     setUpdatedData((prev) => ({
@@ -103,6 +112,9 @@ const SingleEmployeeProfile = () => {
       skills: employee.skills.join(", "),
       currentProjects: employee.currentProjects.join(", "),
     });
+    //setTimeout(() => window.scrollTo(0, 0), 200);
+    //window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const handleDelete = async () => {
@@ -135,7 +147,6 @@ const SingleEmployeeProfile = () => {
       ...employee,
       employeeOfMonth: !employeeOfMonth,
     };
-
     setLoading(true);
     try {
       await update(id, updatedEmployee);
@@ -759,7 +770,15 @@ const SingleEmployeeProfile = () => {
               <button onClick={handleCancel}>Cancel Edit</button>
             </>
           ) : (
-            <button onClick={() => setIsEditing(true)}>Edit Profile</button>
+            <button
+              onClick={() => {
+                setTimeout(() => window.scrollTo(0, 0), 250);
+                setIsEditing(true);
+                //window.scrollTo(0, 0);
+              }}
+            >
+              Edit Profile
+            </button>
           )}
 
           <button onClick={handleDelete}>Delete Profile</button>

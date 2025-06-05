@@ -3,7 +3,7 @@ import { useNavigate } from "react-router";
 import useAxios from "../../hooks/useAxios";
 import LoaderSpinner from "../../components/LoaderSpinner/LoaderSpinner";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
-import styles from "./AddEmployeeForm.module.scss";
+import styles from "./AddEmployeeForm.module.css";
 
 const emptyForm = () => ({
   name: "",
@@ -82,14 +82,15 @@ const AddEmployeeForm = () => {
 
   const handleReset = () => {
     setFormData(emptyForm);
+    //window.scrollTo({ top: 0, behavior: "smooth" });
+    //window.scrollTo(0, 0);
+    setTimeout(() => window.scrollTo(0, 0), 800);
   };
 
   if (loading) return <LoaderSpinner />;
   if (error)
     return (
-      <p c className={`${styles.message} ${styles.error}`}>
-        Error: {error}
-      </p>
+      <p className={`${styles.message} ${styles.error}`}>Error: {error}</p>
     );
 
   return (

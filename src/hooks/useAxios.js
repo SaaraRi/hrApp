@@ -46,11 +46,6 @@ const useAxios = (url) => {
   };
 
   const remove = async (id) => {
-    const confirmed = window.confirm(
-      "Are you sure you want to delete this profile?"
-    );
-    if (!confirmed) return;
-
     setLoading(true);
     try {
       await axios.delete(`${url}/${id}`);

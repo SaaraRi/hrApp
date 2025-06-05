@@ -58,9 +58,10 @@
 }
 
 .inputWrapper label {
-  /*font-size: 14pt;*/
+  font-size: 14pt;
   flex: 1;
   text-align: left;
+  font-weight: 700;
 }
 
 .inputWrapper input,
@@ -71,6 +72,7 @@
   flex: 1;
   font-family: "Cal Sans";
   font-size: 14pt;
+  opacity: 0.8;
   padding: 0.5rem;
   margin: 0.5rem auto;
   background-color: #ffffff;
@@ -104,6 +106,7 @@
   margin: 0.5rem 0 0 2rem;
   flex: 1;
   font-weight: 700;
+  font-size: 14pt;
 }
 
 .departmentWrapper select {
@@ -127,7 +130,9 @@
 
 .locationLabel {
   flex: 1;
+  font-weight: 700;
   font-size: 14pt;
+  /*font-size: 14pt;
   /*justify-content: center;
   /*align-items: center;*/
   text-align: left;
@@ -171,7 +176,8 @@ input[type="radio"] {
 
 .radioLabel label {
   flex: 1;
-  font-size: 14pt;
+  /*font-size: 14pt;
+  opacity: 0.8;*/
 }
 
 .titleInputWrapper,
@@ -186,6 +192,7 @@ input[type="radio"] {
   text-align: left;
   align-self: flex-start;
   margin-top: 0.5rem;
+  font-weight: 700;
 }
 
 .otherInfoWrapper textarea {
@@ -193,6 +200,7 @@ input[type="radio"] {
   font-size: 14pt;
   background-color: #ffffff;
   color: #3d3e41;
+  opacity: 0.8;
   border-radius: 5px;
   border: 1px solid #3d3e41;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
@@ -481,6 +489,17 @@ input[type="radio"] {
   align-items: center;
 }
 
+button:disabled {
+  color: #9fa1a9;
+  border: 1px solid #9fa1a9;
+}
+
+button:disabled:hover {
+  color: #8e9098;
+  border: 1px solid #8e9098;
+  background-color: rgb(244, 250, 164);
+  cursor: auto;
+}
 /*
 .buttonContainer button {
   width: 170px;
@@ -489,14 +508,20 @@ input[type="radio"] {
 }*/
 .message {
   font-size: 18pt;
-  margin-top: 5rem;
-  z-index: 5;
+  margin-bottom: 3rem;
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
 }
 
 .error {
   color: #ff0055;
+  color: #ce215a;
 }
 
 .success {
   color: #00955e;
+  color: #3b9106;
 }

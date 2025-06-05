@@ -108,6 +108,15 @@
   top: 120px;*/
 }
 
+.badgeImg {
+  height: 110px;
+  position: absolute;
+  top: 3rem;
+  left: 0.7rem;
+  z-index: 3;
+  /*rotate: 10deg;*/
+}
+
 .imgTextWrapper {
   flex: 1;
   display: flex;
@@ -127,15 +136,6 @@
   font-style: italic;
   font-size: 12pt;
   margin: 0.5rem auto;
-}
-
-.badgeImg {
-  height: 110px;
-  position: absolute;
-  top: 3rem;
-  left: 0.7rem;
-  z-index: 3;
-  rotate: 10deg;
 }
 
 .textContainer {
@@ -259,7 +259,7 @@
   margin-right: 0.5rem;
 }
 
-.buttons {
+.buttonContainer {
   flex: 1;
 
   display: flex;
@@ -269,7 +269,7 @@
   margin-right: 0.5rem;
 }
 
-.buttons button {
+.buttonContainer button {
   flex: 1;
   font-size: 12pt;
 
@@ -278,7 +278,12 @@
 
 .message {
   color: #ff0055;
+  color: #ce215a;
   font-size: 18pt;
-  margin-top: 5rem;
-  z-index: 5;
+  margin-bottom: 3rem;
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
 }
