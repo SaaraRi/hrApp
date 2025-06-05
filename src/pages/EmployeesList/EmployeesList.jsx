@@ -1,27 +1,17 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
-import EmployeeCard from "../../components/EmployeeCard/EmployeeCard.jsx";
 import useAxios from "../../hooks/useAxios";
+import EmployeeCard from "../../components/EmployeeCard/EmployeeCard.jsx";
 import LoaderSpinner from "../../components/LoaderSpinner/LoaderSpinner";
 import styles from "./EmployeesList.module.css";
 
 const EmployeesList = () => {
-  const navigate = useNavigate();
   const {
     employeesData: employees,
-    //update,
     read,
     error,
   } = useAxios("http://localhost:3007/employees");
 
   const [loading, setLoading] = useState(true);
-  //const [isEditing, setIsEditing] = useState(false);
-  const [updatedData, setUpdatedData] = useState(employees);
-  //const [updatedData, setUpdatedData] = useState(null);
-  //const [employeeOfMonth, setEmployeeOfMonth] = useState(false);
-  //const [successMessage, setSuccessMessage] = useState("");
-  //const [errorMessage, setErrorMessage] = useState("");
-
   const [searchValue, setSearchValue] = useState("");
   const [departmentFilter, setDepartmentFilter] = useState("all");
   const [showLocationHelsinki, setShowLocationHelsinki] = useState(false);
@@ -31,15 +21,6 @@ const EmployeesList = () => {
   useEffect(() => {
     read();
   }, []);
-
-  /*  const handleEdit = (id) => {
-    navigate(`/employees/${id}`);
-  };
-
-  //const handleDelete = (id) => {
-  // remove(id);
-  //  }
-  //};*/
 
   const simulateLoading = (callback) => {
     setTimeout(callback, 1250);
@@ -109,7 +90,7 @@ const EmployeesList = () => {
                 className={styles.searchInput}
                 value={searchValue}
                 onChange={searchHandle}
-                placeholder="name, title, skills, projects, manager, status, contract type, department, location"
+                placeholder="name, title, skills, projects, manager, etc. status, contract type, department, location"
               />
             </div>
             <div className={styles.searchType}>

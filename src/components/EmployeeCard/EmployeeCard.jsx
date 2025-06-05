@@ -2,7 +2,7 @@ import { useNavigate } from "react-router";
 import { useEmploymentTime } from "../../hooks/useEmploymentTime";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
 import employeeBadgeImage from "../../assets/images/7427018.png";
-import badgeIcon from "../../assets/images/icons8-badge-50.png";
+import awardBadgeIcon from "../../assets/images/icons8-badge-50.png";
 import calendarIcon from "../../assets/images/icons8-leave-52.png";
 import LoaderSpinner from "../LoaderSpinner/LoaderSpinner";
 import styles from "./EmployeeCard.module.css";
@@ -100,7 +100,7 @@ const EmployeeCard = ({ employee }) => {
             </div>
           </div>
         </div>
-        <div className={styles.border}></div>
+        <div className={styles.borderX}></div>
         <div className={styles.cardFooter}>
           <div className={styles.scheduleContainer}>
             {scheduleProbationReview && (
@@ -118,9 +118,9 @@ const EmployeeCard = ({ employee }) => {
             {scheduleRecognitionMeeting && (
               <div className={styles.scheduleWrapper}>
                 <img
-                  className={`${styles.scheduleIcon} ${styles.badge}`}
-                  src={badgeIcon}
-                  alt="Badge icon"
+                  className={`${styles.scheduleIcon} ${styles.award}`}
+                  src={awardBadgeIcon}
+                  alt="Award badge icon"
                 />
                 <p className={styles.scheduleText}>
                   Schedule recognition meeting<br></br> ({fullYearsOfEmployment}{" "}
@@ -131,6 +131,7 @@ const EmployeeCard = ({ employee }) => {
           </div>
           <div className={styles.buttonContainer}>
             <button
+              type="button"
               onClick={() =>
                 navigate(`/employees/${employee.id}`, {
                   state: { editMode: false },
@@ -140,6 +141,7 @@ const EmployeeCard = ({ employee }) => {
               View Profile
             </button>
             <button
+              type="button"
               onClick={() =>
                 navigate(`/employees/${employee.id}`, {
                   state: { editMode: true },

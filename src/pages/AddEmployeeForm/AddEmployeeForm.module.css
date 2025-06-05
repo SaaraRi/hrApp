@@ -1,11 +1,10 @@
 .formContainer {
-  width: 100%;
-  padding: 10rem 2rem 4rem 2rem;
   display: flex;
+  flex-flow: column wrap;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
-  flex-wrap: wrap;
+  width: 100%;
+  padding: 10rem 2rem 4rem 2rem;
   font-size: 16pt;
 }
 
@@ -23,16 +22,16 @@
 .inputWrapper {
   flex: 1;
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
   overflow: clip;
 }
 
 .inputWrapper label {
-  font-size: 16pt;
   flex: 1;
+  font-size: 16pt;
+  font-weight: 700;
   text-align: left;
 }
 
@@ -40,38 +39,33 @@
 .inputWrapper select,
 .otherInfoWrapper textarea {
   flex: 1;
-  font-family: "Cal Sans";
-  font-size: 16pt;
-  padding: 0.7rem;
-  margin: 0.7rem auto;
   background-color: #ffffff;
   color: #3d3e41;
-  border-radius: 5px;
-  border: 1px solid #3d3e41;
+  font-family: "Cal Sans";
+  font-size: 16pt;
   width: 350px;
   min-width: 350px;
   max-width: 350px;
+  margin: 0.7rem auto;
+  padding: 0.7rem;
+  border: 1px solid #3d3e41;
+  border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
 }
 
-/*input[type="radio"] {
-  height: 1.5rem;
-  box-shadow: none;
-}*/
-
 .locationWrapper,
 .otherInfoWrapper {
-  margin: 1rem auto;
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
+  margin: 1rem auto;
 }
 
 .locationLabel {
   flex: 1;
   font-size: 16pt;
+  font-weight: 700;
   text-align: left;
 }
 
@@ -97,19 +91,19 @@
 .radioInput input[type="radio"] {
   flex: 1;
   height: 1rem;
-  box-shadow: none;
   margin: none;
+  box-shadow: none;
 }
 
 .radioLabel label {
   flex: 1;
-  font-size: 14pt;
 }
 
 .otherInfoLabel {
   flex: 1;
   align-self: flex-start;
   font-size: 16pt;
+  font-weight: 700;
   text-align: left;
   margin-top: 0.5rem;
 }
@@ -119,15 +113,15 @@
 }
 
 .buttonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
   width: 800px;
   min-width: 800px;
   max-width: 800px;
   margin: 3rem auto;
   padding: 0 5rem;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .message {
@@ -141,12 +135,9 @@
 }
 
 .error {
-  color: #ff0055;
   color: #ce215a;
 }
 
 .success {
-  color: #00955e;
-  color: #3b9106;
   color: #307112;
 }

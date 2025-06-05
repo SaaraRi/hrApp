@@ -33,12 +33,12 @@ a {
 
 a:hover {
   color: #5a27a5;
-  border-bottom: 5px dotted rgb(233 243 95);
+  border-bottom: 5px dotted #e9f35f;
 }
 
 .active {
   color: #3d3e41;
-  border-bottom: 5px solid rgb(233 243 95);
+  border-bottom: 5px solid #e9f35f;
 }
 
 header h2 {

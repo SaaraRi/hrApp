@@ -16,7 +16,7 @@
         "Backend Optimization"
       ],
       "status": "Retired",
-      "employeeOfMonth": false,
+      "employeeOfMonth": true,
       "manager": "Eero Koskinen",
       "startDate": "2025-04-03",
       "contractType": "Full-time",
@@ -900,36 +900,6 @@
       "dateOfBirth": "1992-05-14",
       "emergencyContact": "Mohamed Mohammed, 040-9876543",
       "otherInfo": ""
-    },
-    {
-      "id": "9ab1",
-      "name": "Saara Rikama",
-      "title": "Designer",
-      "department": "IT",
-      "location": "Helsinki",
-      "skills": [
-        "Figma",
-        "React",
-        "jjj"
-      ],
-      "currentProjects": [
-        "HR-Manager App"
-      ],
-      "manager": "Margit Tennosaar",
-      "startDate": "2024-08-08",
-      "contractType": "Full-time",
-      "status": "Active",
-      "salary": 1200,
-      "vacationDaysAcc": "9",
-      "email": "saara.rikama@gmail.com",
-      "phone": "0503493137",
-      "homeAddress": "Wallininkuja 3 A 21",
-      "dateOfBirth": "1987-08-01",
-      "education": "xxx, Helsinki Uni, xxx",
-      "emergencyContact": "Aleksi Ilpala p. 050 123 456",
-      "otherInfo": "",
-      "employeeOfMonth": false,
-      "": "HR-Manager Appm"
     },
     {
       "id": "31",

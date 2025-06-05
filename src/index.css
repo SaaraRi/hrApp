@@ -1,94 +1,23 @@
-/*:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  background-color: #242424;
-  font-family: "Josefin Sans";
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-*/
-
-/*:root {
-  color-scheme: light dark;
-  color: rgba(47, 42, 42, 0.87);
-  background-color: #4a95ea;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}*/
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/*
 #root {
   width: 100vw;
-}
-
-/*main h1 {
-  padding: 2rem;
-}*/
-
-/*.container {
-  max-width: 960px;
-  margin: 0 auto;
 }*/
 
 body {
+  background-color: #f1f3f8;
   color: #3d3e41;
-  margin: 0;
+  font-family: "Cal Sans";
+  font-size: 14pt;
+  text-align: center;
   height: 100%;
   width: 100vw;
-  text-align: center;
-  font-size: 14pt;
-  font-family: "Cal Sans";
-  background-color: #d8d9dc;
-  background-color: #f1f3f8;
+  margin: 0;
 }
 
 main {
@@ -97,40 +26,16 @@ main {
 }
 
 button {
+  background-color: #ebf0a2;
+  color: #3d3e41;
   font-family: "Cal Sans";
   font-size: 14pt;
-  font-weight: 800;
-  padding: 0.5rem 1rem;
-  margin: 1rem 0.5rem;
+  font-weight: 700;
   width: 170px;
-  color: #3d3e41;
-  color: #aa55aa;
-  color: #7c2e7c;
-  color: #3d3e41;
-  background-color: #cfddff;
-  background-color: #c6c9ff;
-  background-color: #b5a8db;
-  background-color: #ccbef8;
-  background-color: #d6abd5;
-  background-color: #e0bbe1;
-  background-color: #e5cce6;
-  background-color: #d6abd5;
-  background-color: #ddc1de;
-  background-color: rgb(224 187 225);
-  background-color: #e5cce6;
-  background-color: rgb(223 227 90);
-  background-color: rgb(233 243 95);
-  background-color: rgb(240, 246, 160);
-  background-color: rgb(255 255 145);
-  background-color: rgb(237, 244, 133);
-  background-color: rgb(244, 250, 164);
-
-  background-color: rgb(235, 240, 162);
-
+  margin: 1rem 0.5rem;
+  padding: 0.5rem 1rem;
   border-radius: 8px;
-  border: 1px solid #7c2e7c;
   border: 1px solid #3d3e41;
-
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
   cursor: pointer;
   transition-property: background-color;
@@ -139,252 +44,20 @@ button {
 }
 
 button:hover {
-  background-color: #fff49e;
-  background-color: #fff196;
-  /*border: 1px solid #e1e1be;*/
-  background-color: #e5cce6;
-  background-color: #e0bbe1;
-  background-color: #eed5ef;
-  background-color: #cfbceb;
-  background-color: #d6c5f0;
   background-color: #ded3f0;
-  color: #aa55aa;
-  color: #7c2e7c;
-  color: #91269b;
-  color: #5d4089;
-  color: #5f349f;
   color: #5a27a5;
-  border: 1px solid #aa55aa;
-  border: 1px solid #7c2e7c;
-  border: 1px solid #91269b;
-  border: 1px solid #5d4089;
   border: 1px solid #5a27a5;
 }
 
 input[type="text"]:focus,
 select:focus {
-  border: 2px solid rgb(233 243 95);
+  border: 2px solid #e9f35f;
 }
 
 input::placeholder {
   opacity: 0.6;
   font-style: italic;
 }
-
-/*
-input,
-select {
-  font-family: "Cal Sans";
-  font-size: 14pt;
-  padding: 0.4rem;
-  margin: 0.3rem 0 0.3rem 0;
-  background-color: #fafae6;
-  color: rgba(20, 10, 6);
-  border-radius: 5px;
-  border: 2px solid rgba(20, 10, 6);
-  width: 260px;
-}
-
-select:hover,
-select:active,
-input:hover,
-input:active {
-  border: 2px solid #db5d0f;
-}
-
-label {
-  font-size: 18pt;
-  margin-right: 2rem;
-}
-
-.container {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin: 3rem 0;
-}
-
-.white-font {
-  color: #ffffff;
-}
-
-h1 {
-  font-size: 38pt;
-  margin-bottom: 2rem;
-}
-
-.addinput-h1 {
-  font-size: 30pt;
-}
-
-.add-input {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin: 0 35vw;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-#C8C6F2
-
-.add-btn {
-  width: 120px;
-  align-self: center;
-  margin-top: 1rem;
-}
-
-/*.dpt-select {
-  content: "";
-  height: 40px;
-  display: block;
-  position: relative;
-}*/
-
-.design {
-  background: #ffbbbb;
-}
-
-.development {
-  background: #ffddbb;
-}
-
-.product {
-  background: #ffffbb;
-}
-
-.finance {
-  background: #bbffbb;
-}
-
-.marketing {
-  background: #bbffdd;
-}
-
-.sales {
-  background: #bbffff;
-}
-
-.analytics {
-  background: #bbddff;
-}
-
-.IT {
-  background: #bbbbff;
-}
-
-.legal {
-  background: #ddbbff;
-}
-
-.HR {
-  background: #ffbbff;
-}
-
-.default {
-  background: #ffbbdd;
-}
-
-.design {
-  background: #aa5555;
-}
-
-.development {
-  background: #aa7755;
-}
-
-.product {
-  background: #aaaa55;
-}
-
-.finance {
-  background: #77aa55;
-}
-
-.marketing {
-  background: #55aa55;
-}
-
-.sales {
-  background: #55aa77;
-}
-
-.analytics {
-  background: #55aaaa;
-}
-
-.customer {
-  background: #5577aa;
-}
-
-.IT {
-  background: #5555aa;
-}
-
-.legal {
-  background: #7755aa;
-}
-
-.HR {
-  background: #aa55aa;
-}
-
-.default {
-  background: #aa5577;
-}
-
-/*
-.design {
-  background: #c08787;
-}
-
-.development {
-  background: #c09e88;
-}
-
-.product {
-  background: #c1c289;
-}
-
-.finance {
-  background: #8cc489;
-}
-
-.marketing {
-  background: #8cc39e;
-}
-
-.sales {
-  background: #8cc2c0;
-}
-
-.analytics {
-  background: #889dc1;
-}
-
-.IT {
-  background: #8785c2;
-}
-
-.legal {
-  background: #9d85c1;
-}
-
-.HR {
-  background: #c084c2;
-}
-
-.default {
-  background: #c0869e;
-}
-*/
 
 .design {
   background: #d6adad;
@@ -417,6 +90,7 @@ form {
 .customer {
   background: #aebcd5;
 }
+
 .IT {
   background: #adabd6;
 }

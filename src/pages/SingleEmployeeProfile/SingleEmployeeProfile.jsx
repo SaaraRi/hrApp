@@ -1,17 +1,18 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, useLocation, Link } from "react-router";
+import { useParams, useNavigate, useLocation } from "react-router";
 import useAxios from "../../hooks/useAxios";
-import employeeBadgeImage from "../../assets/images/7427018.png";
-import badgeIcon from "../../assets/images/icons8-badge-50.png";
-import calendarIcon from "../../assets/images/icons8-leave-52.png";
 import { useEmploymentTime } from "../../hooks/useEmploymentTime";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
+import employeeBadgeImage from "../../assets/images/7427018.png";
+import awardBadgeIcon from "../../assets/images/icons8-badge-50.png";
+import calendarIcon from "../../assets/images/icons8-leave-52.png";
 import LoaderSpinner from "../../components/LoaderSpinner/LoaderSpinner";
 import styles from "./SingleEmployeeProfile.module.css";
 
 const SingleEmployeeProfile = () => {
   const { id } = useParams();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const {
     employeesData: employee,
@@ -21,15 +22,12 @@ const SingleEmployeeProfile = () => {
     error,
   } = useAxios("http://localhost:3007/employees");
 
-  //const [loading, setLoading] = useState(false);
   const [updatedData, setUpdatedData] = useState(employee);
   const [isEditing, setIsEditing] = useState(false);
   const [loading, setLoading] = useState(false);
   const [employeeOfMonth, setEmployeeOfMonth] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-
-  const location = useLocation();
 
   useEffect(() => {
     if (location.state?.editMode) {
@@ -63,15 +61,6 @@ const SingleEmployeeProfile = () => {
     scheduleRecognitionMeeting,
   } = useEmploymentTime(employee?.startDate);
 
-  /*useEffect(
-    (isEditing) => {
-      if (isEditing(true)) {
-        window.scrollTo(0, 0);
-      }
-    },
-    [isEditing.state]
-  );*/
-
   const handleInput = (e) => {
     const { name, value } = e.target;
     setUpdatedData((prev) => ({
@@ -82,7 +71,6 @@ const SingleEmployeeProfile = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const updatedEmployee = {
       ...updatedData,
       skills: updatedData.skills.split(",").map((s) => s.trim()),
@@ -112,8 +100,6 @@ const SingleEmployeeProfile = () => {
       skills: employee.skills.join(", "),
       currentProjects: employee.currentProjects.join(", "),
     });
-    //setTimeout(() => window.scrollTo(0, 0), 200);
-    //window.scrollTo(0, 0);
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
@@ -121,11 +107,6 @@ const SingleEmployeeProfile = () => {
     const confirmed = window.confirm(
       "Are you sure you want to delete this profile?"
     );
-    /*if (confirmed) {
-    /*await remove(id);
-    setSuccessMessage("Employee profile deleted successfully.");
-    setTimeout(() => navigate("/employees"), 3000);*/
-
     if (confirmed) {
       setLoading(true);
       try {
@@ -193,11 +174,7 @@ const SingleEmployeeProfile = () => {
         )}
       </div>
       <div className={styles.profileContainer}>
-        <div
-          className={styles.profileCard}
-          //style={isEditing ? { backgroundColor: "#d5d7dc" } : undefined}
-          key={id}
-        >
+        <div className={styles.profileCard} key={id}>
           <div
             className={`${getDepartmentClassName(
               updatedData.department
@@ -211,7 +188,6 @@ const SingleEmployeeProfile = () => {
                     <div className={styles.departmentWrapper}>
                       <label htmlFor="department">Department:</label>
                       <select
-                        className="dpt"
                         id="department"
                         name="department"
                         value={updatedData.department}
@@ -245,8 +221,8 @@ const SingleEmployeeProfile = () => {
                           <input
                             className={styles.radioInput}
                             type="radio"
-                            id="Helsinki"
                             name="location"
+                            id="Helsinki"
                             value="Helsinki"
                             checked={updatedData.location === "Helsinki"}
                             onChange={handleInput}
@@ -263,8 +239,8 @@ const SingleEmployeeProfile = () => {
                           <input
                             className={styles.radioInput}
                             type="radio"
-                            id="Espoo"
                             name="location"
+                            id="Espoo"
                             value="Espoo"
                             checked={updatedData.location === "Espoo"}
                             onChange={handleInput}
@@ -278,8 +254,8 @@ const SingleEmployeeProfile = () => {
                           <input
                             className={styles.radioInput}
                             type="radio"
-                            id="Tampere"
                             name="location"
+                            id="Tampere"
                             value="Tampere"
                             checked={updatedData.location === "Tampere"}
                             onChange={handleInput}
@@ -295,51 +271,14 @@ const SingleEmployeeProfile = () => {
                       </div>
                     </div>
                   </div>
-                  {/*<div className="locationWrapper">
-                    <p>Location:</p>
-                    <label>
-                      <input
-                        className="loc"
-                        id="Helsinki"
-                        type="radio"
-                        name="location"
-                        value="Helsinki"
-                        checked={updatedData.location === "Helsinki"}
-                        onChange={handleInput}
-                      />
-                      Helsinki
-                    </label>
-                    <label>
-                      <input
-                        className="loc"
-                        id="Espoo"
-                        type="radio"
-                        name="location"
-                        value="Espoo"
-                        checked={updatedData.location === "Espoo"}
-                        onChange={handleInput}
-                      />
-                      Espoo
-                    </label>
-                    <label>
-                      <input
-                        className="loc"
-                        id="Tampere"
-                        type="radio"
-                        name="location"
-                        value="Tampere"
-                        checked={updatedData.location === "Tampere"}
-                        onChange={handleInput}
-                      />
-                      Tampere
-                    </label>
-                  </div>*/}
                 </form>
               </>
             ) : (
-              <div className={styles.bannerTextWrapper}>
-                <p className={styles.dptTitle}>{updatedData.department}</p>
-                <p className={styles.locTitle}>{updatedData.location}</p>
+              <div className={styles.bannerTitleWrapper}>
+                <p className={styles.bannerTitleDpt}>
+                  {updatedData.department}
+                </p>
+                <p className={styles.bannerTitleLoc}>{updatedData.location}</p>
               </div>
             )}
           </div>
@@ -362,18 +301,18 @@ const SingleEmployeeProfile = () => {
                   <div className={styles.titleSection}>
                     <img
                       src={`https://api.dicebear.com/9.x/open-peeps/svg?seed=${updatedData.name}${updatedData.title}`}
-                      alt={updatedData.name}
                       className={styles.cardImg}
+                      alt={updatedData.name}
                     />
                     <div className={styles.titleSectionText}>
                       <div className={styles.titleInputWrapper}>
                         <label htmlFor="name">Name:</label>
                         <input
                           type="text"
+                          id="name"
                           name="name"
                           value={updatedData.name}
                           onChange={handleInput}
-                          placeholder="Full name"
                           required
                         />
                       </div>
@@ -381,10 +320,10 @@ const SingleEmployeeProfile = () => {
                         <label htmlFor="title">Title:</label>
                         <input
                           type="text"
+                          id="title"
                           name="title"
                           value={updatedData.title}
                           onChange={handleInput}
-                          placeholder="Title"
                           required
                         />
                       </div>
@@ -392,25 +331,24 @@ const SingleEmployeeProfile = () => {
                         <label htmlFor="skills">Skills:</label>
                         <input
                           type="text"
+                          id="skills"
                           name="skills"
-                          //value={updatedData.skills}
-                          //onChange={handleInput}
-                          placeholder="comma-separated"
                           value={updatedData.skills}
                           onChange={handleInput}
+                          placeholder="comma-separated"
                         />
                       </div>
                       <div className={styles.titleInputWrapper}>
-                        <label htmlFor="projects">Current Projects:</label>
+                        <label htmlFor="currentProjects">
+                          Current Projects:
+                        </label>
                         <input
-                          name="currentProjects"
-                          id="currentProjects"
                           type="text"
-                          //value={updatedData.currentProjects}
-                          //onChange={handleInput}
-                          placeholder="comma-separated"
+                          id="currentProjects"
+                          name="currentProjects"
                           value={updatedData.currentProjects}
                           onChange={handleInput}
+                          placeholder="comma-separated"
                         />
                       </div>
                     </div>
@@ -497,7 +435,6 @@ const SingleEmployeeProfile = () => {
                         value={updatedData.salary}
                         onChange={handleInput}
                         placeholder="123"
-                        required
                       />
                     </div>
                     <div className={styles.inputWrapper}>
@@ -511,12 +448,11 @@ const SingleEmployeeProfile = () => {
                         value={updatedData.vacationDaysAcc}
                         onChange={handleInput}
                         placeholder="123"
-                        required
                       />
                     </div>
                   </div>
                   <div className={styles.personalSection}>
-                    <h2>Contact/personal:</h2>
+                    <h2>Contact/Personal:</h2>
                     <div className={styles.inputWrapper}>
                       <label htmlFor="email">E-mail:</label>
                       <input
@@ -525,7 +461,6 @@ const SingleEmployeeProfile = () => {
                         name="email"
                         value={updatedData.email}
                         onChange={handleInput}
-                        placeholder="Email"
                         required
                       />
                     </div>
@@ -537,7 +472,6 @@ const SingleEmployeeProfile = () => {
                         name="phone"
                         value={updatedData.phone}
                         onChange={handleInput}
-                        placeholder="phone"
                         required
                       />
                     </div>
@@ -549,7 +483,6 @@ const SingleEmployeeProfile = () => {
                         name="homeAddress"
                         value={updatedData.homeAddress}
                         onChange={handleInput}
-                        placeholder="Home Address"
                         required
                       />
                     </div>
@@ -571,8 +504,8 @@ const SingleEmployeeProfile = () => {
                         id="education"
                         name="education"
                         value={updatedData.education}
-                        placeholder="degree, institution, year"
                         onChange={handleInput}
+                        placeholder="degree, institution, year"
                       />
                     </div>
                     <div className={styles.inputWrapper}>
@@ -594,10 +527,10 @@ const SingleEmployeeProfile = () => {
                     <h2>Other Information</h2>
                     <div className={styles.otherInfoWrapper}>
                       <textarea
-                        id="otherInfo"
-                        name="otherInfo"
                         rows="6"
                         cols="10"
+                        id="otherInfo"
+                        name="otherInfo"
                         value={updatedData.otherInfo}
                         onChange={handleInput}
                       ></textarea>
@@ -612,8 +545,8 @@ const SingleEmployeeProfile = () => {
                 <div className={styles.titleSection}>
                   <img
                     src={`https://api.dicebear.com/9.x/open-peeps/svg?seed=${updatedData.name}${updatedData.title}`}
-                    alt={updatedData.name}
                     className={styles.cardImg}
+                    alt={updatedData.name}
                   />
                   <div className={styles.titleSectionText}>
                     <h1>{updatedData.name}</h1>
@@ -647,60 +580,60 @@ const SingleEmployeeProfile = () => {
                 <div className={styles.managementSection}>
                   <h2>Management</h2>
                   <div className={styles.dataWrapper}>
-                    <label htmlFor="">Employee Status:</label>
+                    <label>Employee Status:</label>
                     <p>{updatedData.status}</p>
                   </div>
                   <div className={styles.dataWrapper}>
-                    <label htmlFor="">Manager:</label>
+                    <label>Manager:</label>
                     <p>{updatedData.manager}</p>
                   </div>
                   <div className={styles.dataWrapper}>
-                    <label htmlFor="">Start Date:</label>
+                    <label>Start Date:</label>
                     <p>
                       {updatedData.startDate} ({yearsOfEmployment} years
                       employed)
                     </p>
                   </div>
                   <div className={styles.dataWrapper}>
-                    <label htmlFor="">Contract Type:</label>
+                    <label>Contract Type:</label>
                     <p>{updatedData.contractType}</p>
                   </div>
                   <div className={styles.dataWrapper}>
-                    <label htmlFor="">Salary/month:</label>
+                    <label>Salary/month:</label>
                     <p>€ {updatedData.salary}</p>
                   </div>
                   <div className={styles.dataWrapper}>
-                    <label htmlFor="">Vacation Days Accumulated:</label>
+                    <label>Vacation Days Accumulated:</label>
                     <p>{updatedData.vacationDaysAcc} days</p>
                   </div>
                 </div>
                 <div className={styles.personalSection}>
-                  <h2>Contact/personal</h2>
+                  <h2>Contact/Personal</h2>
                   <div className={styles.dataWrapper}>
-                    <label htmlFor="">E-mail:</label>
+                    <label>E-mail:</label>
                     <p>{updatedData.email}</p>
                   </div>
                   <div className={styles.dataWrapper}>
-                    <label htmlFor="">Phone:</label>
+                    <label>Phone:</label>
                     <p>{updatedData.phone}</p>
                   </div>
                   <div className={styles.dataWrapper}>
-                    <label htmlFor="">Home Address:</label>
+                    <label>Home Address:</label>
                     <p>{updatedData.homeAddress}</p>
                   </div>
                   <div className={styles.dataWrapper}>
-                    <label htmlFor="">Date of Birth:</label>
+                    <label>Date of Birth:</label>
                     <p>{updatedData.dateOfBirth}</p>
                   </div>
                   <div
                     className={styles.dataWrapper}
                     style={{ alignItems: "flex-start" }}
                   >
-                    <label htmlFor="">Education:</label>
+                    <label>Education:</label>
                     <p>{updatedData.education}</p>
                   </div>
                   <div className={styles.dataWrapper}>
-                    <label htmlFor="">Emergency Contact:</label>
+                    <label>Emergency Contact:</label>
                     <p>{updatedData.emergencyContact}</p>
                   </div>
                 </div>
@@ -716,16 +649,10 @@ const SingleEmployeeProfile = () => {
               {scheduleProbationReview && (
                 <div className={styles.scheduleWrapper}>
                   <img
-                    className={styles.scheduleIcon}
-                    style={{
-                      height: "25px",
-                      maxWidth: "25px",
-                      alignSelf: "center",
-                    }}
+                    className={`${styles.scheduleIcon} ${styles.calendar}`}
                     src={calendarIcon}
-                    alt="general-mandatory-action"
+                    alt="Calendar icon"
                   />
-
                   <p className={styles.scheduleText}>
                     Schedule 6 months probation review
                   </p>
@@ -734,16 +661,10 @@ const SingleEmployeeProfile = () => {
               {scheduleRecognitionMeeting && (
                 <div className={styles.scheduleWrapper}>
                   <img
-                    className={styles.scheduleIcon}
-                    style={{
-                      height: "50px",
-                      maxWidth: "50px",
-                      alignSelf: "center",
-                    }}
-                    src={badgeIcon}
-                    alt="general-mandatory-action"
+                    className={`${styles.scheduleIcon} ${styles.award}`}
+                    src={awardBadgeIcon}
+                    alt=" Award badge icon"
                   />
-
                   <p className={styles.scheduleText}>
                     Schedule recognition meeting
                     <br />({fullYearsOfEmployment} years of employment)
@@ -762,27 +683,36 @@ const SingleEmployeeProfile = () => {
           </div>
         </div>
         <div className={styles.buttonContainer}>
-          <button onClick={() => navigate("/employees")}>Back to List</button>
+          <button type="button" onClick={() => navigate("/employees")}>
+            Back to List
+          </button>
           {isEditing ? (
             <>
-              <button onClick={handleSubmit} disabled={isSaveDisabled}>
+              <button
+                type="submit"
+                onClick={handleSubmit}
+                disabled={isSaveDisabled}
+              >
                 Save Edit
               </button>
-              <button onClick={handleCancel}>Cancel Edit</button>
+              <button type="button" onClick={handleCancel}>
+                Cancel Edit
+              </button>
             </>
           ) : (
             <button
+              type="button"
               onClick={() => {
                 setTimeout(() => window.scrollTo(0, 0), 250);
                 setIsEditing(true);
-                //window.scrollTo(0, 0);
               }}
             >
               Edit Profile
             </button>
           )}
-
-          <button onClick={handleDelete}>Delete Profile</button>
+          <button type="submit" onClick={handleDelete}>
+            Delete Profile
+          </button>
         </div>
       </div>
     </>

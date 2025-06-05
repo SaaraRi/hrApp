@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router";
 import useAxios from "../../hooks/useAxios";
-import LoaderSpinner from "../../components/LoaderSpinner/LoaderSpinner";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
+import LoaderSpinner from "../../components/LoaderSpinner/LoaderSpinner";
 import styles from "./AddEmployeeForm.module.css";
 
 const emptyForm = () => ({
@@ -38,10 +38,6 @@ const AddEmployeeForm = () => {
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  //const simulateLoading = (callback) => {
-  //  setTimeout(callback, 800);
-  //};   simulateLoading(() => setLoading(true));
-
   const handleInput = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -52,7 +48,6 @@ const AddEmployeeForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const newEmployee = {
       ...formData,
       skills: formData.skills.split(",").map((s) => s.trim()),
@@ -60,20 +55,15 @@ const AddEmployeeForm = () => {
       salary: parseFloat(formData.salary),
       employeeOfMonth: false,
     };
-
     setLoading(true);
-
     try {
       await create(newEmployee);
       setSuccessMessage("Employee profile created successfully");
       setTimeout(() => setSuccessMessage(""), 3000);
-
-      //navigate("/employees");
       setTimeout(() => navigate("/employees"), 3000);
       setLoading(false);
       handleReset();
     } catch (error) {
-      // setError(error);
       setErrorMessage("Failed to create employee profile. Please try again.");
       setTimeout(() => setErrorMessage(""), 3000);
       setLoading(false);
@@ -82,8 +72,6 @@ const AddEmployeeForm = () => {
 
   const handleReset = () => {
     setFormData(emptyForm);
-    //window.scrollTo({ top: 0, behavior: "smooth" });
-    //window.scrollTo(0, 0);
     setTimeout(() => window.scrollTo(0, 0), 800);
   };
 
@@ -161,7 +149,6 @@ const AddEmployeeForm = () => {
                   key={department}
                   value={department}
                   className={getDepartmentClassName(department)}
-                  id="dpt-select"
                 >
                   {department}
                 </option>
@@ -175,8 +162,8 @@ const AddEmployeeForm = () => {
                 <input
                   className={styles.radioInput}
                   type="radio"
-                  id="Helsinki"
                   name="location"
+                  id="Helsinki"
                   value="Helsinki"
                   checked={formData.location === "Helsinki"}
                   onChange={handleInput}
@@ -190,8 +177,8 @@ const AddEmployeeForm = () => {
                 <input
                   className={styles.radioInput}
                   type="radio"
-                  id="Espoo"
                   name="location"
+                  id="Espoo"
                   value="Espoo"
                   checked={formData.location === "Espoo"}
                   onChange={handleInput}
@@ -205,8 +192,8 @@ const AddEmployeeForm = () => {
                 <input
                   className={styles.radioInput}
                   type="radio"
-                  id="Tampere"
                   name="location"
+                  id="Tampere"
                   value="Tampere"
                   checked={formData.location === "Tampere"}
                   onChange={handleInput}
@@ -268,8 +255,8 @@ const AddEmployeeForm = () => {
               id="contractType"
               name="contractType"
               value={formData.contractType}
-              required
               onChange={handleInput}
+              required
             >
               <option value="">Select Contract Type</option>
               {[
@@ -292,8 +279,8 @@ const AddEmployeeForm = () => {
               id="status"
               name="status"
               value={formData.status}
-              required
               onChange={handleInput}
+              required
             >
               <option value="">Select Employee Status</option>
               {[
@@ -320,7 +307,6 @@ const AddEmployeeForm = () => {
               value={formData.salary}
               onChange={handleInput}
               placeholder="123"
-              required
             />
           </div>
           <div className={styles.inputWrapper}>
@@ -332,7 +318,6 @@ const AddEmployeeForm = () => {
               value={formData.vacationDaysAcc}
               onChange={handleInput}
               placeholder="123"
-              required
             />
           </div>
           <div className={styles.inputWrapper}>
@@ -408,17 +393,21 @@ const AddEmployeeForm = () => {
             </label>
             <textarea
               className={styles.otherInfoText}
-              id="otherInfo"
-              name="otherInfo"
               rows="6"
               cols="50"
+              id="otherInfo"
+              name="otherInfo"
               value={formData.otherInfo}
               onChange={handleInput}
             ></textarea>
           </div>
           <div className={styles.buttonContainer}>
-            <button onClick={() => navigate("/employees")}>Back to List</button>
-            <button type="submit">Add Employee</button>
+            <button type="button" onClick={() => navigate("/employees")}>
+              Back to List
+            </button>
+            <button type="submit" onClick={handleSubmit}>
+              Add Employee
+            </button>
             <button type="button" onClick={handleReset}>
               Reset Form
             </button>
