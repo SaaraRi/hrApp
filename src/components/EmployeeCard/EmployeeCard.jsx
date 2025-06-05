@@ -76,7 +76,7 @@ const EmployeeCard = ({ employee }) => {
                 {status !== "Active" && status !== "Specified below" ? (
                   <p className={styles.statusTitle}>({status})</p>
                 ) : (
-                  <p style={{ color: "transparent", marginTop: "0.3rem" }}>
+                  <p style={{ color: "transparent", marginTop: "0.5rem" }}>
                     ({status})
                   </p>
                 )}
