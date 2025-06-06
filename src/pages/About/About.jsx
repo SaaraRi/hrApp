@@ -1,6 +1,11 @@
+import { useEffect } from "react";
 import styles from "./About.module.css";
 
 const About = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <>
       <div className={styles.aboutContainer}>
@@ -88,14 +93,14 @@ const About = () => {
         <br />
         <h2>Technologies Used</h2>
         <ul>
-          <li>React (with Hooks, state management)</li>
+          <li>React (with hooks, state management)</li>
           <li>
             React Router for page navigation, dynamic routing for individual
             profile pages
           </li>
-          <li>Axios for API calls (with custom Hook useAxios)</li>
+          <li>Axios for API calls (with custom hook useAxios)</li>
           <li>JSON Server as local backend for employee database</li>
-          <li>CSS modules for styling</li>
+          <li>CSS Modules for styling</li>
         </ul>
       </div>
     </>

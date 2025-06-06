@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import useAxios from "../../hooks/useAxios";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
@@ -37,6 +37,10 @@ const AddEmployeeForm = () => {
   const [loading, setLoading] = useState(false);
   const [successMessage, setSuccessMessage] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const handleInput = (e) => {
     const { name, value } = e.target;

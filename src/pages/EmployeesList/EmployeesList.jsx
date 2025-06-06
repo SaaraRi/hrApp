@@ -25,6 +25,10 @@ const EmployeesList = () => {
     read();
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const simulateLoading = (callback) => {
     setTimeout(callback, 1250);
   };
@@ -102,7 +106,7 @@ const EmployeesList = () => {
               className={styles.searchInput}
               value={searchValue}
               onChange={searchHandle}
-              placeholder="Name, title, skills, projects, manager, etc. status, contract type, department, location"
+              placeholder="Name, title, skills, projects, manager, etc., status, contract type, department, location"
             />
             <select
               className={styles.searchSelect}
