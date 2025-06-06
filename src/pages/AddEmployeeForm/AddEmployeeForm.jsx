@@ -101,7 +101,7 @@ const AddEmployeeForm = () => {
         >
           <h1>Add New Employee</h1>
           <div className={styles.inputWrapper}>
-            <label htmlFor="name">Full Name:</label>
+            <label htmlFor="name">Full name:</label>
             <input
               type="text"
               id="name"
@@ -131,7 +131,7 @@ const AddEmployeeForm = () => {
               onChange={handleInput}
               required
             >
-              <option value="">Select Department</option>
+              <option value="">Select department</option>
               {[
                 "Design",
                 "Development",
@@ -217,7 +217,7 @@ const AddEmployeeForm = () => {
             />
           </div>
           <div className={styles.inputWrapper}>
-            <label htmlFor="currentProjects">Current Projects:</label>
+            <label htmlFor="currentProjects">Current projects:</label>
             <input
               type="text"
               id="currentProjects"
@@ -239,7 +239,7 @@ const AddEmployeeForm = () => {
             />
           </div>
           <div className={styles.inputWrapper}>
-            <label htmlFor="startDate">Start Date:</label>
+            <label htmlFor="startDate">Start date:</label>
             <input
               type="date"
               id="startDate"
@@ -250,7 +250,7 @@ const AddEmployeeForm = () => {
             />
           </div>
           <div className={styles.inputWrapper}>
-            <label htmlFor="contractType">Contract Type:</label>
+            <label htmlFor="contractType">Contract type:</label>
             <select
               id="contractType"
               name="contractType"
@@ -258,7 +258,7 @@ const AddEmployeeForm = () => {
               onChange={handleInput}
               required
             >
-              <option value="">Select Contract Type</option>
+              <option value="">Select contract type</option>
               {[
                 "Full-time",
                 "Part-time 50%",
@@ -274,7 +274,7 @@ const AddEmployeeForm = () => {
             </select>
           </div>
           <div className={styles.inputWrapper}>
-            <label htmlFor="status">Employee Status:</label>
+            <label htmlFor="status">Employee status:</label>
             <select
               id="status"
               name="status"
@@ -282,12 +282,12 @@ const AddEmployeeForm = () => {
               onChange={handleInput}
               required
             >
-              <option value="">Select Employee Status</option>
+              <option value="">Select employee status</option>
               {[
                 "Active",
-                "On Vacation",
-                "On Parental Leave",
-                "On Study Leave",
+                "On vacation",
+                "On parental leave",
+                "On study leave",
                 "Resigned",
                 "Retired",
                 "Specified below",
@@ -310,7 +310,7 @@ const AddEmployeeForm = () => {
             />
           </div>
           <div className={styles.inputWrapper}>
-            <label htmlFor="vacationDaysAcc">Vacation Days Accumulated:</label>
+            <label htmlFor="vacationDaysAcc">Vacation days accumulated:</label>
             <input
               type="number"
               id="vacationDaysAcc"
@@ -343,7 +343,7 @@ const AddEmployeeForm = () => {
             />
           </div>
           <div className={styles.inputWrapper}>
-            <label htmlFor="homeAddress">Home Address:</label>
+            <label htmlFor="homeAddress">Home address:</label>
             <input
               type="text"
               id="homeAddress"
@@ -354,7 +354,7 @@ const AddEmployeeForm = () => {
             />
           </div>
           <div className={styles.inputWrapper}>
-            <label htmlFor="dateOfBirth">Date of Birth:</label>
+            <label htmlFor="dateOfBirth">Date of birth:</label>
             <input
               type="date"
               id="dateOfBirth"
@@ -376,7 +376,7 @@ const AddEmployeeForm = () => {
             />
           </div>
           <div className={styles.inputWrapper}>
-            <label htmlFor="emergencyContact">Emergency Contact:</label>
+            <label htmlFor="emergencyContact">Emergency contact:</label>
             <input
               type="text"
               id="emergencyContact"
@@ -389,7 +389,7 @@ const AddEmployeeForm = () => {
           </div>
           <div className={styles.otherInfoWrapper}>
             <label htmlFor="otherInfo" className={styles.otherInfoLabel}>
-              Other Information:
+              Other information:
             </label>
             <textarea
               className={styles.otherInfoText}

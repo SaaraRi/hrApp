@@ -87,7 +87,7 @@ const EmployeeCard = ({ employee, schedule }) => {
               <p>{skills.join(", ")}</p>
             </div>
             <div className={styles.projectsWrapper}>
-              <h5>Current Projects:</h5>
+              <h5>Current projects:</h5>
               <p>{currentProjects[0]},</p>
               <p>{currentProjects[1]}</p>
             </div>

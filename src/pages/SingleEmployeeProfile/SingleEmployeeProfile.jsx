@@ -194,7 +194,7 @@ const SingleEmployeeProfile = () => {
                         onChange={handleInput}
                         required
                       >
-                        <option value="">Select Department</option>
+                        <option value="">Select department</option>
                         {[
                           "Design",
                           "Development",
@@ -340,7 +340,7 @@ const SingleEmployeeProfile = () => {
                       </div>
                       <div className={styles.titleInputWrapper}>
                         <label htmlFor="currentProjects">
-                          Current Projects:
+                          Current projects:
                         </label>
                         <input
                           type="text"
@@ -356,7 +356,7 @@ const SingleEmployeeProfile = () => {
                   <div className={styles.managementSection}>
                     <h2>Management:</h2>
                     <div className={styles.inputWrapper}>
-                      <label htmlFor="status">Employee Status:</label>
+                      <label htmlFor="status">Employee status:</label>
                       <select
                         id="status"
                         name="status"
@@ -364,12 +364,12 @@ const SingleEmployeeProfile = () => {
                         onChange={handleInput}
                         required
                       >
-                        <option value="">Select Employee Status</option>
+                        <option value="">Select employee status</option>
                         {[
                           "Active",
-                          "On Vacation",
-                          "On Parental Leave",
-                          "On Study Leave",
+                          "On vacation",
+                          "On parental leave",
+                          "On study leave",
                           "Resigned",
                           "Retired",
                           "Specified below",
@@ -392,7 +392,7 @@ const SingleEmployeeProfile = () => {
                       />
                     </div>
                     <div className={styles.inputWrapper}>
-                      <label htmlFor="startDate">Start Date:</label>
+                      <label htmlFor="startDate">Start date:</label>
                       <input
                         type="date"
                         id="startDate"
@@ -403,7 +403,7 @@ const SingleEmployeeProfile = () => {
                       />
                     </div>
                     <div className={styles.inputWrapper}>
-                      <label htmlFor="contractType">Contract Type:</label>
+                      <label htmlFor="contractType">Contract type:</label>
                       <select
                         id="contractType"
                         name="contractType"
@@ -411,7 +411,7 @@ const SingleEmployeeProfile = () => {
                         onChange={handleInput}
                         required
                       >
-                        <option value="">Select Contract Type</option>
+                        <option value="">Select contract type</option>
                         {[
                           "Full-time",
                           "Part-time 50%",
@@ -439,7 +439,7 @@ const SingleEmployeeProfile = () => {
                     </div>
                     <div className={styles.inputWrapper}>
                       <label htmlFor="vacationDaysAcc">
-                        Vacation Days Accumulated:
+                        Vacation days accumulated:
                       </label>
                       <input
                         type="number"
@@ -476,7 +476,7 @@ const SingleEmployeeProfile = () => {
                       />
                     </div>
                     <div className={styles.inputWrapper}>
-                      <label htmlFor="homeAddress">Home Address:</label>
+                      <label htmlFor="homeAddress">Home address:</label>
                       <input
                         type="text"
                         id="homeAddress"
@@ -487,7 +487,7 @@ const SingleEmployeeProfile = () => {
                       />
                     </div>
                     <div className={styles.inputWrapper}>
-                      <label htmlFor="dateOfBirth">Date of Birth:</label>
+                      <label htmlFor="dateOfBirth">Date of birth:</label>
                       <input
                         type="date"
                         id="dateOfBirth"
@@ -510,7 +510,7 @@ const SingleEmployeeProfile = () => {
                     </div>
                     <div className={styles.inputWrapper}>
                       <label htmlFor="emergencyContact">
-                        Emergency Contact:
+                        Emergency contact:
                       </label>
                       <input
                         type="text"
@@ -524,7 +524,7 @@ const SingleEmployeeProfile = () => {
                     </div>
                   </div>
                   <div className={styles.otherInfoSection}>
-                    <h2>Other Information</h2>
+                    <h2>Other information</h2>
                     <div className={styles.otherInfoWrapper}>
                       <textarea
                         rows="6"
@@ -572,7 +572,7 @@ const SingleEmployeeProfile = () => {
                     <div
                       className={`${styles.titleDataWrapper} ${styles.projectsWrapper}`}
                     >
-                      <label>Current Projects:</label>
+                      <label>Current projects:</label>
                       <p>{updatedData.currentProjects}</p>
                     </div>
                   </div>
@@ -580,7 +580,7 @@ const SingleEmployeeProfile = () => {
                 <div className={styles.managementSection}>
                   <h2>Management</h2>
                   <div className={styles.dataWrapper}>
-                    <label>Employee Status:</label>
+                    <label>Employee status:</label>
                     <p>{updatedData.status}</p>
                   </div>
                   <div className={styles.dataWrapper}>
@@ -588,14 +588,14 @@ const SingleEmployeeProfile = () => {
                     <p>{updatedData.manager}</p>
                   </div>
                   <div className={styles.dataWrapper}>
-                    <label>Start Date:</label>
+                    <label>Start date:</label>
                     <p>
                       {updatedData.startDate} ({yearsOfEmployment} years
                       employed)
                     </p>
                   </div>
                   <div className={styles.dataWrapper}>
-                    <label>Contract Type:</label>
+                    <label>Contract type:</label>
                     <p>{updatedData.contractType}</p>
                   </div>
                   <div className={styles.dataWrapper}>
@@ -603,7 +603,7 @@ const SingleEmployeeProfile = () => {
                     <p>€ {updatedData.salary}</p>
                   </div>
                   <div className={styles.dataWrapper}>
-                    <label>Vacation Days Accumulated:</label>
+                    <label>Vacation days accumulated:</label>
                     <p>{updatedData.vacationDaysAcc} days</p>
                   </div>
                 </div>
@@ -618,11 +618,11 @@ const SingleEmployeeProfile = () => {
                     <p>{updatedData.phone}</p>
                   </div>
                   <div className={styles.dataWrapper}>
-                    <label>Home Address:</label>
+                    <label>Home address:</label>
                     <p>{updatedData.homeAddress}</p>
                   </div>
                   <div className={styles.dataWrapper}>
-                    <label>Date of Birth:</label>
+                    <label>Date of birth:</label>
                     <p>{updatedData.dateOfBirth}</p>
                   </div>
                   <div
@@ -633,12 +633,12 @@ const SingleEmployeeProfile = () => {
                     <p>{updatedData.education}</p>
                   </div>
                   <div className={styles.dataWrapper}>
-                    <label>Emergency Contact:</label>
+                    <label>Emergency contact:</label>
                     <p>{updatedData.emergencyContact}</p>
                   </div>
                 </div>
                 <div className={styles.otherInfoSection}>
-                  <h2>Other Information</h2>
+                  <h2>Other information</h2>
                   <p>{updatedData.otherInfo}</p>
                 </div>
               </div>

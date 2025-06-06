@@ -195,9 +195,10 @@
 .statusText {
   flex: 1;
   font-style: italic;
+  text-transform: lowercase;
   font-size: 14pt;
   position: absolute;
-  top: 12rem;
+  top: 11.5rem;
   margin-right: 1rem;
 }
 
