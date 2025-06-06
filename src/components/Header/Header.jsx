@@ -28,7 +28,7 @@ const Header = () => {
     >
       <div className={styles.logo}>
         <Link to="/employees">
-          <img src={logo} alt="" />
+          <img src={logo} alt="Logo icon" />
         </Link>
       </div>
       <nav>

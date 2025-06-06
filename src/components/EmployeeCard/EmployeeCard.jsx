@@ -56,7 +56,7 @@ const EmployeeCard = ({ employee, schedule }) => {
         <div className={styles.cardContainer}>
           <div className={styles.imgContainer}>
             <img
-              src={`https://api.dicebear.com/9.x/open-peeps/svg?seed=${name}${title}`}
+              src={`https://api.dicebear.com/9.x/notionists/svg?seed=${name}${title}`}
               className={styles.cardImg}
               alt={name}
             />

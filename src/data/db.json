@@ -106,7 +106,7 @@
         "User Feedback Analysis"
       ],
       "status": "Active",
-      "employeeOfMonth": false,
+      "employeeOfMonth": true,
       "manager": "Jukka Mäkinen",
       "startDate": "2012-07-10",
       "contractType": "Full-time",
@@ -1170,6 +1170,36 @@
       "dateOfBirth": "1994-04-11",
       "emergencyContact": "Marko Salmi, 045-8899012",
       "otherInfo": "Certified in CompTIA A+"
+    },
+    {
+      "id": "787a",
+      "name": "Saara Rikama",
+      "title": "Intern, Full-Stack Web Development ",
+      "department": "IT",
+      "location": "Helsinki",
+      "skills": [
+        "Figma",
+        "CSS",
+        "React"
+      ],
+      "currentProjects": [
+        "HR-App",
+        "Laravel + React project"
+      ],
+      "manager": "Margit Tennosaar",
+      "startDate": "2024-08-08",
+      "contractType": "Internship",
+      "status": "On study leave",
+      "salary": 1200,
+      "vacationDaysAcc": "3",
+      "email": "saara.rikama@gmail.com",
+      "phone": "0501234567",
+      "homeAddress": "Linnanmäki, Helsinki",
+      "dateOfBirth": "1903-01-01",
+      "education": "xxx, Hki, 1907",
+      "emergencyContact": "Nenä-cat, p. 1234",
+      "otherInfo": "Happy summer times :)",
+      "employeeOfMonth": false
     }
   ]
 }

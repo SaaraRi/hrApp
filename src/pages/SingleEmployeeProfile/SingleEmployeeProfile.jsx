@@ -300,7 +300,7 @@ const SingleEmployeeProfile = () => {
                 <div className={styles.sections}>
                   <div className={styles.titleSection}>
                     <img
-                      src={`https://api.dicebear.com/9.x/open-peeps/svg?seed=${updatedData.name}${updatedData.title}`}
+                      src={`https://api.dicebear.com/9.x/notionists/svg?seed=${updatedData.name}${updatedData.title}`}
                       className={styles.cardImg}
                       alt={updatedData.name}
                     />
@@ -544,7 +544,7 @@ const SingleEmployeeProfile = () => {
               <div className={styles.sections}>
                 <div className={styles.titleSection}>
                   <img
-                    src={`https://api.dicebear.com/9.x/open-peeps/svg?seed=${updatedData.name}${updatedData.title}`}
+                    src={`https://api.dicebear.com/9.x/notionists/svg?seed=${updatedData.name}${updatedData.title}`}
                     className={styles.cardImg}
                     alt={updatedData.name}
                   />
