@@ -13,54 +13,75 @@
 }
 
 .searchContainer h2 {
-  font-size: 20pt;
-  margin-bottom: 1rem;
+  font-size: 22pt;
+  margin-bottom: 1.5rem;
 }
 
 .searchInput,
 .searchSelect {
+  display: block;
   background-color: #ffffff;
   color: #3d3e41;
   font-family: "Cal Sans";
   font-size: 14pt;
   width: 350px;
   max-width: 350px;
-  margin: 0.7rem auto;
+  margin: 1.2rem auto;
   padding: 0.7rem;
   border: 1px solid #3d3e41;
   border-radius: 5px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
 }
 
-.checkboxContainer {
+.searchCheckbox {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
   width: 350px;
+  min-width: 350px;
   max-width: 350px;
-  margin: 1rem auto;
-  gap: 2rem;
+  margin: 1.5rem auto 0 auto;
+  padding: 0 1rem;
 }
 
-.checkboxWrapper {
+.checkboxLocation,
+.checkboxSchedule {
   flex: 1;
   display: flex;
-  flex-direction: row;
-  gap: 0.5rem;
-  box-shadow: none;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
-.checkboxInput input[type="checkbox"] {
-  flex: 1;
-  height: 1rem;
-  margin: none;
-  box-shadow: none;
+.checkboxLocation {
+  flex: 0.7;
+  margin-left: 0.5rem;
 }
 
-.checkboxLabel label {
+.checkboxLocation p,
+.checkboxSchedule p {
   flex: 1;
-  font-size: 14pt;
+  margin-bottom: 0.6rem;
+  text-align: left;
+}
+
+.checkboxContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 0.3rem;
+}
+
+.checkboxContainer label {
+  flex: 1;
+  font-size: 13pt;
+}
+
+.checkboxContainer input[type="checkbox"] {
+  max-height: 1rem;
+  margin-right: 0.5rem;
+  box-shadow: none;
 }
 
 .employeesList {

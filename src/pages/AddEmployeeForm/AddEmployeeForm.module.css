@@ -5,18 +5,18 @@
   align-items: center;
   width: 100%;
   padding: 10rem 2rem 4rem 2rem;
-  font-size: 16pt;
+  font-size: 14pt;
 }
 
 .formContainer h1 {
-  font-size: 40pt;
-  margin-bottom: 4rem;
+  font-size: 32pt;
+  margin-bottom: 3rem;
 }
 
 .form {
-  width: 800px;
-  min-width: 800px;
-  max-width: 800px;
+  width: 650px;
+  min-width: 650px;
+  max-width: 650px;
 }
 
 .inputWrapper {
@@ -30,7 +30,7 @@
 
 .inputWrapper label {
   flex: 1;
-  font-size: 16pt;
+  font-size: 14pt;
   font-weight: 700;
   text-align: left;
 }
@@ -42,7 +42,7 @@
   background-color: #ffffff;
   color: #3d3e41;
   font-family: "Cal Sans";
-  font-size: 16pt;
+  font-size: 14pt;
   width: 350px;
   min-width: 350px;
   max-width: 350px;
@@ -64,7 +64,7 @@
 
 .locationLabel {
   flex: 1;
-  font-size: 16pt;
+  font-size: 14pt;
   font-weight: 700;
   text-align: left;
 }
@@ -102,7 +102,7 @@
 .otherInfoLabel {
   flex: 1;
   align-self: flex-start;
-  font-size: 16pt;
+  font-size: 14pt;
   font-weight: 700;
   text-align: left;
   margin-top: 0.5rem;
@@ -117,11 +117,11 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 800px;
-  min-width: 800px;
-  max-width: 800px;
-  margin: 3rem auto;
-  padding: 0 5rem;
+  width: 650px;
+  min-width: 650px;
+  max-width: 650px;
+  margin: 4rem auto;
+  padding: 0 0.5rem;
 }
 
 .message {

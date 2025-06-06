@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router";
 import useAxios from "../../hooks/useAxios";
-import { useEmploymentTime } from "../../hooks/useEmploymentTime";
+import { getEmploymentTime } from "../../utilities/employmentTimeUtils.js";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
 import employeeBadgeImage from "../../assets/images/7427018.png";
 import awardBadgeIcon from "../../assets/images/icons8-badge-50.png";
@@ -59,7 +59,7 @@ const SingleEmployeeProfile = () => {
     fullYearsOfEmployment,
     scheduleProbationReview,
     scheduleRecognitionMeeting,
-  } = useEmploymentTime(employee?.startDate);
+  } = getEmploymentTime(employee?.startDate);
 
   const handleInput = (e) => {
     const { name, value } = e.target;

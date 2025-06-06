@@ -1,5 +1,4 @@
 import { useNavigate } from "react-router";
-import { useEmploymentTime } from "../../hooks/useEmploymentTime";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
 import employeeBadgeImage from "../../assets/images/7427018.png";
 import awardBadgeIcon from "../../assets/images/icons8-badge-50.png";
@@ -7,7 +6,7 @@ import calendarIcon from "../../assets/images/icons8-leave-52.png";
 import LoaderSpinner from "../LoaderSpinner/LoaderSpinner";
 import styles from "./EmployeeCard.module.css";
 
-const EmployeeCard = ({ employee }) => {
+const EmployeeCard = ({ employee, schedule }) => {
   const navigate = useNavigate();
 
   const {
@@ -19,7 +18,6 @@ const EmployeeCard = ({ employee }) => {
     status,
     skills,
     currentProjects,
-    startDate,
     phone,
     email,
     employeeOfMonth,
@@ -29,7 +27,7 @@ const EmployeeCard = ({ employee }) => {
     fullYearsOfEmployment,
     scheduleProbationReview,
     scheduleRecognitionMeeting,
-  } = useEmploymentTime(employee.startDate);
+  } = schedule;
 
   //if (loading) return <LoaderSpinner />;
   if (!employee)
