@@ -1,0 +1,254 @@
+.card {
+  position: relative;
+  background-color: #ffffff;
+  color: #3d3e41;
+  height: 475px;
+  width: 580px;
+  min-width: 580px;
+  max-width: 580px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+}
+
+.cardHeader {
+  display: block;
+  position: relative;
+  width: 580px;
+  height: 40px;
+  color: black;
+  font-weight: 900;
+}
+
+.bannerTitleWrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 580px;
+  height: 40px;
+}
+
+.bannerTitleDpt {
+  display: inline;
+  font-size: 14pt;
+  font-weight: 700;
+  text-align: left;
+  height: 100%;
+  margin-top: 1rem;
+  margin-left: 1rem;
+  opacity: 0.8;
+}
+
+.bannerTitleLoc {
+  display: inline;
+  font-size: 14pt;
+  font-weight: 700;
+  text-align: right;
+  height: 100%;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  opacity: 0.8;
+}
+
+.cardContent {
+  display: flex;
+  flex-direction: column;
+  width: 580px;
+  min-width: 580px;
+  max-width: 580px;
+}
+
+.cardContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 580px;
+  min-width: 580px;
+  max-width: 580px;
+  padding: 1rem 1rem 0 1rem;
+}
+
+.imgContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 290px;
+  min-width: 290px;
+  max-width: 290px;
+  padding-top: 1rem;
+}
+
+.cardImg {
+  flex: 1;
+  width: 140px;
+  height: 140px;
+}
+
+.badgeImg {
+  height: 110px;
+  position: absolute;
+  top: 3rem;
+  left: 0.7rem;
+  z-index: 3;
+}
+
+.imgTitleWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+.imgContainer h3 {
+  font-size: 18pt;
+}
+
+.imgContainer h4 {
+  font-size: 14pt;
+  max-width: 220px;
+  margin-top: 1rem;
+}
+
+.statusTitle {
+  font-style: italic;
+  text-transform: lowercase;
+  font-size: 12pt;
+  margin-top: 0.7rem;
+}
+
+.textContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  width: 290px;
+  min-width: 290px;
+  max-width: 290px;
+}
+
+.textContainer h5 {
+  font-size: 14pt;
+  font-weight: 700;
+  margin: 1rem auto 0.3rem auto;
+}
+
+.textContainer p {
+  font-size: 12pt;
+  opacity: 0.8;
+}
+
+.skillsWrapper {
+  flex: 1;
+  width: 240px;
+  position: absolute;
+  top: 60px;
+  right: 1.73rem;
+}
+
+.projectsWrapper {
+  flex: 1;
+  width: 240px;
+  position: absolute;
+  top: 160px;
+  right: 1.73rem;
+}
+
+.contactWrapper {
+  flex: 1;
+  width: 290px;
+  position: absolute;
+  top: 260px;
+  right: -1.4rem;
+}
+
+.borderX {
+  flex: 1;
+  align-self: center;
+  border-top: 3px solid #dbdbdb;
+  width: 515px;
+  min-width: 515px;
+  max-width: 515px;
+  position: absolute;
+  bottom: 5.7rem;
+}
+
+.cardFooter {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: absolute;
+  bottom: 0.75rem;
+  width: 580px;
+  min-width: 580px;
+  max-width: 580px;
+  padding: 0 1rem;
+}
+
+.scheduleContainer {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scheduleWrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.scheduleIcon {
+  flex: 1;
+}
+
+.calendar {
+  height: 30px;
+  max-width: 30px;
+}
+
+.award {
+  height: 33px;
+  max-width: 33px;
+}
+
+.scheduleText {
+  flex: 1;
+  display: block;
+  margin-right: 0.5rem;
+  text-align: left;
+  font-size: 10pt;
+  font-weight: 700;
+  color: #5a27a5;
+}
+
+.buttonContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-right: 0.5rem;
+}
+
+.buttonContainer button {
+  flex: 1;
+  font-size: 12pt;
+  width: 120px;
+}
+
+.message {
+  color: #ce215a;
+  font-size: 18pt;
+  margin-bottom: 3rem;
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+}

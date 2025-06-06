@@ -1,0 +1,143 @@
+.formContainer {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10rem 2rem 4rem 2rem;
+  font-size: 14pt;
+}
+
+.formContainer h1 {
+  font-size: 32pt;
+  margin-bottom: 3rem;
+}
+
+.form {
+  width: 650px;
+  min-width: 650px;
+  max-width: 650px;
+}
+
+.inputWrapper {
+  flex: 1;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  overflow: clip;
+}
+
+.inputWrapper label {
+  flex: 1;
+  font-size: 14pt;
+  font-weight: 700;
+  text-align: left;
+}
+
+.inputWrapper input,
+.inputWrapper select,
+.otherInfoWrapper textarea {
+  flex: 1;
+  background-color: #ffffff;
+  color: #3d3e41;
+  font-family: "Cal Sans";
+  font-size: 14pt;
+  width: 350px;
+  min-width: 350px;
+  max-width: 350px;
+  margin: 0.7rem auto;
+  padding: 0.7rem;
+  border: 1px solid #3d3e41;
+  border-radius: 5px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
+}
+
+.locationWrapper,
+.otherInfoWrapper {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  margin: 1rem auto;
+}
+
+.locationLabel {
+  flex: 1;
+  font-size: 14pt;
+  font-weight: 700;
+  text-align: left;
+}
+
+.radioContainer {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 350px;
+  min-width: 350px;
+  max-width: 350px;
+  margin: 0.7rem 0;
+  gap: 2rem;
+}
+
+.radioWrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem;
+}
+
+.radioInput input[type="radio"] {
+  flex: 1;
+  height: 1rem;
+  margin: none;
+  box-shadow: none;
+}
+
+.radioLabel label {
+  flex: 1;
+}
+
+.otherInfoLabel {
+  flex: 1;
+  align-self: flex-start;
+  font-size: 14pt;
+  font-weight: 700;
+  text-align: left;
+  margin-top: 0.5rem;
+}
+
+.otherInfoText {
+  flex: 1;
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 650px;
+  min-width: 650px;
+  max-width: 650px;
+  margin: 4rem auto;
+  padding: 0 0.5rem;
+}
+
+.message {
+  font-size: 18pt;
+  margin-bottom: 3rem;
+  position: absolute;
+  top: 120px;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 6;
+}
+
+.error {
+  color: #ce215a;
+}
+
+.success {
+  color: #307112;
+}

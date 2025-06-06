@@ -1,153 +1,157 @@
-import { useEffect, useState, useMemo } from 'react';
-import { Link } from 'react-router';
-import './EmployeeCard.css';
+import { useNavigate } from "react-router";
+import { getDepartmentClassName } from "../../utilities/styleUtils";
+import employeeBadgeImage from "../../assets/images/7427018.png";
+import awardBadgeIcon from "../../assets/images/icons8-badge-50.png";
+import calendarIcon from "../../assets/images/icons8-leave-52.png";
+import LoaderSpinner from "../LoaderSpinner/LoaderSpinner";
+import styles from "./EmployeeCard.module.css";
 
-const EmployeeCard = ({
+const EmployeeCard = ({ employee, schedule }) => {
+  const navigate = useNavigate();
+
+  const {
+    id,
     name,
     title,
     department,
     location,
-    startDate,
-    salary,
+    status,
     skills,
-    email,
+    currentProjects,
     phone,
-    id, 
-    onEditData,
-    ...rest
-}) => {
+    email,
+    employeeOfMonth,
+  } = employee;
 
-  const originalData = useMemo(() => ({
-    name, title, department, location, startDate, salary, skills, email, phone,
-  }), [name, title, department, location, startDate, salary, skills, email, phone]);
+  const {
+    fullYearsOfEmployment,
+    scheduleProbationReview,
+    scheduleRecognitionMeeting,
+  } = schedule;
 
-  const [isEditing, setIsEditing] = useState(false);
-  const [newData, setNewData] = useState(originalData);
+  //if (loading) return <LoaderSpinner />;
+  if (!employee)
+    return (
+      <LoaderSpinner /> && (
+        <p lassName={styles.message}>Employee profile not found</p>
+      )
+    );
 
-  useEffect(() => {
-    setNewData(originalData);
-  }, [originalData]);
-
-  const handleSave = () => {
-    onEditData(id, newData);
-    setIsEditing(false);
-  };
-
-  const handleCancel = () => {
-    setNewData(originalData);
-    setIsEditing(false);
-  };
-  const handleDetails = () => {};
-
-  const isSaveDisabled =
-    newData === "" || JSON.stringify(newData) === JSON.stringify(originalData);
-
-    const startedJob = new Date(startDate);
-    const currentDate = new Date();
-    const timeDifference = currentDate - startedJob;
-    const daysOfEmployment = timeDifference / (1000 * 3600 * 24);
-    const yearsOfEmployment = (daysOfEmployment / 365).toFixed(1);
-    const fullYearsOfEmployment = currentDate.getFullYear() - startedJob.getFullYear();
-    
   return (
-    <>
-      <div className='card'>
-          {isEditing ? (
-            <>
-              <input
-                type="text"
-                value={newData.name}
-                onChange={(e) => setNewData({ ...newData, name: e.target.value })}
-                placeholder="Name"
-              />
-              <input
-                type="text"
-                value={newData.title}
-                onChange={(e) => setNewData({ ...newData, title: e.target.value })}
-                placeholder="Title"
-              />
-              <input
-                type="text"
-                value={newData.department}
-                onChange={(e) => setNewData({ ...newData, department: e.target.value })}
-                placeholder="Department"
-              />
-              <input
-                type="text"
-                value={newData.location}
-                onChange={(e) => setNewData({ ...newData, location: e.target.value })}
-                placeholder="Location"
-              />
-              <input
-                type="date"
-                value={newData.startDate}
-                onChange={(e) => setNewData({ ...newData, startDate: e.target.value })}
-              />
-              <input
-                type="number"
-                value={newData.salary}
-                onChange={(e) => setNewData({ ...newData, salary: e.target.value })}
-                placeholder="Salary"
-              />
-              <input
-                type="text"
-                value={newData.email}
-                onChange={(e) => setNewData({ ...newData, email: e.target.value })}
-                placeholder="Email"
-              />
-              <input
-                type="text"
-                value={newData.phone}
-                onChange={(e) => setNewData({ ...newData, phone: e.target.value })}
-                placeholder="Phone"
-              />
-              <input
-                type="text"
-                value={newData.skills.join(', ')}
-                onChange={(e) => setNewData({ ...newData, skills: e.target.value.split(',').map(skills => skills.trim()) })}
-                placeholder="Skills"
-              />
-            </>
-          ) : (
-            <>
-              <p>{name}</p>
-              <p>{title}</p>
-              <p>{department}, {location}</p>
-              <p>Start date: {startDate} ({yearsOfEmployment} years of employment)</p>
+    <div className={styles.card} key={id}>
+      <div
+        className={`${getDepartmentClassName(department)} cardHeader`}
+        style={{
+          borderTopLeftRadius: "8px",
+          borderTopRightRadius: "8px",
+        }}
+      >
+        <div className={styles.bannerTitleWrapper}>
+          <p className={styles.bannerTitleDpt}>{department}</p>
 
+          <p className={styles.bannerTitleLoc}>{location}</p>
+        </div>
+      </div>
+      <div className={styles.cardContent}>
+        <div className={styles.cardContainer}>
+          <div className={styles.imgContainer}>
+            <img
+              src={`https://api.dicebear.com/9.x/notionists/svg?seed=${name}${title}`}
+              className={styles.cardImg}
+              alt={name}
+            />
+            {employeeOfMonth && (
+              <img
+                src={employeeBadgeImage}
+                className={styles.badgeImg}
+                alt="Employee of the Month -badge"
+              />
+            )}
+            <div className={styles.imgTitleWrapper}>
+              <h3>{name}</h3>
               <div>
-              {fullYearsOfEmployment % 5 === 0 && fullYearsOfEmployment > 0? (
-                  <p>Schedule recognition meeting</p>
-              ) : yearsOfEmployment < 0.5 ? (
-                  <p>Schedule probation review</p>
-              ) : null}
-              </div>    
-              <p>Salary: {salary}</p>
-              <p>{skills.map(skill => skill.trim()).join(', ')}</p>
-              <p>Contact:</p>
-              <p>Phone: {phone}</p>
-              <p>Email: {email}</p>
-            </>
-          )}
-          <div>
-            <Link to={`/employees/${id}`}>
-              See more
-            </Link>
-            {isEditing ? (
-              <>
-                <button onClick={handleSave} disabled={isSaveDisabled}>
-                  Save
-                </button>
-                <button onClick={handleCancel}>Cancel</button>
-              </>
-            ) : (
-              <button onClick={() => setIsEditing(true)}>
-                Edit
-              </button>
+                <h4>{title}</h4>
+                {status !== "Active" && status !== "Specified below" ? (
+                  <p className={styles.statusTitle}>({status})</p>
+                ) : (
+                  <p style={{ color: "transparent", marginTop: "0.5rem" }}>
+                    ({status})
+                  </p>
+                )}
+              </div>
+            </div>
+          </div>
+          <div className={styles.textContainer}>
+            <div className={styles.skillsWrapper}>
+              <h5>Skills:</h5>
+              <p>{skills.join(", ")}</p>
+            </div>
+            <div className={styles.projectsWrapper}>
+              <h5>Current projects:</h5>
+              <p>{currentProjects[0]},</p>
+              <p>{currentProjects[1]}</p>
+            </div>
+            <div className={styles.contactWrapper}>
+              <h5>Contact:</h5>
+              <p>{phone}</p>
+              <p>{email}</p>
+            </div>
+          </div>
+        </div>
+        <div className={styles.borderX}></div>
+        <div className={styles.cardFooter}>
+          <div className={styles.scheduleContainer}>
+            {scheduleProbationReview && (
+              <div className={styles.scheduleWrapper}>
+                <img
+                  className={`${styles.scheduleIcon} ${styles.calendar}`}
+                  src={calendarIcon}
+                  alt="Calendar icon"
+                />
+                <p className={styles.scheduleText}>
+                  Schedule 6 months <br></br> probation review
+                </p>
+              </div>
+            )}
+            {scheduleRecognitionMeeting && (
+              <div className={styles.scheduleWrapper}>
+                <img
+                  className={`${styles.scheduleIcon} ${styles.award}`}
+                  src={awardBadgeIcon}
+                  alt="Award badge icon"
+                />
+                <p className={styles.scheduleText}>
+                  Schedule recognition meeting<br></br> ({fullYearsOfEmployment}{" "}
+                  years of employment)
+                </p>
+              </div>
             )}
           </div>
+          <div className={styles.buttonContainer}>
+            <button
+              type="button"
+              onClick={() =>
+                navigate(`/employees/${employee.id}`, {
+                  state: { editMode: false },
+                })
+              }
+            >
+              View Profile
+            </button>
+            <button
+              type="button"
+              onClick={() =>
+                navigate(`/employees/${employee.id}`, {
+                  state: { editMode: true },
+                })
+              }
+            >
+              Edit Profile
+            </button>
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   );
 };
 

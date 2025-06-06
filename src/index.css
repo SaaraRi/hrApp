@@ -1,190 +1,109 @@
-/*:root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  background-color: #242424;
-  font-family: "Josefin Sans";
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-}
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-*/
-
-/*:root {
-  color-scheme: light dark;
-  color: rgba(47, 42, 42, 0.87);
-  background-color: #4a95ea;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}*/
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/*
 #root {
   width: 100vw;
-}
-
-main {
-  min-height: calc(100vh - 135px);
-}
-
-main h1 {
-  padding: 2rem;
-}
-
-.container {
-  max-width: 960px;
-  margin: 0 auto;
-}
+}*/
 
 body {
-  color: rgba(20, 10, 6);
-  margin: 0;
+  background-color: #f1f3f8;
+  color: #3d3e41;
+  font-family: "Cal Sans";
+  font-size: 14pt;
+  text-align: center;
   height: 100%;
   width: 100vw;
-  text-align: center;
-  font-size: 14pt;
-  font-family: "Cal Sans";
-  background-color: rgb(77, 77, 77);
-}
-
-main {
-  min-height: 60vh;
-  width: 100%;
-  /*padding: 2rem 0;*/
-  background-image: url("./assets/2457.jpg");
-  background-repeat: repeat;
-  background-size: contain;
-  background-position: center top;
-  
+  margin: 0;
 }
 
 main {
   min-height: calc(100vh - 135px);
+  width: 100%;
 }
 
 button {
+  background-color: #ebf0a2;
+  color: #3d3e41;
   font-family: "Cal Sans";
-  font-size: 14pt;
-  font-weight: 800;
-  padding: 0.4rem;
-  margin: 0.3rem 0 0.3rem 0;
-  background-color: #95c6e3; 
-  color: rgba(47, 42, 42, 0.87);
-  border-radius: 5px;
-  border: 1.5px solid rgba(47, 42, 42, 0.87);
+  font-size: 12pt;
+  text-transform: uppercase;
+  font-weight: 700;
+  width: 170px;
+  margin: 1rem 0.5rem;
+  padding: 0.5rem 0.6rem;
+  border-radius: 8px;
+  border: 1px solid #3d3e41;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.22);
+  cursor: pointer;
+  transition-property: background-color;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
 }
 
-input,
-select {
-  font-family: "Cal Sans";
-  font-size: 14pt;
-  padding: 0.4rem;
-  margin: 0.3rem 0 0.3rem 0;
-  background-color: #fafae6;
-  color: rgba(20, 10, 6);
-  border-radius: 5px;
-  border: 2px solid rgba(20, 10, 6);
-  width: 260px;
+button:hover {
+  background-color: #ded3f0;
+  color: #5a27a5;
+  border: 1px solid #5a27a5;
 }
 
-select:hover,
-select:active,
-input:hover,
-input:active {
-  border: 2px solid #db5d0f;
+input[type="text"]:focus,
+select:focus {
+  border: 2px solid #e9f35f;
 }
 
-label {
-  font-size: 18pt;
-  margin-right: 2rem;
+input::placeholder {
+  opacity: 0.6;
+  font-style: italic;
 }
 
-.container {
-  display: flex;
-  justify-content: center;
-  flex-direction: row;
-  flex-wrap: wrap;
-  gap: 1.5rem;
-  margin: 3rem 0;
+.design {
+  background: #d6adad;
 }
 
-.white-font {
-  color: #ffffff;
+.development {
+  background: #d5bcad;
 }
 
-h1 {
-  font-size: 38pt;
-  margin-bottom: 2rem;
+.product {
+  background: #d5d6af;
 }
 
-.addinput-h1 {
-  font-size: 30pt;
+.finance {
+  background: #bed7ae;
 }
 
-.add-input {
-  display: flex;
-  flex-direction: row;
-  justify-content:space-between;
-  align-items: center;
-  margin: 0 35vw;
+.marketing {
+  background: #b1d7af;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+.sales {
+  background: #b1d6bd;
 }
 
-.add-btn {
-  width: 120px;
-  align-self: center;
-  margin-top: 1rem;
+.analytics {
+  background: #b1d6d6;
 }
 
+.customer {
+  background: #aebcd5;
+}
+
+.IT {
+  background: #adabd6;
+}
+
+.legal {
+  background: #bdaad6;
+}
+
+.HR {
+  background: #d6abd5;
+}
+
+.default {
+  background: #d6acbd;
+}
