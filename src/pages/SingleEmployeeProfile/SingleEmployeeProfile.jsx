@@ -85,10 +85,10 @@ const SingleEmployeeProfile = () => {
       setIsEditing(false);
       setSuccessMessage("Employee profile updated successfully");
       setTimeout(() => setSuccessMessage(""), 3000);
-      setLoading(false);
     } catch (error) {
       setErrorMessage("Failed to update employee profile. Please try again.");
       setTimeout(() => setErrorMessage(""), 3000);
+    } finally {
       setLoading(false);
     }
   };
@@ -111,13 +111,13 @@ const SingleEmployeeProfile = () => {
       setLoading(true);
       try {
         await remove(id);
-        setSuccessMessage("Employee profile deleted successfully.");
+        setSuccessMessage("Employee profile deleted successfully");
         setTimeout(() => setSuccessMessage(""), 3000);
         setTimeout(() => navigate("/employees"), 3000);
-        setLoading(false);
       } catch (error) {
         setErrorMessage("Failed to delete employee profile. Please try again.");
         setTimeout(() => setErrorMessage(""), 3000);
+      } finally {
         setLoading(false);
       }
     }
@@ -138,9 +138,9 @@ const SingleEmployeeProfile = () => {
           : `Employee of the Month -status removed from ${employee.name}`
       );
       setTimeout(() => setSuccessMessage(""), 3000);
-      setLoading(false);
     } catch {
       setErrorMessage("Failed to update Employee of the Month -status.");
+    } finally {
       setLoading(false);
     }
   };

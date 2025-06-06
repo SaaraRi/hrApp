@@ -90,7 +90,7 @@ const EmployeesList = () => {
                 className={styles.searchInput}
                 value={searchValue}
                 onChange={searchHandle}
-                placeholder="name, title, skills, projects, manager, etc. status, contract type, department, location"
+                placeholder="Name, title, skills, projects, manager, etc. status, contract type, department, location"
               />
             </div>
             <div className={styles.searchType}>
@@ -99,7 +99,7 @@ const EmployeesList = () => {
                 value={departmentFilter}
                 onChange={(e) => setDepartmentFilter(e.target.value)}
               >
-                <option value="all">Filter by department</option>
+                <option value="all">Filter by Department</option>
                 <option value="all">All</option>
                 {[
                   "Design",

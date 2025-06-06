@@ -59,9 +59,7 @@ const useAxios = (url) => {
 
   return {
     employeesData,
-    setEmployeesData,
     loading,
-    setLoading,
     error,
     read,
     create,

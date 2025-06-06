@@ -10,8 +10,8 @@ const emptyForm = () => ({
   title: "",
   department: "",
   location: "",
-  skills: [],
-  currentProjects: [],
+  skills: "",
+  currentProjects: "",
   manager: "",
   startDate: "",
   contractType: "",
@@ -61,11 +61,11 @@ const AddEmployeeForm = () => {
       setSuccessMessage("Employee profile created successfully");
       setTimeout(() => setSuccessMessage(""), 3000);
       setTimeout(() => navigate("/employees"), 3000);
-      setLoading(false);
       handleReset();
     } catch (error) {
       setErrorMessage("Failed to create employee profile. Please try again.");
       setTimeout(() => setErrorMessage(""), 3000);
+    } finally {
       setLoading(false);
     }
   };
