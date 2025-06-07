@@ -31,7 +31,7 @@ const emptyForm = () => ({
 const AddEmployeeForm = () => {
   const navigate = useNavigate();
 
-  const { create, error } = useAxios("http://localhost:3007/employees");
+  const { create, error } = useAxios("http://localhost:3000/employees");
 
   const [formData, setFormData] = useState(emptyForm);
   const [loading, setLoading] = useState(false);
