@@ -20,7 +20,7 @@ const SingleEmployeeProfile = () => {
     update,
     remove,
     error,
-  } = useAxios("http://localhost:3007/employees");
+  } = useAxios("http://localhost:3000/employees");
 
   const [updatedData, setUpdatedData] = useState(employee);
   const [isEditing, setIsEditing] = useState(false);
