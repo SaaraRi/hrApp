@@ -10,7 +10,7 @@ const EmployeesList = () => {
     employeesData: employees,
     read,
     error,
-  } = useAxios("http://localhost:3000/employees");
+  } = useAxios("http://localhost:3004/employees");
 
   const [loading, setLoading] = useState(true);
   const [searchValue, setSearchValue] = useState("");
