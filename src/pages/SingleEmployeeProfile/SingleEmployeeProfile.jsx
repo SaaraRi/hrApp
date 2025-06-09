@@ -20,7 +20,7 @@ const SingleEmployeeProfile = () => {
     update,
     remove,
     error,
-  } = useAxios("http://localhost:3004/employees");
+  } = useAxios("https://hrapp-backend5.onrender.com/employees");
 
   const [updatedData, setUpdatedData] = useState(employee);
   const [isEditing, setIsEditing] = useState(false);
