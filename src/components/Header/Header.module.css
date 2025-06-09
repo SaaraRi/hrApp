@@ -32,9 +32,10 @@ a {
 }
 
 a:hover {
-  transition-property: border;
+  transition-property: color, border;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 150ms;
+  color: #5a27a5;
   border-bottom: 5px dotted #5a27a5;
 }
 
