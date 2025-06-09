@@ -1,0 +1,1205 @@
+{
+  "employees": [
+    {
+      "id": "1",
+      "name": "Aino Virtanen-Koski",
+      "title": "HR Manager",
+      "department": "Human Resources",
+      "location": "Helsinki",
+      "skills": [
+        "Recruiting",
+        "Communication",
+        "Employee Relations"
+      ],
+      "currentProjects": [
+        "Customer Portal",
+        "Backend Optimization"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Eero Koskinen",
+      "startDate": "2020-04-03",
+      "contractType": "Full-time",
+      "salary": 4200,
+      "vacationDaysAcc": "16",
+      "phone": "+358 040-1234567",
+      "email": "aino.virtanen@company.com",
+      "homeAddress": "Mannerheimintie 10, Helsinki",
+      "education": "Master's in Computer Science, University of Glasgow, 2020",
+      "dateOfBirth": "1985-06-20",
+      "emergencyContact": "Anna Nieminen, 040-9876543",
+      "otherInfo": ""
+    },
+    {
+      "id": "2",
+      "name": "Emma Johnson",
+      "title": "Graphic Designer",
+      "department": "Design",
+      "location": "Espoo",
+      "skills": [
+        "Photoshop",
+        "Illustrator",
+        "UI Design"
+      ],
+      "currentProjects": [
+        "App Redesign",
+        "Brand Identity"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Sari Laine",
+      "startDate": "2018-09-01",
+      "contractType": "Full-time",
+      "salary": 4700,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-2345678",
+      "email": "emma.johnson@company.com",
+      "homeAddress": "Leppävaarantie 15, Espoo",
+      "education": "BA in Graphic Design, Royal College of Art, 2016",
+      "dateOfBirth": "1990-03-10",
+      "emergencyContact": "John Johnson, 040-1234568",
+      "otherInfo": ""
+    },
+    {
+      "id": "3",
+      "name": "Omar Farouk",
+      "title": "Backend Developer",
+      "department": "IT",
+      "location": "Helsinki",
+      "skills": [
+        "Python",
+        "Django",
+        "REST APIs"
+      ],
+      "currentProjects": [
+        "Customer Portal",
+        "Data Migration"
+      ],
+      "status": "On parental leave",
+      "employeeOfMonth": false,
+      "manager": "Eero Koskinen",
+      "startDate": "2016-02-20",
+      "contractType": "Full-time",
+      "salary": 3900,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-3456789",
+      "email": "omar.farouk@company.com",
+      "homeAddress": "Kiviharjuntie 7, Helsinki",
+      "education": "BSc Computer Science, Cairo University, 2014",
+      "dateOfBirth": "1988-11-05",
+      "emergencyContact": "Sara Farouk, 040-9876544",
+      "otherInfo": ""
+    },
+    {
+      "id": "4",
+      "name": "Alice Dupont",
+      "title": "Product Manager",
+      "department": "Product",
+      "location": "Tampere",
+      "skills": [
+        "Agile",
+        "Roadmap Planning",
+        "Stakeholder Management"
+      ],
+      "currentProjects": [
+        "Product Launch",
+        "User Feedback Analysis"
+      ],
+      "status": "Active",
+      "employeeOfMonth": true,
+      "manager": "Jukka Mäkinen",
+      "startDate": "2012-07-10",
+      "contractType": "Full-time",
+      "salary": 6200,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-4567890",
+      "email": "alice.dupont@company.com",
+      "homeAddress": "Hämeenpuisto 20, Tampere",
+      "education": "MBA, INSEAD, 2010",
+      "dateOfBirth": "1982-12-15",
+      "emergencyContact": "Marc Dupont, 040-8765432",
+      "otherInfo": ""
+    },
+    {
+      "id": "5",
+      "name": "Hassan Ali",
+      "title": "Data Analyst",
+      "department": "Analytics",
+      "location": "Helsinki",
+      "skills": [
+        "SQL",
+        "Python",
+        "Tableau"
+      ],
+      "currentProjects": [
+        "Market Trends",
+        "Customer Segmentation"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Leena Virtanen",
+      "startDate": "2019-05-05",
+      "contractType": "Full-time",
+      "salary": 4300,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-5678901",
+      "email": "hassan.ali@company.com",
+      "homeAddress": "Mechelininkatu 5, Helsinki",
+      "education": "BSc Statistics, University of Cairo, 2015",
+      "dateOfBirth": "1992-08-23",
+      "emergencyContact": "Amina Ali, 040-8765433",
+      "otherInfo": ""
+    },
+    {
+      "id": "6",
+      "name": "Sofia Martinez",
+      "title": "Marketing Specialist",
+      "department": "Marketing",
+      "location": "Espoo",
+      "skills": [
+        "SEO",
+        "Content Creation",
+        "Social Media"
+      ],
+      "currentProjects": [
+        "Campaign X",
+        "Brand Awareness"
+      ],
+      "status": "On vacation",
+      "employeeOfMonth": false,
+      "manager": "Anna Korhonen",
+      "startDate": "2017-11-11",
+      "contractType": "Contractual",
+      "salary": 4800,
+      "vacationDaysAcc": "-4",
+      "phone": "+358 040-6789012",
+      "email": "sofia.martinez@company.com",
+      "homeAddress": "Olarinlaituri 12, Espoo",
+      "education": "BA in Marketing, University of Barcelona, 2014",
+      "dateOfBirth": "1988-04-17",
+      "emergencyContact": "Carlos Martinez, 040-6543210",
+      "otherInfo": "Temporary contract until 31.12.2025"
+    },
+    {
+      "id": "7",
+      "name": "Michael Schmidt",
+      "title": "Legal Advisor",
+      "department": "Legal",
+      "location": "Tampere",
+      "skills": [
+        "Contract Law",
+        "Corporate Governance",
+        "Negotiation"
+      ],
+      "currentProjects": [
+        "Compliance Review",
+        "Contract Drafting"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Laura Väisänen",
+      "startDate": "2015-03-05",
+      "contractType": "Full-time",
+      "salary": 6500,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-7890123",
+      "email": "michael.schmidt@company.com",
+      "homeAddress": "Koskikatu 8, Tampere",
+      "education": "JD, University of Berlin, 2009",
+      "dateOfBirth": "1978-09-12",
+      "emergencyContact": "Anna Schmidt, 040-7654321",
+      "otherInfo": ""
+    },
+    {
+      "id": "8",
+      "name": "Yuki Tanaka",
+      "title": "Software Engineer",
+      "department": "IT",
+      "location": "Helsinki",
+      "skills": [
+        "C++",
+        "Embedded Systems",
+        "IoT"
+      ],
+      "currentProjects": [
+        "Device Firmware",
+        "IoT Platform"
+      ],
+      "status": "On study leave",
+      "employeeOfMonth": false,
+      "manager": "Eero Koskinen",
+      "startDate": "2019-01-15",
+      "contractType": "Part-time 50%",
+      "salary": 5200,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-8901234",
+      "email": "yuki.tanaka@company.com",
+      "homeAddress": "Haapaniemenkatu 3, Helsinki",
+      "education": "Bachelor's in Electrical Engineering, Tokyo University, 2014",
+      "dateOfBirth": "1991-02-14",
+      "emergencyContact": "Ken Tanaka, 040-7654322",
+      "otherInfo": ""
+    },
+    {
+      "id": "9",
+      "name": "Fatima Khalil",
+      "title": "HR Specialist",
+      "department": "Human Resources",
+      "location": "Espoo",
+      "skills": [
+        "Recruitment",
+        "Employee Relations",
+        "HRIS"
+      ],
+      "currentProjects": [
+        "Onboarding Process",
+        "Employee Satisfaction"
+      ],
+      "status": "On study leave",
+      "employeeOfMonth": false,
+      "manager": "Kristiina Nieminen",
+      "startDate": "2023-06-25",
+      "contractType": "Full-time",
+      "salary": 4100,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-9012345",
+      "email": "fatima.khalil@company.com",
+      "homeAddress": "Leppävaarantie 30, Espoo",
+      "education": "BA in Human Resources, Cairo University, 2012",
+      "dateOfBirth": "1989-09-30",
+      "emergencyContact": "Mohamed Khalil, 040-9876545",
+      "otherInfo": ""
+    },
+    {
+      "id": "10",
+      "name": "Jürgen Müller",
+      "title": "Engineering Manager",
+      "department": "Development",
+      "location": "Tampere",
+      "skills": [
+        "Mechanical Design",
+        "Project Management",
+        "CAD"
+      ],
+      "currentProjects": [
+        "Product Development",
+        "Process Improvement"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Heidi Salminen",
+      "startDate": "2008-05-20",
+      "contractType": "Full-time",
+      "salary": 6800,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-0123456",
+      "email": "jurgen.muller@company.com",
+      "homeAddress": "Kalevantie 14, Tampere",
+      "education": "Diploma in Mechanical Engineering, RWTH Aachen, 2007",
+      "dateOfBirth": "1975-11-22",
+      "emergencyContact": "Anna Müller, 040-6543211",
+      "otherInfo": ""
+    },
+    {
+      "id": "11",
+      "name": "Sofia Mäkelä",
+      "title": "Accounts Payable Specialist",
+      "department": "Finance",
+      "location": "Helsinki",
+      "skills": [
+        "SAP",
+        "Invoice Processing",
+        "Reconciliation"
+      ],
+      "currentProjects": [
+        "Vendor Cleanup Initiative",
+        "Invoicing Archive"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Petra Lehtinen",
+      "startDate": "2017-11-03",
+      "contractType": "Part-time 80%",
+      "salary": 3900,
+      "vacationDaysAcc": "25",
+      "phone": "+358 046-5566778",
+      "email": "sofia.makela@company.com",
+      "homeAddress": "Tikkurilantie 21, Vantaa",
+      "education": "Vocational Qualification in Business and Administration, 2014",
+      "dateOfBirth": "1989-10-30",
+      "emergencyContact": "Tiina Mäkelä, 046-8899001",
+      "otherInfo": ""
+    },
+    {
+      "id": "12",
+      "name": "Nina Petrova",
+      "title": "UX Designer",
+      "department": "Design",
+      "location": "Helsinki",
+      "skills": [
+        "User Research",
+        "Wireframing",
+        "Prototyping"
+      ],
+      "currentProjects": [
+        "App Redesign",
+        "User Testing"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Sari Laine",
+      "startDate": "2020-02-10",
+      "contractType": "Full-time",
+      "salary": 4600,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-2345670",
+      "email": "nina.petrova@company.com",
+      "homeAddress": "Mannerheimintie 25, Helsinki",
+      "education": "BA in Interaction Design, KADK, 2018",
+      "dateOfBirth": "1993-07-05",
+      "emergencyContact": "Ivan Petrova, 040-1234569",
+      "otherInfo": ""
+    },
+    {
+      "id": "13",
+      "name": "Ahmed El-Sayed",
+      "title": "Security Specialist",
+      "department": "IT",
+      "location": "Espoo",
+      "skills": [
+        "Network Security",
+        "Penetration Testing",
+        "Firewall"
+      ],
+      "currentProjects": [
+        "Security Audit",
+        "Firewall Setup"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Eero Koskinen",
+      "startDate": "2014-08-18",
+      "contractType": "Full-time",
+      "salary": 5300,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-3456781",
+      "email": "ahmed.el-sayed@company.com",
+      "homeAddress": "Olarinlähteentie 9, Espoo",
+      "education": "BSc in Cybersecurity, Cairo University, 2013",
+      "dateOfBirth": "1986-04-12",
+      "emergencyContact": "Sara El-Sayed, 040-8765436",
+      "otherInfo": ""
+    },
+    {
+      "id": "14",
+      "name": "Claire Dubois",
+      "title": "Content Strategist",
+      "department": "Marketing",
+      "location": "Helsinki",
+      "skills": [
+        "Content Planning",
+        "Copywriting",
+        "SEO"
+      ],
+      "currentProjects": [
+        "Content Calendar",
+        "SEO Optimization"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Anna Korhonen",
+      "startDate": "2025-02-14",
+      "contractType": "Part-time 80%",
+      "salary": 4400,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-5678902",
+      "email": "claire.dubois@company.com",
+      "homeAddress": "Kaisaniemenkatu 4, Helsinki",
+      "education": "BA in Journalism, Sorbonne University, 2014",
+      "dateOfBirth": "1987-05-19",
+      "emergencyContact": "Jean Dubois, 040-6543212",
+      "otherInfo": ""
+    },
+    {
+      "id": "15",
+      "name": "Ville Aalto",
+      "title": "Customer Service Representative",
+      "department": "Customer Relations",
+      "location": "Espoo",
+      "skills": [
+        "CRM Tools",
+        "Conflict Resolution",
+        "Multi-language Support"
+      ],
+      "currentProjects": [
+        "Customer Satisfaction Survey",
+        "Holiday Support Planning"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Laura Koskinen",
+      "startDate": "2022-07-01",
+      "contractType": "Contractual",
+      "salary": 3300,
+      "vacationDaysAcc": "21",
+      "phone": "+358 046-2211980",
+      "email": "ville.aalto@company.com",
+      "homeAddress": "Länsiväylä 10, Espoo",
+      "education": "BA in Hospitality Management, Haaga-Helia, 2020",
+      "dateOfBirth": "1996-11-20",
+      "emergencyContact": "Sanna Aalto, 046-1199221",
+      "otherInfo": "Contract as project lead until Jan. 2027."
+    },
+    {
+      "id": "16",
+      "name": "Samuel Okoro",
+      "title": "DevOps Engineer",
+      "department": "IT",
+      "location": "Tampere",
+      "skills": [
+        "AWS",
+        "Docker",
+        "CI/CD"
+      ],
+      "currentProjects": [
+        "Deployment Pipeline",
+        "Cloud Migration"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Eero Koskinen",
+      "startDate": "2019-07-20",
+      "contractType": "Full-time",
+      "salary": 5700,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-4567893",
+      "email": "samuel.okoro@company.com",
+      "homeAddress": "Hämeenpuisto 25, Tampere",
+      "education": "BSc in Computer Engineering, University of Lagos, 2016",
+      "dateOfBirth": "1990-10-02",
+      "emergencyContact": "Chioma Okoro, 040-9876546",
+      "otherInfo": "",
+      "": "Deployment Pipeline, Cloud Migrationp"
+    },
+    {
+      "id": "17",
+      "name": "Marie Laurent",
+      "title": "Legal Assistant",
+      "department": "Legal",
+      "location": "Helsinki",
+      "skills": [
+        "Legal Research",
+        "Document Drafting",
+        "Compliance"
+      ],
+      "currentProjects": [
+        "Legal Compliance",
+        "Contract Management"
+      ],
+      "status": "On vacation",
+      "employeeOfMonth": false,
+      "manager": "Laura Väisänen",
+      "startDate": "2019-03-10",
+      "contractType": "Part-time 80%",
+      "salary": 3900,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-7890124",
+      "email": "marie.laurent@company.com",
+      "homeAddress": "Unioninkatu 15, Helsinki",
+      "education": "LLB, Sorbonne Law School, 2012",
+      "dateOfBirth": "1989-01-25",
+      "emergencyContact": "Paul Laurent, 040-9876547",
+      "otherInfo": ""
+    },
+    {
+      "id": "18",
+      "name": "David Kim",
+      "title": "Software Engineer",
+      "department": "IT",
+      "location": "Espoo",
+      "skills": [
+        "JavaScript",
+        "React",
+        "Node.js"
+      ],
+      "currentProjects": [
+        "Web App",
+        "Performance Optimization"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Eero Koskinen",
+      "startDate": "2021-06-01",
+      "contractType": "Full-time",
+      "salary": 5100,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-0123457",
+      "email": "david.kim@company.com",
+      "homeAddress": "Olarinmäki 11, Espoo",
+      "education": "BSc in Computer Science, Seoul National University, 2017",
+      "dateOfBirth": "1994-08-09",
+      "emergencyContact": "Min Kim, 040-7654324",
+      "otherInfo": ""
+    },
+    {
+      "id": "19",
+      "name": "Amina Hassan",
+      "title": "HR Coordinator",
+      "department": "Human Resources",
+      "location": "Tampere",
+      "skills": [
+        "Recruitment",
+        "Training",
+        "HR Policies"
+      ],
+      "currentProjects": [
+        "Onboarding",
+        "Employee Engagement"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Kristiina Nieminen",
+      "startDate": "2014-09-12",
+      "contractType": "Part-time 80%",
+      "salary": 4200,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-7891235",
+      "email": "amina.hassan@company.com",
+      "homeAddress": "Kalevankatu 3, Tampere",
+      "education": "BA in Human Resources, University of Nairobi, 2012",
+      "dateOfBirth": "1991-12-02",
+      "emergencyContact": "Hassan Amina, 040-9876548",
+      "otherInfo": ""
+    },
+    {
+      "id": "20",
+      "name": "Max Müller",
+      "title": "Engineering Lead",
+      "department": "Development",
+      "location": "Helsinki",
+      "skills": [
+        "Mechanical Design",
+        "Project Management",
+        "CAD"
+      ],
+      "currentProjects": [
+        "Product Development",
+        "Process Optimization"
+      ],
+      "status": "Retired",
+      "employeeOfMonth": false,
+      "manager": "Heidi Salminen",
+      "startDate": "2010-11-01",
+      "contractType": "Full-time",
+      "salary": 6700,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-8901235",
+      "email": "max.muller@company.com",
+      "homeAddress": "Kaisaniemenkatu 8, Helsinki",
+      "education": "Diploma in Mechanical Engineering, TU Munich, 1983",
+      "dateOfBirth": "1960-04-15",
+      "emergencyContact": "Anna Müller, 040-7654323",
+      "otherInfo": ""
+    },
+    {
+      "id": "21",
+      "name": "Yumi Sato",
+      "title": "Frontend Developer",
+      "department": "IT",
+      "location": "Tampere",
+      "skills": [
+        "Vue.js",
+        "JavaScript",
+        "CSS"
+      ],
+      "currentProjects": [
+        "Web App",
+        "UI Improvements"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Eero Koskinen",
+      "startDate": "2022-01-15",
+      "contractType": "Internship",
+      "salary": 4900,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-9012346",
+      "email": "yumi.sato@company.com",
+      "homeAddress": "Hämeenpuisto 10, Tampere",
+      "education": "BSc in Computer Science, Kyoto University, 2018",
+      "dateOfBirth": "1995-09-25",
+      "emergencyContact": "Ken Sato, 040-2345678",
+      "otherInfo": ""
+    },
+    {
+      "id": "22",
+      "name": "Carlos Rodriguez",
+      "title": "Sales Manager",
+      "department": "Sales",
+      "location": "Helsinki",
+      "skills": [
+        "Negotiation",
+        "CRM",
+        "Customer Relations"
+      ],
+      "currentProjects": [
+        "New Client Acquisition",
+        "Sales Strategy"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Jukka Mäkinen",
+      "startDate": "2011-05-23",
+      "contractType": "Full-time",
+      "salary": 6100,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-2345671",
+      "email": "carlos.rodriguez@company.com",
+      "homeAddress": "Mannerheimintie 22, Helsinki",
+      "education": "BSc in Business, Universidad de Madrid, 2009",
+      "dateOfBirth": "1984-02-17",
+      "emergencyContact": "Maria Rodriguez, 040-9876549",
+      "otherInfo": ""
+    },
+    {
+      "id": "23",
+      "name": "Antti Korhonen",
+      "title": "Financial Analyst",
+      "department": "Finance",
+      "location": "Espoo",
+      "skills": [
+        "Excel",
+        "Financial Forecasting",
+        "Power BI"
+      ],
+      "currentProjects": [
+        "Q2 Budget Analysis",
+        "KPI Dashboard"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Petra Lehtinen",
+      "startDate": "2019-06-10",
+      "contractType": "Full-time",
+      "salary": 5100,
+      "vacationDaysAcc": "26",
+      "phone": "+358 045-1234567",
+      "email": "antti.korhonen@company.com",
+      "homeAddress": "Niittytie 12, Espoo",
+      "education": "BSc in Finance, University of Turku, 2017",
+      "dateOfBirth": "1991-01-15",
+      "emergencyContact": "Laura Korhonen, 045-7654321",
+      "otherInfo": ""
+    },
+    {
+      "id": "24",
+      "name": "Leila Ben Ammar",
+      "title": "Legal Counsel",
+      "department": "Legal",
+      "location": "Espoo",
+      "skills": [
+        "Contract Law",
+        "Litigation",
+        "Legal Drafting"
+      ],
+      "currentProjects": [
+        "Legal Review",
+        "Compliance"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Laura Väisänen",
+      "startDate": "2013-10-11",
+      "contractType": "Full-time",
+      "salary": 6400,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-3456782",
+      "email": "leila.benammar@company.com",
+      "homeAddress": "Otaranta 8, Espoo",
+      "education": "LLB, University of Tunis, 2012",
+      "dateOfBirth": "1986-07-09",
+      "emergencyContact": "Khalil Ben Ammar, 040-8765434",
+      "otherInfo": ""
+    },
+    {
+      "id": "25",
+      "name": "Ivan Petrov",
+      "title": "Data Scientist",
+      "department": "Analytics",
+      "location": "Helsinki",
+      "skills": [
+        "Python",
+        "Machine Learning",
+        "Statistics"
+      ],
+      "currentProjects": [
+        "Predictive Modeling",
+        "Customer Analytics"
+      ],
+      "status": "On vacation",
+      "employeeOfMonth": false,
+      "manager": "Leena Virtanen",
+      "startDate": "2018-04-02",
+      "contractType": "Full-time",
+      "salary": 5800,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-5678903",
+      "email": "ivan.petrov@company.com",
+      "homeAddress": "Kiskorpi 5, Helsinki",
+      "education": "MSc in Data Science, Moscow State University, 2017",
+      "dateOfBirth": "1990-06-14",
+      "emergencyContact": "Anna Petrov, 040-9876540",
+      "otherInfo": ""
+    },
+    {
+      "id": "26",
+      "name": "Clara Moreau",
+      "title": "Content Writer",
+      "department": "Marketing",
+      "location": "Tampere",
+      "skills": [
+        "Copywriting",
+        "SEO",
+        "Content Strategy"
+      ],
+      "currentProjects": [
+        "Blog Posts",
+        "Campaign Content"
+      ],
+      "status": "Resigned",
+      "employeeOfMonth": false,
+      "manager": "Anna Korhonen",
+      "startDate": "2021-05-10",
+      "contractType": "Full-time",
+      "salary": 4300,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-7891236",
+      "email": "clara.moreau@company.com",
+      "homeAddress": "Sammonkatu 20, Tampere",
+      "education": "BA in Journalism, Sorbonne University, 2019",
+      "dateOfBirth": "1994-03-08",
+      "emergencyContact": "Pierre Moreau, 040-6543213",
+      "otherInfo": ""
+    },
+    {
+      "id": "27",
+      "name": "Faisal Al-Hassan",
+      "title": "Network Engineer",
+      "department": "IT",
+      "location": "Espoo",
+      "skills": [
+        "Networking",
+        "Firewall",
+        "VPN"
+      ],
+      "currentProjects": [
+        "Network Upgrade",
+        "Security Enhancement"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Eero Koskinen",
+      "startDate": "2014-08-15",
+      "contractType": "Full-time",
+      "salary": 5100,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-9012357",
+      "email": "faisal.alhassan@company.com",
+      "homeAddress": "Olarinlähde 17, Espoo",
+      "education": "BSc in Computer Networking, University of Jordan, 2014",
+      "dateOfBirth": "1987-05-21",
+      "emergencyContact": "Hassan Faisal, 040-9876541",
+      "otherInfo": ""
+    },
+    {
+      "id": "28",
+      "name": "Julien Fournier",
+      "title": "Product Owner",
+      "department": "Product",
+      "location": "Helsinki",
+      "skills": [
+        "Agile",
+        "Backlog Management",
+        "Stakeholder Communication"
+      ],
+      "currentProjects": [
+        "Product Roadmap",
+        "Feature Prioritization"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Jukka Mäkinen",
+      "startDate": "2014-11-05",
+      "contractType": "Full-time",
+      "salary": 6100,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-2345672",
+      "email": "julien.fournier@company.com",
+      "homeAddress": "Aleksanterinkatu 12, Helsinki",
+      "education": "MBA, INSEAD, 2012",
+      "dateOfBirth": "1983-09-17",
+      "emergencyContact": "Sophie Fournier, 040-8765435",
+      "otherInfo": ""
+    },
+    {
+      "id": "29",
+      "name": "Kasper Rautiainen",
+      "title": "Claims & Aftersales Coordinator",
+      "department": "Customer Relations",
+      "location": "Espoo",
+      "skills": [
+        "Warranty Claims",
+        "Complaint Handling",
+        "Service Logistics"
+      ],
+      "currentProjects": [
+        "Returns Policy Review",
+        "Aftersales Training Module"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Laura Koskinen",
+      "startDate": "2020-02-17",
+      "contractType": "Full-time",
+      "salary": 4100,
+      "vacationDaysAcc": "24",
+      "phone": "+358 050-3344992",
+      "email": "kasper.rautiainen@company.com",
+      "homeAddress": "Tikkurilantie 30, Vantaa",
+      "education": "BBA in Supply Chain Management, Metropolia, 2017",
+      "dateOfBirth": "1990-07-22",
+      "emergencyContact": "Riina Rautiainen, 050-6677123",
+      "otherInfo": ""
+    },
+    {
+      "id": "30",
+      "name": "Koji Tanaka",
+      "title": "Hardware Engineer",
+      "department": "Development",
+      "location": "Tampere",
+      "skills": [
+        "Circuit Design",
+        "Embedded Systems",
+        "Testing"
+      ],
+      "currentProjects": [
+        "Prototype Development",
+        "Manufacturing"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Heidi Salminen",
+      "startDate": "2011-09-14",
+      "contractType": "Full-time",
+      "salary": 6300,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-0123458",
+      "email": "koji.tanaka@company.com",
+      "homeAddress": "Kalevankatu 22, Tampere",
+      "education": "Diploma in Electrical Engineering, Tokyo Institute of Technology, 2010",
+      "dateOfBirth": "1984-01-13",
+      "emergencyContact": "Yuki Tanaka, 040-2345679",
+      "otherInfo": ""
+    },
+    {
+      "id": "31",
+      "name": "Anna Svensson",
+      "title": "Customer Support Lead",
+      "department": "Sales",
+      "location": "Helsinki",
+      "skills": [
+        "Customer Service",
+        "CRM",
+        "Problem Solving"
+      ],
+      "currentProjects": [
+        "Support Optimization",
+        "Customer Feedback"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Carlos Rodriguez",
+      "startDate": "2013-06-20",
+      "contractType": "Full-time",
+      "salary": 4100,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-3456783",
+      "email": "anna.svensson@company.com",
+      "homeAddress": "Pieni Roobertinkatu 8, Helsinki",
+      "education": "BA in Business, University of Stockholm, 2011",
+      "dateOfBirth": "1989-10-11",
+      "emergencyContact": "Johan Svensson, 040-7654326",
+      "otherInfo": ""
+    },
+    {
+      "id": "32",
+      "name": "Nguyễn Thị Hoa",
+      "title": "Legal Intern",
+      "department": "Legal",
+      "location": "Espoo",
+      "skills": [
+        "Legal Research",
+        "Drafting",
+        "Compliance"
+      ],
+      "currentProjects": [
+        "Legal Review",
+        "Contract Drafting"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Laura Väisänen",
+      "startDate": "2025-01-01",
+      "contractType": "Internship",
+      "salary": 2500,
+      "vacationDaysAcc": "15",
+      "phone": "+358 040-9012+358",
+      "email": "nguyen.thihoa@company.com",
+      "homeAddress": "Leppävaarantie 45, Espoo",
+      "education": "LLB, Hanoi Law University, 2022",
+      "dateOfBirth": "2000-04-10",
+      "emergencyContact": "Hà Nguyễn, 040-9876542",
+      "otherInfo": ""
+    },
+    {
+      "id": "33",
+      "name": "Elisa Miettinen",
+      "title": "Head of Public Relations",
+      "department": "Customer Relations",
+      "location": "Helsinki",
+      "skills": [
+        "Crisis Communication",
+        "Media Strategy",
+        "Stakeholder Engagement"
+      ],
+      "currentProjects": [
+        "Media Outreach Campaign",
+        "CSR Annual Report"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Chief Communications Officer",
+      "startDate": "2010-03-14",
+      "contractType": "Full-time",
+      "salary": 7200,
+      "vacationDaysAcc": "28",
+      "phone": "+358 045-9871234",
+      "email": "elisa.miettinen@company.com",
+      "homeAddress": "Runeberginkatu 22, Helsinki",
+      "education": "MA in Communications, University of Jyväskylä, 2013",
+      "dateOfBirth": "1985-09-02",
+      "emergencyContact": "Janne Miettinen, 045-7788990",
+      "otherInfo": "Member of Finnish PR Association"
+    },
+    {
+      "id": "34",
+      "name": "Hans Schmidt",
+      "title": "Finance Analyst",
+      "department": "Analytics",
+      "location": "Helsinki",
+      "skills": [
+        "Excel",
+        "Financial Modeling",
+        "Reporting"
+      ],
+      "currentProjects": [
+        "Budget Planning",
+        "Financial Reports"
+      ],
+      "status": "On parental leave",
+      "employeeOfMonth": false,
+      "manager": "Leena Virtanen",
+      "startDate": "2014-03-15",
+      "contractType": "Full-time",
+      "salary": 5600,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-7890127",
+      "email": "hans.schmidt@company.com",
+      "homeAddress": "Kaisaniemenkatu 16, Helsinki",
+      "education": "BSc in Finance, University of Berlin, 2012",
+      "dateOfBirth": "1987-12-05",
+      "emergencyContact": "Anna Schmidt, 040-7654324",
+      "otherInfo": ""
+    },
+    {
+      "id": "35",
+      "name": "Aisha Mohammed",
+      "title": "Customer Success Manager",
+      "department": "Sales",
+      "location": "Tampere",
+      "skills": [
+        "Account Management",
+        "Customer Relations",
+        "CRM"
+      ],
+      "currentProjects": [
+        "Customer Retention",
+        "Upselling Campaigns"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Jukka Mäkinen",
+      "startDate": "2018-10-01",
+      "contractType": "Part-time 80%",
+      "salary": 5300,
+      "vacationDaysAcc": "25",
+      "phone": "+358 040-1234560",
+      "email": "aisha.mohammed@company.com",
+      "homeAddress": "Keskustori 5, Tampere",
+      "education": "BA in Business, University of Cairo, 2016",
+      "dateOfBirth": "1992-05-14",
+      "emergencyContact": "Mohamed Mohammed, 040-9876543",
+      "otherInfo": ""
+    },
+    {
+      "id": "36",
+      "name": "Liam Virtanen",
+      "title": "UX Designer",
+      "department": "Design",
+      "location": "Tampere",
+      "skills": [
+        "Figma",
+        "User Research",
+        "Wireframing"
+      ],
+      "currentProjects": [
+        "Mobile App UX",
+        "User Testing Sprint"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "Sari Laine",
+      "startDate": "2021-04-12",
+      "contractType": "Part-time 80%",
+      "salary": 4500,
+      "vacationDaysAcc": "22",
+      "phone": "+358 050-3344556",
+      "email": "liam.virtanen@company.com",
+      "homeAddress": "Ratina 3B, Tampere",
+      "education": "MA in Human-Computer Interaction, Aalto University, 2019",
+      "dateOfBirth": "1993-08-17",
+      "emergencyContact": "Elina Virtanen, 050-6677889",
+      "otherInfo": ""
+    },
+    {
+      "id": "37",
+      "name": "Noora Niemi",
+      "title": "Product Manager",
+      "department": "Product",
+      "location": "Helsinki",
+      "skills": [
+        "Agile Methodologies",
+        "Product Strategy",
+        "Jira"
+      ],
+      "currentProjects": [
+        "Feature Rollout Q3",
+        "User Onboarding Flow"
+      ],
+      "status": "On parental leave",
+      "employeeOfMonth": false,
+      "manager": "Mikko Salonen",
+      "startDate": "2020-01-20",
+      "contractType": "Part-time 80%",
+      "salary": 5800,
+      "vacationDaysAcc": "27",
+      "phone": "+358 040-9876543",
+      "email": "noora.niemi@company.com",
+      "homeAddress": "Kalevankatu 7, Helsinki",
+      "education": "MBA, Hanken School of Economics, 2018",
+      "dateOfBirth": "1988-05-25",
+      "emergencyContact": "Jari Niemi, 040-1239874",
+      "otherInfo": ""
+    },
+    {
+      "id": "38",
+      "name": "Jonas Räsänen",
+      "title": "Chief Financial Officer",
+      "department": "Finance",
+      "location": "Helsinki",
+      "skills": [
+        "Corporate Finance",
+        "Strategic Planning",
+        "Mergers & Acquisitions"
+      ],
+      "currentProjects": [
+        "Annual Financial Report",
+        "M&A Due Diligence"
+      ],
+      "status": "Active",
+      "employeeOfMonth": false,
+      "manager": "CEO",
+      "startDate": "2015-02-01",
+      "contractType": "Full-time",
+      "salary": 9500,
+      "vacationDaysAcc": "30",
+      "phone": "+358 040-9988776",
+      "email": "jonas.rasanen@company.com",
+      "homeAddress": "Eteläranta 10, Helsinki",
+      "education": "MSc in Economics, University of Helsinki, 2010",
+      "dateOfBirth": "1982-12-12",
+      "emergencyContact": "Marja Räsänen, 040-3344552",
+      "otherInfo": "Board member since 2018"
+    },
+    {
+      "id": "39",
+      "name": "Tiia Salmi",
+      "title": "Technical Support Specialist",
+      "department": "Customer Relations",
+      "location": "Tampere",
+      "skills": [
+        "Troubleshooting",
+        "Product Knowledge",
+        "Zendesk"
+      ],
+      "currentProjects": [
+        "Tech Knowledge Base Update",
+        "Live Chat Optimization"
+      ],
+      "status": "On vacation",
+      "employeeOfMonth": false,
+      "manager": "Laura Koskinen",
+      "startDate": "2021-09-06",
+      "contractType": "Part-time 50%",
+      "salary": 3800,
+      "vacationDaysAcc": "23",
+      "phone": "+358 045-5566778",
+      "email": "tiia.salmi@company.com",
+      "homeAddress": "Ratinankatu 5, Tampere",
+      "education": "Vocational IT Specialist Certification, 2019",
+      "dateOfBirth": "1994-04-11",
+      "emergencyContact": "Marko Salmi, 045-8899012",
+      "otherInfo": "Certified in CompTIA A+"
+    },
+    {
+      "id": "787a",
+      "name": "Saara Rikama",
+      "title": "Intern, Full-Stack Web Development ",
+      "department": "IT",
+      "location": "Helsinki",
+      "skills": [
+        "Figma",
+        "CSS",
+        "React"
+      ],
+      "currentProjects": [
+        "HR-App",
+        "Laravel + React project"
+      ],
+      "manager": "Margit Tennosaar",
+      "startDate": "2024-08-08",
+      "contractType": "Internship",
+      "status": "On study leave",
+      "salary": 1200,
+      "vacationDaysAcc": "3",
+      "email": "saara.rikama@gmail.com",
+      "phone": "0501234567",
+      "homeAddress": "Linnanmäki, Helsinki",
+      "dateOfBirth": "1903-01-01",
+      "education": "xxx, Hki, 1907",
+      "emergencyContact": "Nenä-cat, p. 1234",
+      "otherInfo": "Happy summer times :)",
+      "employeeOfMonth": false
+    }
+  ]
+}
