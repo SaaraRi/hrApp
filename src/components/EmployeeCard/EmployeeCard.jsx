@@ -1,4 +1,4 @@
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
 import employeeBadgeImage from "../../assets/images/7427018.png";
 import awardBadgeIcon from "../../assets/images/icons8-badge-50.png";

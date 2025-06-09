@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate } from "react-router-dom";
 import useAxios from "../../hooks/useAxios";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
 import LoaderSpinner from "../../components/LoaderSpinner/LoaderSpinner";

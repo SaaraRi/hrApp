@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate, useLocation } from "react-router";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import useAxios from "../../hooks/useAxios";
 import { getEmploymentTime } from "../../utilities/employmentTimeUtils.js";
 import { getDepartmentClassName } from "../../utilities/styleUtils";
