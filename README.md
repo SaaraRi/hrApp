@@ -2,6 +2,9 @@
 
 This is an HR Application made for managing and displaying employee data. The project is built using **React** for the frontend and **JSON Server** for a mock backend API.
 
+link to frontend: https://hrmanager3.netlify.app/employees
+link to backend: https://hrapp-backend5.onrender.com/employees
+
 ---
 
 ## Technologies Used
@@ -20,7 +23,7 @@ This is an HR Application made for managing and displaying employee data. The pr
 
 # Clone the repository in your terminal
 
-git clone ---
+git clone https://github.com/SaaraRi/hrApp.git
 
 # Navigate to the project folder
 
